@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Groupon Ecosystem — Strategy Board</title>
+<style>
+  :root {
+    --bg: #0f0f1a;
+    --bg-card: #1a1a2e;
+    --bg-card-hover: #1f1f38;
+    --bg-expanded: #16162a;
+    --border: #2a2a44;
+    --text: #e4e4ed;
+    --text-muted: #8888a4;
+    --text-dim: #6666804;
+    --coral: #ff6b6b;
+    --coral-bg: rgba(255,107,107,0.08);
+    --coral-border: rgba(255,107,107,0.3);
+    --amber: #fbbf24;
+    --amber-bg: rgba(251,191,36,0.08);
+    --amber-border: rgba(251,191,36,0.3);
+    --teal: #2dd4bf;
+    --teal-bg: rgba(45,212,191,0.08);
+    --teal-border: rgba(45,212,191,0.3);
+    --green: #4ade80;
+    --green-bg: rgba(74,222,128,0.1);
+    --blue: #60a5fa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--coral), var(--amber));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .header .meta {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* Problem Band */
+  .problem-band {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1.25rem 2rem;
+    margin: 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .problem-band.p1 {
+    background: rgba(15,15,26,0.92);
+    border-left: 4px solid var(--coral);
+  }
+  .problem-band.p2 {
+    background: rgba(15,15,26,0.92);
+    border-left: 4px solid var(--amber);
+  }
+  .problem-band .problem-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.25rem;
+  }
+  .problem-band.p1 .problem-label { color: var(--coral); }
+  .problem-band.p2 .problem-label { color: var(--amber); }
+  .problem-band h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .problem-band .framing {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .problem-band .problem-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Solutions Row */
+  .solutions {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Solution Card */
+  .card {
+    flex: 1 1 280px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+  }
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: #3a3a55;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .card.expanded {
+    flex-basis: 100%;
+    cursor: default;
+    background: var(--bg-expanded);
+  }
+  .card.expanded:hover {
+    transform: none;
+  }
+
+  .card-header {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .card-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .card-header .summary {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .card-status {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .card-status.ready {
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid rgba(74,222,128,0.25);
+  }
+  .card-status.tbd {
+    background: rgba(96,165,250,0.1);
+    color: var(--blue);
+    border: 1px solid rgba(96,165,250,0.25);
+  }
+  .card-status.progress {
+    background: var(--amber-bg);
+    color: var(--amber);
+    border: 1px solid var(--amber-border);
+  }
+  .card-metric {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+  .card-metric .metric-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Expanded Content */
+  .card-detail {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .card.expanded .card-detail {
+    display: block;
+  }
+
+  .detail-section {
+    margin-top: 1.25rem;
+  }
+  .detail-section h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  .detail-section p, .detail-section li {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .detail-section ul {
+    padding-left: 1.25rem;
+  }
+  .detail-section li + li {
+    margin-top: 0.3rem;
+  }
+
+  /* ROI Table */
+  .roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+  .roi-table th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .roi-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(42,42,68,0.5);
+    color: var(--text);
+  }
+  .roi-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Flow Steps */
+  .flow {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  .flow-step {
+    background: rgba(45,212,191,0.08);
+    border: 1px solid rgba(45,212,191,0.2);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+    color: var(--teal);
+  }
+  .flow-arrow {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* Image placeholder */
+  .mockup-placeholder {
+    background: var(--bg-card);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Bridge Band */
+  .bridge {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  .bridge-inner {
+    background: var(--teal-bg);
+    border: 1px solid var(--teal-border);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  .bridge-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    margin-bottom: 0.25rem;
+  }
+  .bridge h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .bridge .bridge-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+  .bridge-diagram {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .bridge-node {
+    background: rgba(45,212,191,0.12);
+    border: 1px solid rgba(45,212,191,0.25);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .bridge-node .arrow { color: var(--text-muted); }
+
+  /* Expand indicator */
+  .expand-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 0 1.5rem 1rem;
+  }
+  .card.expanded .expand-hint { display: none; }
+
+  /* Close button */
+  .close-btn {
+    float: right;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  .close-btn:hover {
+    background: var(--bg-card);
+    color: var(--text);
+  }
+
+  /* Status links */
+  .detail-links a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .detail-links a:hover { text-decoration: underline; }
+  .detail-links li { margin-bottom: 0.25rem; }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .header h1 { font-size: 1.6rem; }
+    .solutions { padding: 1rem; }
+    .card { flex-basis: 100%; }
+    .problem-band { padding: 1rem 1.25rem; }
+    .bridge-inner { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Groupon Ecosystem</h1>
+  <p class="subtitle">How Coupons drives app retention and converts anonymous traffic into high-LTV users</p>
+  <p class="meta">Coupons Product &middot; April 2026 &middot; Martin Gregor</p>
+</div>
+
+<!-- PROBLEM 1 -->
+<div class="problem-band p1">
+  <div class="problem-inner">
+    <div class="problem-label">Problem 1</div>
+    <h2>Low Groupon App Retention</h2>
+    <div class="framing">Groupon gets opened for purchases, not browsing. How do we create daily-use habits that drive 3-4x weekly opens?</div>
+  </div>
+</div>
+
+<div class="solutions">
+
+  <!-- Safari Extension -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <h3>Safari Extension</h3>
+        <div class="summary">Embed in Groupon iOS app — intercept mobile shopping at supported merchants with coupon codes and cashback</div>
+      </div>
+      <span class="card-status tbd">ROI TBD</span>
+    </div>
+    <div class="card-metric">
+      <span class="metric-label">Safari US Mobile Share</span>
+      ~50%
+    </div>
+    <div class="expand-hint">Click to expand &darr;</div>
+    <div class="card-detail">
+      <div class="detail-section">
+        <h4>How It Works</h4>
+        <div class="flow">
+          <div class="flow-step">User installs Groupon app</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Opts into Safari extension</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Groupon pops up at checkout</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Applies code / earns cashback</div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>Why This Matters</h4>
+        <ul>
+          <li>Mobile traffic dominates — desktop extension (Genie) misses the majority of users</li>
+          <li>Cashback incentive gives Groupon control over initial offer quality vs relying on merchant coupon inventory</li>
+          <li>Once app installed, re-education and activation can happen over time</li>
+          <li>Creates a persistent presence in users' shopping flow outside the Groupon app</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4>Competitive Landscape</h4>
+        <table class="roi-table">
+          <tr><th>Extension</th><th>Model</th><th>Installs</th></tr>
+          <tr><td>Honey (PayPal)</td><td>Codes + cashback</td><td>17M+ users</td></tr>
+          <tr><td>Rakuten</td><td>Cashback-first</td><td>17M+ members</td></tr>
+          <tr><td>Capital One Shopping</td><td>Codes + price tracking</td><td>10M+ users</td></tr>
+          <tr><td>Coupert</td><td>Codes + cashback</td><td>Growing (SEA focus)</td></tr>
+        </table>
+      </div>
+      <div class="detail-section">
+        <h4>Status & Next Steps</h4>
+        <ul>
+          <li><strong>Pending:</strong> Create US App Store account and test Safari extension flow firsthand</li>
+          <li><strong>Pending:</strong> Technical feasibility validation (iOS 15+ required)</li>
+          <li><strong>Pending:</strong> ROI calculation — requires install rate estimates + affiliate revenue model</li>
+          <li><strong>Done:</strong> Competitor scan completed</li>
+        </ul>
+      </div>
+      <button class="close-btn" onclick="event.stopPropagation(); this.closest('.card').classList.remove('expanded');">Close</button>
+    </div>
+  </div>
+
+  <!-- Cashback (Retention) -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <h3>Cashback</h3>
+        <div class="summary">Earn Groupon Bucks on purchases via affiliate tracking — creates a visible, growing balance that drives habitual returns</div>
+      </div>
+      <span class="card-status progress">In Progress</span>
+    </div>
+    <div class="card-metric">
+      <span class="metric-label">POC Effort</span>
+      32 MD
+    </div>
+    <div class="expand-hint">Click to expand &darr;</div>
+    <div class="card-detail">
+      <div class="detail-section">
+        <h4>The Habit Loop</h4>
+        <div class="flow">
+          <div class="flow-step">User shops at merchant</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Earns Groupon Bucks</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Balance grows visibly</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Returns to check / spend</div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>Why This Matters</h4>
+        <ul>
+          <li>High-frequency apps (Fetch, Temu, Shopkick) decouple "reason to open" from "intent to buy"</li>
+          <li>Groupon only gets opened for purchases — cashback creates a non-transactional return trigger</li>
+          <li>Visible balance creates sunk-cost motivation and earning streaks</li>
+          <li>Target: 3-4 opens per week without purchase intent</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4>Current Approach</h4>
+        <ul>
+          <li><strong>Phase 1 (now):</strong> Simple promo test — "$5 off when you spend X" on Coupons pages to validate hypothesis</li>
+          <li><strong>Phase 2 (if validated):</strong> Full cashback POC with affiliate tracking (32 MD)</li>
+          <li><strong>Metrics:</strong> Registrations driven + conversion to Groupon shoppers</li>
+          <li><strong>Direction from Dusan:</strong> Test simple promo first before greenlighting full POC</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4>Status & Next Steps</h4>
+        <ul>
+          <li><strong>Pending:</strong> Promo details confirmation (offer, creative)</li>
+          <li><strong>Pending:</strong> Bloomreach delivery mechanism integration</li>
+          <li><strong>Pending:</strong> Deploy promo banners — target Apr 24</li>
+          <li><strong>Pending:</strong> Measure funnel (BI — Marc)</li>
+        </ul>
+      </div>
+      <button class="close-btn" onclick="event.stopPropagation(); this.closest('.card').classList.remove('expanded');">Close</button>
+    </div>
+  </div>
+
+  <!-- Personalisation -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <h3>Personalisation via Bloomreach</h3>
+        <div class="summary">Coupons browsing data (brands, categories) extends user profiles beyond Groupon deal history</div>
+      </div>
+      <span class="card-status tbd">ROI TBD</span>
+    </div>
+    <div class="card-metric">
+      <span class="metric-label">Current State</span>
+      b-cookie only
+    </div>
+    <div class="expand-hint">Click to expand &darr;</div>
+    <div class="card-detail">
+      <div class="detail-section">
+        <h4>The Opportunity</h4>
+        <ul>
+          <li>Coupons users browse specific brands and categories — this is rich intent signal</li>
+          <li>Currently limited to anonymous b-cookie — no profile linking</li>
+          <li>Needs logged-in user account to unlock full personalisation value</li>
+          <li>Bloomreach is the connective layer — but depends on user account linkage</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4>User Flow</h4>
+        <div class="flow">
+          <div class="flow-step">User browses coupons</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Registers (via rewards/cashback)</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Browsing linked to profile</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Personalised offers in app</div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>Status & Next Steps</h4>
+        <ul>
+          <li><strong>Blocker:</strong> Waiting on Matthias for Bloomreach credentials — gone quiet</li>
+          <li><strong>Dependency:</strong> Registration push (rewards gating or cashback) must come first to get logged-in users</li>
+          <li><strong>Rebecca:</strong> Chasing Matthias</li>
+        </ul>
+      </div>
+      <button class="close-btn" onclick="event.stopPropagation(); this.closest('.card').classList.remove('expanded');">Close</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- GROUPON BUCKS BRIDGE -->
+<div class="bridge">
+  <div class="bridge-inner">
+    <div class="bridge-label">Connective Tissue</div>
+    <h2>Groupon Bucks</h2>
+    <p class="bridge-desc">The unifying currency across every solution. Users earn Bucks through cashback, rewards, and extension usage. A visible, growing balance creates the habit loop that drives retention and justifies registration.</p>
+    <div class="bridge-diagram">
+      <div class="bridge-node">Safari Extension <span class="arrow">&rarr;</span> Earn</div>
+      <div class="bridge-node">Cashback <span class="arrow">&rarr;</span> Earn</div>
+      <div class="bridge-node">Rewards <span class="arrow">&rarr;</span> Earn</div>
+      <div class="bridge-node">Genie <span class="arrow">&rarr;</span> Earn</div>
+      <div class="bridge-node" style="background:rgba(45,212,191,0.2); font-weight:700;">Balance grows &rarr; User returns</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM 2 -->
+<div class="problem-band p2">
+  <div class="problem-inner">
+    <div class="problem-label">Problem 2</div>
+    <h2>Convert Anonymous Traffic &rarr; Higher LTV</h2>
+    <div class="framing">3.5M monthly UDVs on Coupons, mostly anonymous b-cookie users. How do we capture and monetise them?</div>
+  </div>
+</div>
+
+<div class="solutions">
+
+  <!-- Genie -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <h3>Genie Browser Extension</h3>
+        <div class="summary">Desktop extension — auto-applies coupon codes at checkout, earns affiliate revenue per conversion</div>
+      </div>
+      <span class="card-status ready">ROI Ready</span>
+    </div>
+    <div class="card-metric">
+      <span class="metric-label">LTV per User / Year</span>
+      $6 — $9.81
+    </div>
+    <div class="expand-hint">Click to expand &darr;</div>
+    <div class="card-detail">
+      <div class="detail-section">
+        <h4>LTV Model (3 Scenarios)</h4>
+        <table class="roi-table">
+          <tr><th>Scenario</th><th>1-Year LTV</th><th>Assumptions</th></tr>
+          <tr><td>Conservative</td><td><strong>$6.00</strong></td><td>Current conversion rates, no optimisation</td></tr>
+          <tr><td>Base</td><td><strong>$7.74</strong></td><td>Moderate improvements to activation + retention</td></tr>
+          <tr><td>Optimistic</td><td><strong>$9.81</strong></td><td>Strong activation, cashback integration, upsell to app</td></tr>
+        </table>
+      </div>
+      <div class="detail-section">
+        <h4>User Flow</h4>
+        <div class="flow">
+          <div class="flow-step">User visits coupons page</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Installs Genie extension</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Shops at any merchant</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Genie auto-applies codes</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Affiliate revenue earned</div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>Key Insight</h4>
+        <p>Genie monetises desktop traffic well, but mobile traffic dominates. The Safari Extension (Problem 1) is the mobile counterpart. Together they cover the full funnel.</p>
+      </div>
+      <div class="detail-section">
+        <h4>Status & Next Steps</h4>
+        <ul>
+          <li><strong>Done:</strong> LTV model completed and peer-reviewed</li>
+          <li><strong>Done:</strong> Published to GitHub Pages</li>
+          <li><strong>In progress:</strong> LP A/B test running — needs more time before evaluation</li>
+          <li><strong>Blocker:</strong> Akshay (FE eng) on leave until Apr 7 — no Genie FE capacity</li>
+        </ul>
+      </div>
+      <button class="close-btn" onclick="event.stopPropagation(); this.closest('.card').classList.remove('expanded');">Close</button>
+    </div>
+  </div>
+
+  <!-- Rewards Gating -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <h3>Rewards Gating</h3>
+        <div class="summary">Gate premium coupons content behind registration or app install — converts anonymous visitors into known users</div>
+      </div>
+      <span class="card-status ready">ROI Ready</span>
+    </div>
+    <div class="card-metric">
+      <span class="metric-label">Est. App Installs / Week</span>
+      ~800 — 1,000
+    </div>
+    <div class="expand-hint">Click to expand &darr;</div>
+    <div class="card-detail">
+      <div class="detail-section">
+        <h4>Rebecca's Installs Analysis</h4>
+        <table class="roi-table">
+          <tr><th>Scenario</th><th>Impressions/wk</th><th>CTR</th><th>Install Rate</th><th>Installs/wk</th></tr>
+          <tr><td>First-page banner</td><td>100K</td><td>~5%</td><td>~3%</td><td>~150</td></tr>
+          <tr><td>Unmonetised pages</td><td>75K</td><td>~4%</td><td>~3%</td><td>~90</td></tr>
+          <tr><td>Rewards-gated pages</td><td>50K</td><td>~10%</td><td>~15%</td><td>~800–1,000</td></tr>
+        </table>
+        <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Conservative estimates throughout. Rewards-gated messaging expected to significantly outperform.</p>
+      </div>
+      <div class="detail-section">
+        <h4>Conversion Paths</h4>
+        <div class="flow">
+          <div class="flow-step">Anonymous user visits</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Sees gated reward</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Registers / installs app</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Earns Groupon Bucks</div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>Why This Matters</h4>
+        <ul>
+          <li>Easiest to execute — Genie rewards gating simpler than app-based gating as a first step</li>
+          <li>Cashback activation (track live state) is a strong push-to-app moment</li>
+          <li>Registration unlocks Bloomreach personalisation (Problem 1)</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4>Status & Next Steps</h4>
+        <ul>
+          <li><strong>Done:</strong> Rebecca's installs analysis and scenario modelling</li>
+          <li><strong>In progress:</strong> Aligning on output format with Rebecca (today)</li>
+          <li><strong>Pending:</strong> Decide: rewards gating via Genie first, or app-based gating?</li>
+        </ul>
+      </div>
+      <button class="close-btn" onclick="event.stopPropagation(); this.closest('.card').classList.remove('expanded');">Close</button>
+    </div>
+  </div>
+
+  <!-- Cashback (Conversion) -->
+  <div class="card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div>
+        <h3>Cashback as Registration Hook</h3>
+        <div class="summary">Earning cashback requires an account — natural registration driver that also funnels users to app install</div>
+      </div>
+      <span class="card-status progress">In Progress</span>
+    </div>
+    <div class="card-metric">
+      <span class="metric-label">Test</span>
+      $5 off promo
+    </div>
+    <div class="expand-hint">Click to expand &darr;</div>
+    <div class="card-detail">
+      <div class="detail-section">
+        <h4>Conversion Flow</h4>
+        <div class="flow">
+          <div class="flow-step">Anonymous user sees cashback offer</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">"Sign up to earn"</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Registers</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">"Track on app"</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-step">Installs app</div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>Why This Matters</h4>
+        <ul>
+          <li>Cashback is a natural account-creation trigger — unlike rewards gating, it feels like getting something, not losing access</li>
+          <li>App install follows naturally: "track your cashback balance" is a compelling reason to download</li>
+          <li>Dual benefit: solves Problem 2 (conversion) and feeds Problem 1 (retention via Groupon Bucks balance)</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <h4>Status & Next Steps</h4>
+        <ul>
+          <li><strong>In progress:</strong> Simple promo test being set up ("$5 off when you spend X")</li>
+          <li><strong>Pending:</strong> Promo banner deployment — target Apr 24</li>
+          <li><strong>Pending:</strong> Funnel measurement (BI — Marc)</li>
+          <li><strong>Decision gate:</strong> If promo drives registrations AND converts to shoppers &rarr; greenlight full 32 MD POC</li>
+        </ul>
+      </div>
+      <button class="close-btn" onclick="event.stopPropagation(); this.closest('.card').classList.remove('expanded');">Close</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div style="max-width:960px; margin:2rem auto; padding:0 1.5rem 3rem; text-align:center;">
+  <p style="font-size:0.8rem; color:var(--text-muted);">
+    Groupon Coupons Product &middot; Last updated: April 2026 &middot;
+    <a href="https://github.com/mgregor-png/groupon-ecosystem" style="color:var(--blue); text-decoration:none;">Source</a>
+  </p>
+</div>
+
+<script>
+function toggleCard(card) {
+  if (card.classList.contains('expanded')) return;
+  // Close other expanded cards in the same solutions container
+  const container = card.closest('.solutions');
+  container.querySelectorAll('.card.expanded').forEach(c => c.classList.remove('expanded'));
+  card.classList.add('expanded');
+  // Smooth scroll to card
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+</script>
+
+</body>
+</html>
