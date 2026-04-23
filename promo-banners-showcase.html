@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coupons → Groupon Local | Promo Banner Concepts (v3 — GPNLOVE)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #f5f5f5; color: #1a1a1a; }
+
+  /* ── Presentation chrome ── */
+  .pres-header { background: #1a1a1a; color: white; padding: 60px 40px 50px; }
+  .pres-header h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+  .pres-header .subtitle { font-size: 18px; color: #aaa; max-width: 720px; line-height: 1.5; }
+  .pres-header .groupon-green { color: #53a318; }
+  .pres-header .meta { margin-top: 24px; font-size: 13px; color: #666; }
+  .pres-header .promo-summary {
+    margin-top: 28px; background: rgba(83,163,24,0.12); border: 1px solid rgba(83,163,24,0.3);
+    border-radius: 10px; padding: 18px 22px; max-width: 600px;
+  }
+  .pres-header .promo-summary h3 { color: #53a318; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .pres-header .promo-summary ul { list-style: none; font-size: 13px; color: #ccc; }
+  .pres-header .promo-summary ul li { padding: 2px 0; }
+  .pres-header .promo-summary ul li strong { color: white; }
+
+  .section { max-width: 1200px; margin: 0 auto; padding: 50px 40px; }
+  .section-full { padding: 50px 40px; background: #eee; }
+  .section-full-inner { max-width: 1200px; margin: 0 auto; }
+  .section-dark { padding: 50px 40px; background: #1a1a1a; color: white; }
+  .section-dark-inner { max-width: 800px; margin: 0 auto; }
+  .section-title { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+  .section-desc { font-size: 15px; color: #666; margin-bottom: 36px; max-width: 720px; line-height: 1.5; }
+
+  .concept-label {
+    display: inline-block; background: #53a318; color: white;
+    font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 3px;
+    margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .concept-label.new {
+    background: #e53935;
+  }
+  .concept-note { font-size: 13px; color: #888; margin-top: 14px; font-style: italic; line-height: 1.5; }
+  .divider { border: 0; border-top: 1px solid #e5e5e5; margin: 28px 0 36px; }
+  .banners-row { display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start; }
+
+  .callout-box {
+    background: #fffde7; border: 1px solid #fff9c4; border-radius: 10px;
+    padding: 18px 22px; max-width: 800px; margin-bottom: 32px;
+  }
+  .callout-box strong { color: #f57f17; }
+  .callout-box p { font-size: 14px; color: #555; line-height: 1.5; }
+
+  /* ═══════════════════════════════════════════
+     COMPONENT 1: CONQUEST BANNER (Popup)
+     ═══════════════════════════════════════════ */
+  .conquest-popup {
+    width: 420px; background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2); border: 1px solid #e0e0e0;
+    margin-bottom: 32px;
+  }
+  .conquest-popup .conquest-header {
+    background: #e53935; color: white; text-align: center;
+    padding: 12px 16px; font-size: 16px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.5px; position: relative;
+  }
+  .conquest-popup .conquest-header .close-x {
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    font-size: 18px; cursor: pointer; opacity: 0.8;
+  }
+  .conquest-popup .conquest-image {
+    width: 100%; height: 200px; background-size: cover; background-position: center;
+    position: relative; display: flex; align-items: center; justify-content: center;
+  }
+  .conquest-popup .conquest-image .promo-overlay {
+    background: rgba(0,0,0,0.55); border-radius: 14px; padding: 20px 28px;
+    text-align: center; color: white;
+  }
+  .conquest-popup .conquest-image .promo-overlay .pct {
+    font-size: 42px; font-weight: 900; line-height: 1;
+  }
+  .conquest-popup .conquest-image .promo-overlay .pct-label {
+    font-size: 14px; font-weight: 600; margin-top: 2px; opacity: 0.9;
+  }
+  .conquest-popup .conquest-image .promo-overlay .promo-code-badge {
+    margin-top: 8px; display: inline-block; background: #53a318; color: white;
+    font-size: 14px; font-weight: 800; padding: 5px 14px; border-radius: 6px;
+    letter-spacing: 1.5px;
+  }
+  .conquest-popup .conquest-body { padding: 18px 20px 20px; }
+  .conquest-popup .conquest-body h3 {
+    font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 8px;
+  }
+  .conquest-popup .conquest-body h3 .highlight { color: #53a318; font-weight: 800; }
+  .conquest-popup .conquest-body .terms {
+    font-size: 12px; color: #888; line-height: 1.4; margin-bottom: 14px;
+  }
+  .conquest-popup .conquest-body .example-deals {
+    display: flex; gap: 8px; margin-bottom: 16px;
+  }
+  .conquest-popup .conquest-body .example-deal {
+    flex: 1; background: #f8f8f8; border-radius: 8px; padding: 10px;
+    text-align: center; border: 1px solid #eee;
+  }
+  .conquest-popup .conquest-body .example-deal .ed-cat {
+    font-size: 10px; font-weight: 600; color: #888; text-transform: uppercase;
+    letter-spacing: 0.3px; margin-bottom: 2px;
+  }
+  .conquest-popup .conquest-body .example-deal .ed-text {
+    font-size: 12px; font-weight: 700; color: #333; line-height: 1.2;
+  }
+  .conquest-popup .conquest-body .example-deal .ed-save {
+    font-size: 11px; color: #53a318; font-weight: 600; margin-top: 2px;
+  }
+  .conquest-popup .conquest-cta {
+    display: block; width: 100%; background: #53a318; color: white;
+    font-size: 15px; font-weight: 700; padding: 14px; border: none;
+    border-radius: 8px; cursor: pointer; text-align: center; margin-bottom: 10px;
+  }
+  .conquest-popup .conquest-cta:hover { background: #458f14; }
+  .conquest-popup .conquest-footer {
+    text-align: center; font-size: 12px; color: #aaa;
+  }
+
+  /* ═══════════════════════════════════════════
+     COMPONENT 2: OFFER TILE — PROMO STYLE
+     ═══════════════════════════════════════════ */
+  .offer-tile-promo {
+    width: 420px; border-radius: 12px; overflow: hidden;
+    background: linear-gradient(135deg, #0066cc 0%, #0044aa 100%);
+    border: 2px solid #0055bb;
+    padding: 20px 22px; display: flex; align-items: center; gap: 14px;
+    margin-bottom: 32px; color: white;
+  }
+  .offer-tile-promo .promo-icon {
+    width: 52px; height: 52px; border-radius: 12px; background: #fff;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .offer-tile-promo .promo-icon .g-logo { font-size: 24px; font-weight: 900; color: #53a318; }
+  .offer-tile-promo .promo-text { flex: 1; }
+  .offer-tile-promo .promo-text h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+  .offer-tile-promo .promo-text p { font-size: 12px; opacity: 0.85; line-height: 1.3; }
+  .offer-tile-promo .promo-text .promo-tag {
+    display: inline-block; background: rgba(255,255,255,0.2);
+    font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; margin-bottom: 6px;
+  }
+  .offer-tile-promo .promo-cta {
+    display: block; background: white; color: #0055bb;
+    font-size: 13px; font-weight: 700; padding: 10px 18px;
+    border-radius: 8px; text-align: center; cursor: pointer;
+    text-decoration: none; white-space: nowrap; flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     COMPONENT 3: NORMAL OFFER TILE
+     ═══════════════════════════════════════════ */
+  .offer-tile-normal {
+    width: 420px; background: white; border-radius: 12px; overflow: hidden;
+    border: 1px solid #e0e0e0; padding: 20px; margin-bottom: 32px;
+  }
+  .offer-tile-normal .premium-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 12px; font-weight: 600; color: #53a318; margin-bottom: 12px;
+  }
+  .offer-tile-normal .offer-row {
+    display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px;
+  }
+  .offer-tile-normal .merchant-logo {
+    width: 48px; height: 48px; border-radius: 8px; background: #f5f5f5;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 20px; color: #53a318; flex-shrink: 0;
+    border: 1px solid #eee;
+  }
+  .offer-tile-normal .offer-info h4 {
+    font-size: 15px; font-weight: 700; line-height: 1.3; margin-bottom: 6px;
+  }
+  .offer-tile-normal .offer-info h4 .highlight { color: #53a318; font-weight: 800; }
+  .offer-tile-normal .offer-terms {
+    font-size: 12px; color: #888; line-height: 1.4; margin-bottom: 12px;
+  }
+  .offer-tile-normal .code-display {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    background: #f8faf5; border: 1px dashed #53a318; border-radius: 8px; padding: 10px 14px;
+  }
+  .offer-tile-normal .code-display .code-label { font-size: 11px; color: #888; }
+  .offer-tile-normal .code-display .code-value {
+    font-size: 18px; font-weight: 800; color: #53a318; letter-spacing: 2px;
+  }
+  .offer-tile-normal .offer-cta {
+    display: block; width: 100%; background: #53a318; color: white;
+    font-size: 15px; font-weight: 700; padding: 14px; border: none;
+    border-radius: 8px; cursor: pointer; text-align: center;
+  }
+  .offer-tile-normal .offer-cta:hover { background: #458f14; }
+  .offer-tile-normal .offer-footer {
+    text-align: center; margin-top: 10px; font-size: 11px; color: #aaa;
+  }
+
+  /* ═══════════════════════════════════════════
+     COMPONENT 4: LEADERBOARD BANNER
+     ═══════════════════════════════════════════ */
+  .leaderboard-banner {
+    max-width: 800px; background: #eef6e6; border-radius: 12px;
+    padding: 22px 28px; display: flex; align-items: center;
+    justify-content: space-between; gap: 20px; margin-bottom: 32px;
+  }
+  .leaderboard-banner .lb-left { flex: 1; }
+  .leaderboard-banner .lb-left h3 { font-size: 20px; font-weight: 800; line-height: 1.25; margin-bottom: 4px; }
+  .leaderboard-banner .lb-left p { font-size: 13px; color: #666; line-height: 1.3; }
+  .leaderboard-banner .lb-logo {
+    width: 52px; height: 52px; border-radius: 10px; background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 22px; color: #53a318; flex-shrink: 0;
+    border: 1px solid #ddd;
+  }
+  .leaderboard-banner .lb-cta {
+    background: white; color: #333; font-size: 14px; font-weight: 600;
+    padding: 12px 24px; border-radius: 28px; border: 1px solid #ccc;
+    cursor: pointer; white-space: nowrap; flex-shrink: 0;
+  }
+  .leaderboard-banner .lb-cta:hover { border-color: #53a318; color: #53a318; }
+
+  /* ═══════════════════════════════════════════
+     COMPONENT 5: DEALS CAROUSEL
+     ═══════════════════════════════════════════ */
+  .deals-carousel { max-width: 800px; margin-bottom: 32px; }
+  .deals-carousel .carousel-header {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;
+  }
+  .deals-carousel .carousel-header h3 { font-size: 22px; font-weight: 800; }
+  .deals-carousel .carousel-header .carousel-sub { font-size: 13px; color: #53a318; font-weight: 600; }
+  .deals-carousel .carousel-header .arrows { display: flex; gap: 8px; }
+  .deals-carousel .carousel-header .arrow-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: 1px solid #ddd;
+    background: white; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 16px; color: #333;
+  }
+  .deals-carousel .carousel-track {
+    display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; padding-bottom: 4px;
+  }
+  .deals-carousel .carousel-track::-webkit-scrollbar { display: none; }
+  .deals-carousel .deal-card {
+    min-width: 220px; max-width: 220px; scroll-snap-align: start;
+    background: white; border-radius: 12px; overflow: hidden;
+    border: 1px solid #eee; cursor: pointer; transition: box-shadow 0.15s;
+  }
+  .deals-carousel .deal-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .deals-carousel .deal-card .card-img {
+    height: 140px; background-size: cover; background-position: center; position: relative;
+  }
+  .deals-carousel .deal-card .card-img .card-badge-tl {
+    position: absolute; top: 8px; left: 8px;
+    background: #53a318; color: white; font-size: 11px; font-weight: 700;
+    padding: 3px 8px; border-radius: 5px;
+  }
+  .deals-carousel .deal-card .card-img .card-merchant-badge {
+    position: absolute; top: 10px; left: 10px;
+    width: 40px; height: 40px; border-radius: 8px; background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 9px; color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); overflow: hidden;
+  }
+  .deals-carousel .deal-card .card-body { padding: 12px 14px 16px; }
+  .deals-carousel .deal-card .card-body .card-title {
+    font-size: 13px; font-weight: 700; line-height: 1.3; margin-bottom: 3px;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .deals-carousel .deal-card .card-body .card-subtitle {
+    font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .deals-carousel .deal-card .card-body .card-rating {
+    display: flex; align-items: center; gap: 4px; margin-bottom: 6px;
+  }
+  .deals-carousel .deal-card .card-body .card-rating .stars { color: #f5a623; font-size: 12px; letter-spacing: -1px; }
+  .deals-carousel .deal-card .card-body .card-rating .rating-num { font-size: 11px; font-weight: 600; color: #333; }
+  .deals-carousel .deal-card .card-body .card-rating .rating-count { font-size: 10px; color: #999; }
+  .deals-carousel .deal-card .card-body .card-prices { display: flex; align-items: baseline; gap: 5px; margin-bottom: 6px; }
+  .deals-carousel .deal-card .card-body .card-prices .original { font-size: 12px; color: #999; text-decoration: line-through; }
+  .deals-carousel .deal-card .card-body .card-prices .current { font-size: 16px; font-weight: 800; color: #1a1a1a; }
+  .deals-carousel .deal-card .card-body .card-prices .discount { font-size: 11px; font-weight: 700; color: #e53935; }
+  .deals-carousel .deal-card .card-body .card-extra-save {
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 5px;
+    padding: 4px 8px; font-size: 10px; font-weight: 700; color: #f57f17;
+    display: inline-block;
+  }
+
+  /* ═══════════════════════════════════════════
+     COMPONENT 6: SEASONAL STRIP
+     ═══════════════════════════════════════════ */
+  .seasonal-strip {
+    max-width: 800px; background: #1a2744; padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 32px; color: white;
+  }
+  .seasonal-strip .strip-text { font-size: 14px; font-weight: 500; line-height: 1.3; }
+  .seasonal-strip .strip-text .highlight { color: #53dbc1; font-weight: 700; }
+  .seasonal-strip .strip-right { display: flex; align-items: center; gap: 12px; }
+  .seasonal-strip .strip-cta {
+    background: white; color: #1a2744; font-size: 13px; font-weight: 700;
+    padding: 8px 18px; border-radius: 6px; cursor: pointer; white-space: nowrap;
+  }
+  .seasonal-strip .strip-close { color: rgba(255,255,255,0.5); font-size: 18px; cursor: pointer; margin-left: 4px; }
+
+  /* ═══════════════════════════════════════════
+     NEW COMPONENT 7: POST-REDEMPTION INTERSTITIAL
+     ═══════════════════════════════════════════ */
+  .post-redeem-wrap {
+    width: 440px; margin-bottom: 32px;
+  }
+  .post-redeem-code-bar {
+    background: #f0f0f0; border-radius: 12px 12px 0 0; padding: 14px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    border: 1px solid #ddd; border-bottom: none;
+  }
+  .post-redeem-code-bar .code-copied {
+    font-size: 13px; color: #53a318; font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .post-redeem-code-bar .code-copied .check { font-size: 16px; }
+  .post-redeem-code-bar .actual-code {
+    font-size: 16px; font-weight: 800; color: #333; letter-spacing: 1px;
+    background: white; padding: 4px 12px; border-radius: 6px; border: 1px solid #ddd;
+  }
+  .post-redeem-card {
+    background: white; border-radius: 0 0 12px 12px; border: 1px solid #ddd;
+    border-top: 2px solid #53a318; padding: 24px 22px; text-align: center;
+  }
+  .post-redeem-card .pr-groupon-logo {
+    font-size: 22px; font-weight: 900; color: #53a318; margin-bottom: 4px; letter-spacing: -0.5px;
+  }
+  .post-redeem-card .pr-headline {
+    font-size: 18px; font-weight: 800; color: #1a1a1a; margin-bottom: 4px; line-height: 1.2;
+  }
+  .post-redeem-card .pr-sub {
+    font-size: 13px; color: #888; margin-bottom: 16px;
+  }
+  .post-redeem-card .pr-promo-box {
+    background: #f8faf5; border: 1px dashed #53a318; border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 16px;
+  }
+  .post-redeem-card .pr-promo-box .pr-code {
+    font-size: 28px; font-weight: 900; color: #53a318; letter-spacing: 3px;
+  }
+  .post-redeem-card .pr-promo-box .pr-offer {
+    font-size: 14px; font-weight: 600; color: #333; margin-top: 4px;
+  }
+  .post-redeem-card .pr-promo-box .pr-max {
+    font-size: 11px; color: #999; margin-top: 2px;
+  }
+  .post-redeem-card .pr-examples {
+    display: flex; gap: 8px; margin-bottom: 16px;
+  }
+  .post-redeem-card .pr-example {
+    flex: 1; background: #fafafa; border-radius: 8px; padding: 10px 8px;
+    text-align: center; border: 1px solid #eee;
+  }
+  .post-redeem-card .pr-example .pre-emoji { font-size: 20px; margin-bottom: 4px; }
+  .post-redeem-card .pr-example .pre-label { font-size: 10px; color: #888; font-weight: 600; }
+  .post-redeem-card .pr-example .pre-price { font-size: 13px; font-weight: 800; color: #333; }
+  .post-redeem-card .pr-example .pre-save { font-size: 10px; color: #53a318; font-weight: 600; }
+  .post-redeem-card .pr-cta {
+    display: block; width: 100%; background: #53a318; color: white;
+    font-size: 15px; font-weight: 700; padding: 14px; border: none;
+    border-radius: 8px; cursor: pointer; margin-bottom: 8px;
+  }
+  .post-redeem-card .pr-skip {
+    font-size: 12px; color: #bbb; cursor: pointer;
+  }
+
+  /* ═══════════════════════════════════════════
+     NEW COMPONENT 8: STICKY BOTTOM BAR
+     ═══════════════════════════════════════════ */
+  .sticky-bar-demo {
+    max-width: 800px; margin-bottom: 32px;
+    position: relative;
+  }
+  .sticky-bar {
+    background: white; border-radius: 14px; box-shadow: 0 -4px 30px rgba(0,0,0,0.15);
+    padding: 16px 24px; display: flex; align-items: center;
+    justify-content: space-between; gap: 16px;
+    border: 1px solid #e8e8e8;
+  }
+  .sticky-bar .sb-left { display: flex; align-items: center; gap: 14px; flex: 1; }
+  .sticky-bar .sb-logo {
+    width: 44px; height: 44px; border-radius: 10px; background: #53a318;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 20px; color: white; flex-shrink: 0;
+  }
+  .sticky-bar .sb-text h4 { font-size: 15px; font-weight: 700; line-height: 1.2; }
+  .sticky-bar .sb-text h4 .sb-green { color: #53a318; }
+  .sticky-bar .sb-text p { font-size: 12px; color: #888; margin-top: 1px; }
+  .sticky-bar .sb-code {
+    background: #f8faf5; border: 1px dashed #53a318; border-radius: 8px;
+    padding: 8px 14px; text-align: center; flex-shrink: 0;
+  }
+  .sticky-bar .sb-code .sb-code-value {
+    font-size: 16px; font-weight: 800; color: #53a318; letter-spacing: 1.5px;
+  }
+  .sticky-bar .sb-code .sb-code-label { font-size: 9px; color: #999; font-weight: 600; text-transform: uppercase; }
+  .sticky-bar .sb-cta {
+    background: #53a318; color: white; font-size: 14px; font-weight: 700;
+    padding: 12px 22px; border-radius: 8px; cursor: pointer; white-space: nowrap;
+    flex-shrink: 0; border: none;
+  }
+  .sticky-bar .sb-cta:hover { background: #458f14; }
+  .sticky-bar .sb-dismiss {
+    position: absolute; top: -8px; right: -8px; width: 24px; height: 24px;
+    border-radius: 50%; background: #eee; border: 1px solid #ddd;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #999; cursor: pointer;
+  }
+
+  /* ── Image placeholders ── */
+  .img-local-spa { background: linear-gradient(135deg, #e8d5c4 0%, #c9a98c 50%, #a67c52 100%); }
+  .img-local-food { background: linear-gradient(135deg, #ffe0b2 0%, #ffb74d 50%, #f57c00 100%); }
+  .img-local-ttd { background: linear-gradient(135deg, #b3e5fc 0%, #4fc3f7 50%, #0288d1 100%); }
+  .img-local-auto { background: linear-gradient(135deg, #cfd8dc 0%, #90a4ae 50%, #546e7a 100%); }
+  .img-local-fitness { background: linear-gradient(135deg, #c8e6c9 0%, #81c784 50%, #43a047 100%); }
+  .img-local-massage { background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 50%, #9c27b0 100%); }
+  .img-local-facial { background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 50%, #e91e63 100%); }
+  .img-local-escape { background: linear-gradient(135deg, #263238 0%, #37474f 50%, #455a64 100%); }
+  .img-local-golf { background: linear-gradient(135deg, #e8f5e9 0%, #66bb6a 50%, #2e7d32 100%); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HEADER                                     -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="pres-header">
+  <h1>Coupons <span class="groupon-green">&rarr;</span> Groupon Local</h1>
+  <div class="subtitle">
+    Static promo banners for Coupons pages using <strong>existing Figma components</strong>.
+    Code: <strong>GPNLOVE</strong>. 25% off Local, max $50. 8 banner concepts including 2 new formats.
+  </div>
+  <div class="promo-summary">
+    <h3>Promo Details</h3>
+    <ul>
+      <li><strong>Offer:</strong> 25% off Local deals</li>
+      <li><strong>Max discount:</strong> $50 (or local currency equivalent)</li>
+      <li><strong>Code:</strong> GPNLOVE</li>
+      <li><strong>Purple Prices:</strong> No (Alternative: triggered via URL param — pending feasibility)</li>
+      <li><strong>Format:</strong> Static banners on Coupons merchant pages</li>
+    </ul>
+  </div>
+  <div class="meta">Martin Gregor &middot; March 2026 &middot; Cashback / Ecosystem Initiative &middot; v3</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- APPROACH NOTE                               -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Making "25% off Local" feel specific</div>
+  <div class="section-desc">
+    The promo is set: 25% off Local, max $50, code GPNLOVE. The question is how to present it so Coupons users actually care. The banners below all anchor "25% off" to concrete examples &mdash; showing what $39 massage becomes with the code, what a $60 dinner becomes. The code is the hook, but the deal example is the desire.
+  </div>
+
+  <div class="callout-box">
+    <p><strong>Design approach:</strong> Every banner below uses an existing Figma component from GC Page Design. No new components needed. All static &mdash; no dynamic deal feeds. Just swap copy and images. The promo team can have the code live immediately; engineering just places the banners.</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 1: CONQUEST BANNER (Popup)                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section" style="padding-top:0;">
+  <div class="section-title">1. Conquest Banner (Popup)</div>
+  <div class="section-desc">
+    Existing "WE FOUND A BETTER OFFER!" popup. Triggered on exit-intent or between actions. Shows the promo code with tangible deal examples.
+  </div>
+
+  <div class="banners-row">
+    <div>
+      <div class="concept-label">Beauty coupon pages</div>
+      <div class="conquest-popup">
+        <div class="conquest-header">
+          EXCLUSIVE GROUPON OFFER
+          <span class="close-x">&times;</span>
+        </div>
+        <div class="conquest-image img-local-spa">
+          <div class="promo-overlay">
+            <div class="pct">25%</div>
+            <div class="pct-label">off Local Deals</div>
+            <div class="promo-code-badge">GPNLOVE</div>
+          </div>
+        </div>
+        <div class="conquest-body">
+          <h3><span class="highlight">25% off</span> spa, massage &amp; beauty near you</h3>
+          <div class="terms">Max $50 discount. Valid on all Groupon Local deals. New members &amp; existing. First come, first served.</div>
+          <div class="example-deals">
+            <div class="example-deal">
+              <div class="ed-cat">Massage</div>
+              <div class="ed-text">$39 &rarr; $29</div>
+              <div class="ed-save">Save $10</div>
+            </div>
+            <div class="example-deal">
+              <div class="ed-cat">Facial</div>
+              <div class="ed-text">$69 &rarr; $52</div>
+              <div class="ed-save">Save $17</div>
+            </div>
+            <div class="example-deal">
+              <div class="ed-cat">Spa Day</div>
+              <div class="ed-text">$149 &rarr; $112</div>
+              <div class="ed-save">Save $37</div>
+            </div>
+          </div>
+          <button class="conquest-cta">Sign Up &amp; Use Code GPNLOVE</button>
+          <div class="conquest-footer">Join 50M+ members &middot; No credit card required</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="concept-label">Food / restaurant pages</div>
+      <div class="conquest-popup">
+        <div class="conquest-header">
+          EXCLUSIVE GROUPON OFFER
+          <span class="close-x">&times;</span>
+        </div>
+        <div class="conquest-image img-local-food">
+          <div class="promo-overlay">
+            <div class="pct">25%</div>
+            <div class="pct-label">off Local Deals</div>
+            <div class="promo-code-badge">GPNLOVE</div>
+          </div>
+        </div>
+        <div class="conquest-body">
+          <h3><span class="highlight">25% off</span> restaurants &amp; dining near you</h3>
+          <div class="terms">Max $50 discount. Valid on all Groupon Local deals. Dine-in experiences, tastings &amp; more.</div>
+          <div class="example-deals">
+            <div class="example-deal">
+              <div class="ed-cat">Italian</div>
+              <div class="ed-text">$30 &rarr; $23</div>
+              <div class="ed-save">Save $8</div>
+            </div>
+            <div class="example-deal">
+              <div class="ed-cat">Sushi</div>
+              <div class="ed-text">$65 &rarr; $49</div>
+              <div class="ed-save">Save $16</div>
+            </div>
+            <div class="example-deal">
+              <div class="ed-cat">Tasting</div>
+              <div class="ed-text">$49 &rarr; $37</div>
+              <div class="ed-save">Save $12</div>
+            </div>
+          </div>
+          <button class="conquest-cta">Sign Up &amp; Use Code GPNLOVE</button>
+          <div class="conquest-footer">Join 50M+ members &middot; No credit card required</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 2: PROMO TILE (Genie-style)                 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-full">
+  <div class="section-full-inner">
+    <div class="section-title">2. Offer Tile — Promo Style</div>
+    <div class="section-desc">
+      Existing blue gradient tile (Genie promo pattern). Sits inline between coupon listings. Compact, high visibility.
+    </div>
+
+    <div class="banners-row">
+      <div>
+        <div class="concept-label">Universal</div>
+        <div class="offer-tile-promo" style="background: linear-gradient(135deg, #53a318 0%, #3d8c0e 100%); border-color: #458f14;">
+          <div class="promo-icon"><span class="g-logo">G</span></div>
+          <div class="promo-text">
+            <div class="promo-tag">GPNLOVE</div>
+            <h4>25% off Local Deals near you</h4>
+            <p>Spa, dining, activities &amp; more. Max $50 off. Sign up free.</p>
+          </div>
+          <a class="promo-cta" style="color:#3d8c0e;">Claim Code</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="concept-label">Beauty pages</div>
+        <div class="offer-tile-promo" style="background: linear-gradient(135deg, #7b1fa2 0%, #4a148c 100%); border-color: #6a1b9a;">
+          <div class="promo-icon"><span class="g-logo">G</span></div>
+          <div class="promo-text">
+            <div class="promo-tag">GPNLOVE</div>
+            <h4>25% off Spa &amp; Wellness near you</h4>
+            <p>Massage from $29, facials from $52. Max $50 off.</p>
+          </div>
+          <a class="promo-cta" style="color:#7b1fa2;">Claim Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-note">
+      Placement: Between coupon listings at position 3 and 8. Same component as Genie tile &mdash; swap icon, color, and copy.
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 3: NORMAL OFFER TILE                        -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">3. Normal Offer Tile</div>
+  <div class="section-desc">
+    Existing "Premium Offer" tile. Groupon promo appears as a native tile in the coupon listing. Includes the promo code in a dashed box &mdash; familiar coupon UX.
+  </div>
+
+  <div class="banners-row">
+    <div>
+      <div class="concept-label">Beauty pages</div>
+      <div class="offer-tile-normal">
+        <div class="premium-tag"><span>&#9670;</span> Groupon Offer</div>
+        <div class="offer-row">
+          <div class="merchant-logo">G</div>
+          <div class="offer-info">
+            <h4><span class="highlight">25% off</span> Spa, Massage &amp; Beauty Deals Near You</h4>
+          </div>
+        </div>
+        <div class="offer-terms">Valid on all Groupon Local deals including massage, facials, hair, nails &amp; wellness. Max discount $50. Sign up or log in to apply.</div>
+        <div class="code-display">
+          <div>
+            <div class="code-label">Your code</div>
+            <div class="code-value">GPNLOVE</div>
+          </div>
+        </div>
+        <button class="offer-cta">Sign Up &amp; Apply Code</button>
+        <div class="offer-footer">Free to join &middot; 50M+ members &middot; Thousands of deals</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="concept-label">Activities / Things to Do pages</div>
+      <div class="offer-tile-normal">
+        <div class="premium-tag"><span>&#9670;</span> Groupon Offer</div>
+        <div class="offer-row">
+          <div class="merchant-logo">G</div>
+          <div class="offer-info">
+            <h4><span class="highlight">25% off</span> Activities &amp; Experiences Near You</h4>
+          </div>
+        </div>
+        <div class="offer-terms">Escape rooms, go-karts, bowling, wine tastings, classes &amp; more. Max discount $50. Works on any Local deal.</div>
+        <div class="code-display">
+          <div>
+            <div class="code-label">Your code</div>
+            <div class="code-value">GPNLOVE</div>
+          </div>
+        </div>
+        <button class="offer-cta">Sign Up &amp; Apply Code</button>
+        <div class="offer-footer">Free to join &middot; 50M+ members &middot; Thousands of deals</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 4: LEADERBOARD BANNER                       -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-full">
+  <div class="section-full-inner">
+    <div class="section-title">4. Leaderboard Banner</div>
+    <div class="section-desc">
+      Existing horizontal strip in light green. Placed above listings or between sections. Quick scan, one clear action.
+    </div>
+
+    <div class="concept-label">Universal</div>
+    <div class="leaderboard-banner">
+      <div class="lb-logo">G</div>
+      <div class="lb-left">
+        <h3>25% off Local Deals &mdash; Code: GPNLOVE</h3>
+        <p>Spa, dining, activities &amp; more near you. Max $50 off. Sign up free to use.</p>
+      </div>
+      <button class="lb-cta">Sign Up &amp; Claim</button>
+    </div>
+
+    <div class="concept-label">Beauty-specific</div>
+    <div class="leaderboard-banner" style="background:#f3e5f5;">
+      <div class="lb-logo" style="color:#7b1fa2;">G</div>
+      <div class="lb-left">
+        <h3>25% off Spa &amp; Wellness &mdash; Code: GPNLOVE</h3>
+        <p>Massage from $29, facials from $52. Max $50 off. Thousands of local spas.</p>
+      </div>
+      <button class="lb-cta">Browse Deals</button>
+    </div>
+
+    <div class="concept-label">Activities-specific</div>
+    <div class="leaderboard-banner" style="background:#e3f2fd;">
+      <div class="lb-logo" style="color:#0277bd;">G</div>
+      <div class="lb-left">
+        <h3>25% off Experiences Near You &mdash; Code: GPNLOVE</h3>
+        <p>Escape rooms, bowling, go-karts, wine tastings &amp; more. Max $50 off.</p>
+      </div>
+      <button class="lb-cta">Explore Deals</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 5: DEALS CAROUSEL                           -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">5. Deals Carousel</div>
+  <div class="section-desc">
+    Existing "Groupon Deals" horizontal carousel. Shows real deal categories with the GPNLOVE savings highlighted on each card. Showcases breadth &mdash; "look what you can get with the code."
+  </div>
+
+  <div class="concept-label">Universal — top Local categories</div>
+  <div class="deals-carousel">
+    <div class="carousel-header">
+      <div>
+        <h3>Groupon Deals</h3>
+        <span class="carousel-sub">Use code GPNLOVE for 25% off</span>
+      </div>
+      <div class="arrows">
+        <div class="arrow-btn">&larr;</div>
+        <div class="arrow-btn">&rarr;</div>
+      </div>
+    </div>
+    <div class="carousel-track">
+      <div class="deal-card">
+        <div class="card-img img-local-massage">
+          <div class="card-badge-tl">25% off</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Deep Tissue Massage (60 min)</div>
+          <div class="card-subtitle">Top-rated spas near you</div>
+          <div class="card-rating">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="rating-num">4.7</span>
+            <span class="rating-count">(20k+)</span>
+          </div>
+          <div class="card-prices">
+            <span class="original">$99</span>
+            <span class="current">$39</span>
+            <span class="discount">-61%</span>
+          </div>
+          <div class="card-extra-save">+ Extra 25% off: $29 with GPNLOVE</div>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="card-img img-local-food">
+          <div class="card-badge-tl">25% off</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">$30 Italian Dining Credit</div>
+          <div class="card-subtitle">120+ restaurants in your city</div>
+          <div class="card-rating">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+            <span class="rating-num">4.5</span>
+            <span class="rating-count">(12k+)</span>
+          </div>
+          <div class="card-prices">
+            <span class="original">$30</span>
+            <span class="current">$15</span>
+            <span class="discount">-50%</span>
+          </div>
+          <div class="card-extra-save">+ Extra 25% off: $11 with GPNLOVE</div>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="card-img img-local-escape">
+          <div class="card-badge-tl">25% off</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Escape Room for Up to 6</div>
+          <div class="card-subtitle">Top-rated rooms near you</div>
+          <div class="card-rating">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="rating-num">4.6</span>
+            <span class="rating-count">(8k+)</span>
+          </div>
+          <div class="card-prices">
+            <span class="original">$46</span>
+            <span class="current">$22</span>
+            <span class="discount">-52%</span>
+          </div>
+          <div class="card-extra-save">+ Extra 25% off: $17 with GPNLOVE</div>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="card-img img-local-auto">
+          <div class="card-badge-tl">25% off</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Full Synthetic Oil Change</div>
+          <div class="card-subtitle">Certified mechanics near you</div>
+          <div class="card-rating">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+            <span class="rating-num">4.3</span>
+            <span class="rating-count">(5k+)</span>
+          </div>
+          <div class="card-prices">
+            <span class="original">$80</span>
+            <span class="current">$35</span>
+            <span class="discount">-56%</span>
+          </div>
+          <div class="card-extra-save">+ Extra 25% off: $26 with GPNLOVE</div>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div class="card-img img-local-fitness">
+          <div class="card-badge-tl">25% off</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">5 Yoga Classes + Meditation</div>
+          <div class="card-subtitle">Studios near you</div>
+          <div class="card-rating">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="rating-num">4.8</span>
+            <span class="rating-count">(3k+)</span>
+          </div>
+          <div class="card-prices">
+            <span class="original">$95</span>
+            <span class="current">$29</span>
+            <span class="discount">-70%</span>
+          </div>
+          <div class="card-extra-save">+ Extra 25% off: $22 with GPNLOVE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="concept-note">
+    The yellow "Extra 25% off" badge on each card is the key differentiator. Shows the stacked saving: Groupon's built-in discount PLUS the GPNLOVE code. Makes the value unmissable.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 6: SEASONAL STRIP                           -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-full">
+  <div class="section-full-inner">
+    <div class="section-title">6. Seasonal Strip</div>
+    <div class="section-desc">
+      Existing dark navy top-of-page bar (currently Genie promo). Swap copy for GPNLOVE offer. Seen by every visitor. Minimal disruption.
+    </div>
+
+    <div class="concept-label">Universal</div>
+    <div class="seasonal-strip">
+      <div class="strip-text">
+        Use code <span class="highlight">GPNLOVE</span> for <span class="highlight">25% off</span> Local deals on Groupon &mdash; spa, dining, activities &amp; more near you
+      </div>
+      <div class="strip-right">
+        <a class="strip-cta">Sign Up &amp; Save</a>
+        <span class="strip-close">&times;</span>
+      </div>
+    </div>
+
+    <div class="concept-label">Beauty-specific</div>
+    <div class="seasonal-strip" style="background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 100%);">
+      <div class="strip-text">
+        <span class="highlight">25% off</span> spa &amp; wellness with code <span class="highlight">GPNLOVE</span> &mdash; Massage from $29, facials from $52
+      </div>
+      <div class="strip-right">
+        <a class="strip-cta" style="color:#4a148c;">Browse Deals</a>
+        <span class="strip-close">&times;</span>
+      </div>
+    </div>
+
+    <div class="concept-label">Activities</div>
+    <div class="seasonal-strip" style="background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);">
+      <div class="strip-text">
+        Escape rooms, bowling &amp; more from $17 with code <span class="highlight">GPNLOVE</span> (25% off) &mdash; Sign up free
+      </div>
+      <div class="strip-right">
+        <a class="strip-cta" style="color:#0d47a1;">Explore Deals</a>
+        <span class="strip-close">&times;</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- NEW 7: POST-REDEMPTION INTERSTITIAL          -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">7. Post-Redemption Interstitial <span style="background:#e53935; color:white; font-size:11px; font-weight:700; padding:3px 8px; border-radius:3px; vertical-align:middle; margin-left:8px;">NEW FORMAT</span></div>
+  <div class="section-desc">
+    Appears after the user clicks "Get Code" on a coupon &mdash; their code is shown above, and the Groupon promo appears below in the same flow. This is the highest-intent moment: the user just saved money and is primed for more savings. Non-blocking &mdash; their coupon code is visible.
+  </div>
+
+  <div class="banners-row">
+    <div>
+      <div class="concept-label new">New &mdash; Beauty pages</div>
+      <div class="post-redeem-wrap">
+        <div class="post-redeem-code-bar">
+          <div class="code-copied"><span class="check">&#10003;</span> Code copied to clipboard</div>
+          <div class="actual-code">SEPH25OFF</div>
+        </div>
+        <div class="post-redeem-card">
+          <div class="pr-groupon-logo">GROUPON</div>
+          <div class="pr-headline">While you're saving...</div>
+          <div class="pr-sub">Get an extra 25% off Local deals near you</div>
+          <div class="pr-promo-box">
+            <div class="pr-code">GPNLOVE</div>
+            <div class="pr-offer">25% off Local Deals</div>
+            <div class="pr-max">Max discount $50 &middot; All categories</div>
+          </div>
+          <div class="pr-examples">
+            <div class="pr-example">
+              <div class="pre-emoji">💆</div>
+              <div class="pre-label">Massage</div>
+              <div class="pre-price">$39 &rarr; $29</div>
+              <div class="pre-save">Save $10</div>
+            </div>
+            <div class="pr-example">
+              <div class="pre-emoji">🍝</div>
+              <div class="pre-label">Dining</div>
+              <div class="pre-price">$15 &rarr; $11</div>
+              <div class="pre-save">Save $4</div>
+            </div>
+            <div class="pr-example">
+              <div class="pre-emoji">🎯</div>
+              <div class="pre-label">Activities</div>
+              <div class="pre-price">$22 &rarr; $17</div>
+              <div class="pre-save">Save $5</div>
+            </div>
+          </div>
+          <button class="pr-cta">Sign Up Free &amp; Use GPNLOVE</button>
+          <div class="pr-skip">No thanks, continue to Sephora &rarr;</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="concept-label new">New &mdash; General / Retail pages</div>
+      <div class="post-redeem-wrap">
+        <div class="post-redeem-code-bar">
+          <div class="code-copied"><span class="check">&#10003;</span> Code copied to clipboard</div>
+          <div class="actual-code">SAVE20</div>
+        </div>
+        <div class="post-redeem-card">
+          <div class="pr-groupon-logo">GROUPON</div>
+          <div class="pr-headline">Nice save! Want more?</div>
+          <div class="pr-sub">25% off experiences, dining &amp; wellness near you</div>
+          <div class="pr-promo-box">
+            <div class="pr-code">GPNLOVE</div>
+            <div class="pr-offer">25% off Local Deals</div>
+            <div class="pr-max">Max discount $50 &middot; All categories</div>
+          </div>
+          <div class="pr-examples">
+            <div class="pr-example">
+              <div class="pre-emoji">🎳</div>
+              <div class="pre-label">Bowling</div>
+              <div class="pre-price">$19 &rarr; $14</div>
+              <div class="pre-save">Save $5</div>
+            </div>
+            <div class="pr-example">
+              <div class="pre-emoji">🔧</div>
+              <div class="pre-label">Oil Change</div>
+              <div class="pre-price">$35 &rarr; $26</div>
+              <div class="pre-save">Save $9</div>
+            </div>
+            <div class="pr-example">
+              <div class="pre-emoji">🧘</div>
+              <div class="pre-label">Yoga</div>
+              <div class="pre-price">$29 &rarr; $22</div>
+              <div class="pre-save">Save $7</div>
+            </div>
+          </div>
+          <button class="pr-cta">Sign Up Free &amp; Use GPNLOVE</button>
+          <div class="pr-skip">No thanks, continue to store &rarr;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-box">
+    <p><strong>Why this format works:</strong> The user's coupon code is already visible above &mdash; they're not blocked. But they just experienced a dopamine hit from getting a coupon. This moment has the highest receptivity to "here's another saving." The Groupon promo feels like a bonus, not an interruption. Estimated CTR: 2-4x higher than passive banners.</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- NEW 8: STICKY BOTTOM BAR                    -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-full">
+  <div class="section-full-inner">
+    <div class="section-title">8. Sticky Bottom Bar <span style="background:#e53935; color:white; font-size:11px; font-weight:700; padding:3px 8px; border-radius:3px; vertical-align:middle; margin-left:8px;">NEW FORMAT</span></div>
+    <div class="section-desc">
+      Persistent bar fixed to the bottom of the viewport as the user scrolls through coupons. Always visible, never blocks content. Shows the code, the offer, and a single CTA. Dismissible. Highest total impressions of any format.
+    </div>
+
+    <div class="concept-label new">New &mdash; Universal (all pages)</div>
+    <div class="sticky-bar-demo">
+      <div class="sticky-bar">
+        <div class="sb-dismiss">&times;</div>
+        <div class="sb-left">
+          <div class="sb-logo">G</div>
+          <div class="sb-text">
+            <h4><span class="sb-green">25% off</span> Local deals near you</h4>
+            <p>Spa, dining, activities &amp; more. Max $50 off. Sign up free.</p>
+          </div>
+        </div>
+        <div class="sb-code">
+          <div class="sb-code-label">Code</div>
+          <div class="sb-code-value">GPNLOVE</div>
+        </div>
+        <button class="sb-cta">Sign Up &amp; Save</button>
+      </div>
+    </div>
+
+    <div class="concept-label new">New &mdash; Beauty pages</div>
+    <div class="sticky-bar-demo">
+      <div class="sticky-bar">
+        <div class="sb-dismiss">&times;</div>
+        <div class="sb-left">
+          <div class="sb-logo" style="background:#7b1fa2;">G</div>
+          <div class="sb-text">
+            <h4><span class="sb-green">25% off</span> Spa &amp; Wellness near you</h4>
+            <p>Massage from $29, facials from $52 with GPNLOVE</p>
+          </div>
+        </div>
+        <div class="sb-code">
+          <div class="sb-code-label">Code</div>
+          <div class="sb-code-value">GPNLOVE</div>
+        </div>
+        <button class="sb-cta">Browse Deals</button>
+      </div>
+    </div>
+
+    <div class="concept-label new">New &mdash; Compact version</div>
+    <div class="sticky-bar-demo" style="max-width:600px;">
+      <div class="sticky-bar" style="padding:12px 20px;">
+        <div class="sb-dismiss">&times;</div>
+        <div class="sb-left" style="gap:10px;">
+          <div class="sb-logo" style="width:36px; height:36px; font-size:16px; border-radius:8px;">G</div>
+          <div class="sb-text">
+            <h4 style="font-size:13px;"><span class="sb-green">GPNLOVE</span> &mdash; 25% off Local deals</h4>
+          </div>
+        </div>
+        <button class="sb-cta" style="padding:10px 18px; font-size:13px;">Sign Up</button>
+      </div>
+    </div>
+
+    <div class="callout-box" style="margin-top:24px;">
+      <p><strong>Why this format works:</strong> Unlike the seasonal strip (top of page, seen once), the sticky bar follows the user as they scroll through 10, 20, 30 coupons. It's a persistent, gentle reminder without being intrusive. When they're done browsing coupons and look for something else to do &mdash; the Groupon promo is right there. Cookie-dismissed for 24h after close.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PRIORITY MATRIX                             -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Recommended Rollout</div>
+
+  <table style="width:100%; max-width:900px; border-collapse:collapse; font-size:13px; margin-bottom:36px;">
+    <thead>
+      <tr style="border-bottom:2px solid #333;">
+        <th style="text-align:left; padding:10px 14px; font-weight:700;">#</th>
+        <th style="text-align:left; padding:10px 14px; font-weight:700;">Component</th>
+        <th style="text-align:center; padding:10px 14px; font-weight:700;">Eng Effort</th>
+        <th style="text-align:center; padding:10px 14px; font-weight:700;">New Component?</th>
+        <th style="text-align:center; padding:10px 14px; font-weight:700;">Expected CTR</th>
+        <th style="text-align:left; padding:10px 14px; font-weight:700;">Phase</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee; background:#f8faf5;">
+        <td style="padding:10px 14px; font-weight:700;">6</td>
+        <td style="padding:10px 14px; font-weight:700;">Seasonal Strip</td>
+        <td style="padding:10px 14px; text-align:center;">Very Low</td>
+        <td style="padding:10px 14px; text-align:center;">No &mdash; swap copy</td>
+        <td style="padding:10px 14px; text-align:center;">Low-Med</td>
+        <td style="padding:10px 14px; color:#53a318; font-weight:700;">Phase 1 &#10003;</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee; background:#f8faf5;">
+        <td style="padding:10px 14px; font-weight:700;">4</td>
+        <td style="padding:10px 14px; font-weight:700;">Leaderboard Banner</td>
+        <td style="padding:10px 14px; text-align:center;">Low</td>
+        <td style="padding:10px 14px; text-align:center;">No &mdash; swap copy</td>
+        <td style="padding:10px 14px; text-align:center;">Medium</td>
+        <td style="padding:10px 14px; color:#53a318; font-weight:700;">Phase 1 &#10003;</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee; background:#f8faf5;">
+        <td style="padding:10px 14px; font-weight:700;">8</td>
+        <td style="padding:10px 14px; font-weight:700;">Sticky Bottom Bar <span style="color:#e53935;">NEW</span></td>
+        <td style="padding:10px 14px; text-align:center;">Low</td>
+        <td style="padding:10px 14px; text-align:center;">Yes &mdash; simple</td>
+        <td style="padding:10px 14px; text-align:center;">High</td>
+        <td style="padding:10px 14px; color:#53a318; font-weight:700;">Phase 1 &#10003;</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 14px;">2</td>
+        <td style="padding:10px 14px;">Promo Tile (inline)</td>
+        <td style="padding:10px 14px; text-align:center;">Low</td>
+        <td style="padding:10px 14px; text-align:center;">No &mdash; swap Genie tile</td>
+        <td style="padding:10px 14px; text-align:center;">Medium</td>
+        <td style="padding:10px 14px;">Phase 1-2</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 14px;">3</td>
+        <td style="padding:10px 14px;">Normal Offer Tile</td>
+        <td style="padding:10px 14px; text-align:center;">Medium</td>
+        <td style="padding:10px 14px; text-align:center;">No &mdash; reuse offer tile</td>
+        <td style="padding:10px 14px; text-align:center;">Medium</td>
+        <td style="padding:10px 14px;">Phase 2</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 14px;">5</td>
+        <td style="padding:10px 14px;">Deals Carousel</td>
+        <td style="padding:10px 14px; text-align:center;">Medium</td>
+        <td style="padding:10px 14px; text-align:center;">No &mdash; exists in Figma</td>
+        <td style="padding:10px 14px; text-align:center;">High</td>
+        <td style="padding:10px 14px;">Phase 2</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 14px;">1</td>
+        <td style="padding:10px 14px;">Conquest Popup</td>
+        <td style="padding:10px 14px; text-align:center;">Medium</td>
+        <td style="padding:10px 14px; text-align:center;">No &mdash; reuse existing</td>
+        <td style="padding:10px 14px; text-align:center;">Very High</td>
+        <td style="padding:10px 14px;">Phase 2</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px;">7</td>
+        <td style="padding:10px 14px;">Post-Redemption Interstitial <span style="color:#e53935;">NEW</span></td>
+        <td style="padding:10px 14px; text-align:center;">Medium</td>
+        <td style="padding:10px 14px; text-align:center;">Yes &mdash; new flow</td>
+        <td style="padding:10px 14px; text-align:center;">Very High</td>
+        <td style="padding:10px 14px;">Phase 2</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- KEY ARGUMENT                                -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-dark">
+  <div class="section-dark-inner">
+    <div class="section-title" style="color:white;">Summary: what to ship first</div>
+    <div style="color:#aaa; font-size:15px; line-height:1.7; margin-top:16px;">
+      <p style="margin-bottom:16px;">
+        <strong style="color:#53a318;">Phase 1 (this week):</strong> Seasonal Strip + Leaderboard Banner + Sticky Bottom Bar on top 50 Coupons pages. All static. Promo code GPNLOVE live immediately. No engineering bottleneck.
+      </p>
+      <p style="margin-bottom:16px;">
+        <strong style="color:white;">Phase 2 (next sprint):</strong> Add Promo Tiles, Offer Tiles, Carousel, Conquest Popup, and Post-Redemption Interstitial for deeper integration and higher conversion.
+      </p>
+      <p style="margin-bottom:16px;">
+        Every banner anchors "25% off" to <strong style="color:white;">specific savings</strong> &mdash; "$39 massage becomes $29", "$22 escape room becomes $17". The code is the hook, the deal example creates desire.
+      </p>
+      <p style="color:#888; font-size:13px;">
+        All concepts use existing GC Page Design components except the 2 new formats (Sticky Bar + Post-Redemption), which are simple to build and high-value additions to the component library.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div style="padding:30px 40px; text-align:center; color:#aaa; font-size:12px;">
+  Internal mock-ups &mdash; not final creative. Deal prices are illustrative. &middot; Martin Gregor &middot; March 2026
+</div>
+
+</body>
+</html>

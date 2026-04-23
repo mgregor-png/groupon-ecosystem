@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coupons → Groupon Local | Promo Banner Concepts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+  }
+
+  /* ─── Presentation wrapper ─── */
+  .pres-header {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 40px 50px;
+  }
+  .pres-header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .pres-header .subtitle {
+    font-size: 18px;
+    color: #aaa;
+    max-width: 700px;
+    line-height: 1.5;
+  }
+  .pres-header .groupon-green { color: #53a318; }
+  .pres-header .meta {
+    margin-top: 24px;
+    font-size: 13px;
+    color: #666;
+  }
+
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 40px;
+  }
+  .section-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 36px;
+    max-width: 700px;
+    line-height: 1.5;
+  }
+
+  .concept-label {
+    display: inline-block;
+    background: #53a318;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .concept-note {
+    font-size: 13px;
+    color: #888;
+    margin-top: 12px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* ─── Strategy section ─── */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .strat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    border: 1px solid #e5e5e5;
+  }
+  .strat-card.bad {
+    border-left: 4px solid #e53935;
+  }
+  .strat-card.good {
+    border-left: 4px solid #53a318;
+  }
+  .strat-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .strat-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+  .strat-card .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+  }
+  .strat-card.bad .tag { background: #fce4ec; color: #c62828; }
+  .strat-card.good .tag { background: #e8f5e9; color: #2e7d32; }
+
+  /* ─── Banner components ─── */
+
+  /* Inline banner (sits between coupon listings) */
+  .banner-inline {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    margin-bottom: 32px;
+    display: flex;
+    max-width: 800px;
+    border: 1px solid #e8e8e8;
+    transition: box-shadow 0.2s;
+  }
+  .banner-inline:hover {
+    box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+  }
+  .banner-inline .banner-image {
+    width: 280px;
+    min-height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .banner-inline .banner-image .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #53a318;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
+  .banner-inline .banner-content {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+  .banner-inline .banner-content .from-groupon {
+    font-size: 11px;
+    font-weight: 600;
+    color: #53a318;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .banner-inline .banner-content h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+  .banner-inline .banner-content .deal-detail {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .banner-inline .banner-content .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .banner-inline .banner-content .price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #53a318;
+  }
+  .banner-inline .banner-content .original-price {
+    font-size: 16px;
+    color: #999;
+    text-decoration: line-through;
+  }
+  .banner-inline .banner-content .discount-pct {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    background: #e53935;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .banner-inline .banner-content .cta {
+    display: inline-block;
+    background: #53a318;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    max-width: 240px;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .banner-inline .banner-content .cta:hover {
+    background: #458f14;
+  }
+  .banner-inline .banner-content .cta-sub {
+    font-size: 11px;
+    color: #999;
+    margin-top: 6px;
+  }
+
+  /* Sidebar banner */
+  .banner-sidebar {
+    width: 300px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    border: 1px solid #e8e8e8;
+    margin-bottom: 32px;
+  }
+  .banner-sidebar .sidebar-image {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .banner-sidebar .sidebar-image .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #53a318;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+  .banner-sidebar .sidebar-content {
+    padding: 18px 20px 22px;
+  }
+  .banner-sidebar .sidebar-content .from-groupon {
+    font-size: 10px;
+    font-weight: 700;
+    color: #53a318;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .banner-sidebar .sidebar-content h4 {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .banner-sidebar .sidebar-content .deal-detail {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 12px;
+  }
+  .banner-sidebar .sidebar-content .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .banner-sidebar .sidebar-content .price {
+    font-size: 24px;
+    font-weight: 800;
+    color: #53a318;
+  }
+  .banner-sidebar .sidebar-content .original-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+  }
+  .banner-sidebar .sidebar-content .cta {
+    display: block;
+    background: #53a318;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 11px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+  }
+  .banner-sidebar .sidebar-content .cta:hover {
+    background: #458f14;
+  }
+
+  /* Top strip banner */
+  .banner-strip {
+    background: linear-gradient(135deg, #53a318 0%, #3d8c0e 100%);
+    border-radius: 12px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin-bottom: 32px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .banner-strip:hover { transform: translateY(-1px); }
+  .banner-strip .strip-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .banner-strip .strip-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .banner-strip .strip-text h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .banner-strip .strip-text p {
+    font-size: 13px;
+    opacity: 0.85;
+  }
+  .banner-strip .strip-cta {
+    background: white;
+    color: #53a318;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Full-width hero banner */
+  .banner-hero {
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 800px;
+    margin-bottom: 32px;
+    position: relative;
+    cursor: pointer;
+  }
+  .banner-hero .hero-bg {
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .banner-hero .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  }
+  .banner-hero .hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 36px;
+    color: white;
+    z-index: 1;
+  }
+  .banner-hero .hero-content .from-groupon {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+  .banner-hero .hero-content h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .banner-hero .hero-content .deal-detail {
+    font-size: 15px;
+    opacity: 0.85;
+    margin-bottom: 18px;
+  }
+  .banner-hero .hero-content .hero-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .banner-hero .hero-content .price-block .price {
+    font-size: 32px;
+    font-weight: 800;
+  }
+  .banner-hero .hero-content .price-block .original-price {
+    font-size: 16px;
+    text-decoration: line-through;
+    opacity: 0.6;
+    margin-left: 8px;
+  }
+  .banner-hero .hero-content .cta {
+    display: inline-block;
+    background: #53a318;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  /* Multi-deal carousel banner */
+  .banner-multi {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e8e8e8;
+    max-width: 800px;
+    margin-bottom: 32px;
+  }
+  .banner-multi .multi-header {
+    padding: 20px 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .banner-multi .multi-header .from-groupon {
+    font-size: 11px;
+    font-weight: 700;
+    color: #53a318;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .banner-multi .multi-header h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 4px;
+  }
+  .banner-multi .multi-header .see-all {
+    font-size: 13px;
+    color: #53a318;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .banner-multi .multi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 18px 24px 24px;
+  }
+  .banner-multi .deal-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: box-shadow 0.15s;
+  }
+  .banner-multi .deal-card:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+  .banner-multi .deal-card .card-image {
+    height: 110px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .banner-multi .deal-card .card-image .pct-off {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #e53935;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 4px;
+  }
+  .banner-multi .deal-card .card-body {
+    padding: 10px 12px 14px;
+  }
+  .banner-multi .deal-card .card-body h5 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .banner-multi .deal-card .card-body .card-price {
+    font-size: 16px;
+    font-weight: 800;
+    color: #53a318;
+  }
+  .banner-multi .deal-card .card-body .card-original {
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 4px;
+  }
+  .banner-multi .multi-footer {
+    border-top: 1px solid #eee;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .banner-multi .multi-footer .reg-note {
+    font-size: 12px;
+    color: #888;
+  }
+  .banner-multi .multi-footer .cta-small {
+    background: #53a318;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Post-click interstitial */
+  .interstitial-overlay {
+    background: rgba(0,0,0,0.5);
+    border-radius: 16px;
+    padding: 60px 40px;
+    max-width: 480px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .interstitial-card {
+    background: white;
+    border-radius: 20px;
+    padding: 36px 32px 32px;
+    text-align: center;
+  }
+  .interstitial-card .groupon-logo {
+    font-size: 28px;
+    font-weight: 900;
+    color: #53a318;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .interstitial-card .int-subtitle {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 20px;
+  }
+  .interstitial-card .int-deal {
+    background: #f8faf5;
+    border: 1px solid #e0edcf;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  .interstitial-card .int-deal h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .interstitial-card .int-deal .int-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: #53a318;
+  }
+  .interstitial-card .int-deal .int-original {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 6px;
+  }
+  .interstitial-card .int-deal .int-location {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .interstitial-card .int-cta {
+    display: block;
+    background: #53a318;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .interstitial-card .int-skip {
+    font-size: 13px;
+    color: #aaa;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .interstitial-card .int-trust {
+    font-size: 11px;
+    color: #bbb;
+    margin-top: 16px;
+  }
+
+  /* Layout helpers */
+  .banners-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .placement-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  .divider {
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    margin: 20px 0 40px;
+  }
+
+  /* Mobile context mock */
+  .page-context {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 800px;
+    margin-bottom: 16px;
+  }
+  .page-context .ctx-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .page-context .ctx-breadcrumb {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .page-context h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .callout-box {
+    background: #fffde7;
+    border: 1px solid #fff9c4;
+    border-radius: 10px;
+    padding: 18px 22px;
+    max-width: 800px;
+    margin-bottom: 32px;
+  }
+  .callout-box strong { color: #f57f17; }
+  .callout-box p { font-size: 14px; color: #555; line-height: 1.5; }
+
+  /* Image placeholders with gradients */
+  .img-spa { background: linear-gradient(135deg, #e8d5c4 0%, #c9a98c 50%, #a67c52 100%); }
+  .img-food { background: linear-gradient(135deg, #f5e6d3 0%, #e8c9a0 50%, #d4a574 100%); }
+  .img-activity { background: linear-gradient(135deg, #b3e5fc 0%, #4fc3f7 50%, #0288d1 100%); }
+  .img-auto { background: linear-gradient(135deg, #cfd8dc 0%, #90a4ae 50%, #546e7a 100%); }
+  .img-massage { background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 50%, #9c27b0 100%); }
+  .img-yoga { background: linear-gradient(135deg, #c8e6c9 0%, #81c784 50%, #43a047 100%); }
+  .img-dinner { background: linear-gradient(135deg, #ffe0b2 0%, #ffb74d 50%, #f57c00 100%); }
+  .img-escape { background: linear-gradient(135deg, #263238 0%, #37474f 50%, #455a64 100%); }
+  .img-facial { background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 50%, #e91e63 100%); }
+  .img-bowling { background: linear-gradient(135deg, #e3f2fd 0%, #64b5f6 50%, #1565c0 100%); }
+  .img-golf { background: linear-gradient(135deg, #e8f5e9 0%, #66bb6a 50%, #2e7d32 100%); }
+  .img-hero-spa { background: linear-gradient(135deg, #d7ccc8 0%, #a1887f 50%, #6d4c41 100%); }
+
+  /* Gradient text overlays to simulate image feel */
+  .img-spa::after, .img-food::after, .img-activity::after, .img-auto::after,
+  .img-massage::after, .img-yoga::after, .img-dinner::after, .img-escape::after,
+  .img-facial::after, .img-bowling::after, .img-golf::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 40px;
+    font-weight: 800;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- HEADER                                                        -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="pres-header">
+  <h1>Coupons <span class="groupon-green">&rarr;</span> Groupon Local</h1>
+  <div class="subtitle">
+    Promo banner concepts to convert anonymous Coupons visitors into registered Groupon users.
+    <strong>Deal-led, vertical-specific</strong> — not generic discounts.
+  </div>
+  <div class="meta">Martin Gregor &middot; March 2026 &middot; Cashback / Ecosystem Initiative &middot; Mock-ups for internal review</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- STRATEGY: WHY SPECIFIC BEATS GENERIC                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Why vertical-specific beats generic</div>
+  <div class="section-desc">
+    The promo team proposed "25% off Local, max $50, no Purple Prices." That's a start &mdash; but Coupons users are deal-savvy, high-intent visitors. A vague discount on "Local" means nothing to someone browsing Nike coupons. Show them <em>what</em> they can get.
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strat-card bad">
+      <div class="tag">Current proposal</div>
+      <h3>"25% off Local deals"</h3>
+      <p>Too vague. "Local" isn't a category users identify with. No visual hook, no specific deal to anchor desire. Requires the user to imagine what they'd use it for. Low click-through expected.</p>
+    </div>
+    <div class="strat-card good">
+      <div class="tag">Proposed approach</div>
+      <h3>"60% off Deep Tissue Massage near you"</h3>
+      <p>Specific deal, specific saving, immediate desire. Contextual to what they're browsing (beauty coupons → spa deals). The discount is baked into the deal &mdash; no promo code needed. Registration is the gate.</p>
+    </div>
+  </div>
+
+  <div class="callout-box">
+    <p><strong>Key insight:</strong> We don't need a promo code at all for v1. Groupon Local deals already have 40-70% markdowns built in. The "promo" IS the deal itself &mdash; the user just needs to register to claim it. This sidesteps the entire promo complexity (code length limits, Purple Prices feasibility, max discount caps).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- CONCEPT A: CONTEXTUAL INLINE BANNERS                          -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Concept A: Contextual Inline Banners</div>
+  <div class="section-desc">
+    Placed between coupon listings on merchant pages. The deal shown matches the vertical the user is browsing. E.g., someone on a beauty brand coupon page sees spa deals; someone on a restaurant coupon page sees dining deals.
+  </div>
+
+  <!-- Context: Beauty/Fashion coupon page -->
+  <div class="page-context">
+    <div class="ctx-label">User is browsing</div>
+    <div class="ctx-breadcrumb">groupon.com/coupons &rsaquo; Sephora</div>
+    <h4>Sephora Coupons & Promo Codes &mdash; March 2026</h4>
+  </div>
+
+  <div class="concept-label">Health & Beauty vertical</div>
+
+  <div class="banner-inline">
+    <div class="banner-image img-spa" style="position:relative;">
+      <div class="badge">Near you</div>
+    </div>
+    <div class="banner-content">
+      <div class="from-groupon">From Groupon</div>
+      <h3>60% Off Deep Tissue Massage</h3>
+      <div class="deal-detail">60-minute session at top-rated spas in your area. 12,000+ bought.</div>
+      <div class="price-row">
+        <span class="price">$39</span>
+        <span class="original-price">$99</span>
+        <span class="discount-pct">61% OFF</span>
+      </div>
+      <a class="cta">Sign Up Free &amp; Claim Deal</a>
+      <div class="cta-sub">Join 50M+ Groupon members. Takes 10 seconds.</div>
+    </div>
+  </div>
+
+  <div class="banner-inline">
+    <div class="banner-image img-facial" style="position:relative;">
+      <div class="badge">Trending</div>
+    </div>
+    <div class="banner-content">
+      <div class="from-groupon">From Groupon</div>
+      <h3>Hydrafacial &mdash; Up to 65% Off</h3>
+      <div class="deal-detail">LED therapy + deep cleanse at certified aestheticians nearby.</div>
+      <div class="price-row">
+        <span class="price">$69</span>
+        <span class="original-price">$199</span>
+        <span class="discount-pct">65% OFF</span>
+      </div>
+      <a class="cta">Sign Up Free &amp; Claim Deal</a>
+      <div class="cta-sub">No credit card required to browse deals.</div>
+    </div>
+  </div>
+
+  <div class="concept-note">
+    Placement: After 3rd coupon listing, and again after 8th. Contextual matching: Beauty/fashion coupon pages → H&B deals. Electronics → Activities. Restaurant/food → Dining deals.
+  </div>
+
+  <hr class="divider">
+
+  <!-- Context: Restaurant coupon page -->
+  <div class="page-context">
+    <div class="ctx-label">User is browsing</div>
+    <div class="ctx-breadcrumb">groupon.com/coupons &rsaquo; DoorDash</div>
+    <h4>DoorDash Coupons & Promo Codes &mdash; March 2026</h4>
+  </div>
+
+  <div class="concept-label">Food & Drink vertical</div>
+
+  <div class="banner-inline">
+    <div class="banner-image img-dinner" style="position:relative;">
+      <div class="badge">Popular</div>
+    </div>
+    <div class="banner-content">
+      <div class="from-groupon">From Groupon</div>
+      <h3>$30 of Italian Dining for $15</h3>
+      <div class="deal-detail">4.5-star rated restaurants. Dine-in or takeout. Multiple locations near you.</div>
+      <div class="price-row">
+        <span class="price">$15</span>
+        <span class="original-price">$30</span>
+        <span class="discount-pct">50% OFF</span>
+      </div>
+      <a class="cta">Sign Up Free &amp; See Restaurants</a>
+      <div class="cta-sub">Thousands of restaurant deals in your city.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Context: Travel coupon page -->
+  <div class="page-context">
+    <div class="ctx-label">User is browsing</div>
+    <div class="ctx-breadcrumb">groupon.com/coupons &rsaquo; Hotels.com</div>
+    <h4>Hotels.com Coupons & Promo Codes &mdash; March 2026</h4>
+  </div>
+
+  <div class="concept-label">Things To Do vertical</div>
+
+  <div class="banner-inline">
+    <div class="banner-image img-activity" style="position:relative;">
+      <div class="badge">Spring Special</div>
+    </div>
+    <div class="banner-content">
+      <div class="from-groupon">From Groupon</div>
+      <h3>Up to 55% Off Experiences Near You</h3>
+      <div class="deal-detail">Escape rooms, wine tastings, kayaking, go-karts & more. Perfect for your trip.</div>
+      <div class="price-row">
+        <span class="price">From $19</span>
+        <span class="original-price">$45</span>
+        <span class="discount-pct">55% OFF</span>
+      </div>
+      <a class="cta">Sign Up Free &amp; Explore</a>
+      <div class="cta-sub">Browse 10,000+ local experiences.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- CONCEPT B: MULTI-DEAL CAROUSEL BANNER                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" style="background: #eee; margin: 0; max-width: 100%; padding: 50px 40px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-title">Concept B: Multi-Deal Carousel</div>
+    <div class="section-desc">
+      Instead of showing one deal, show 3 top deals from the relevant vertical. Creates a "marketplace preview" effect &mdash; the user sees breadth, not just one option. Higher perceived value.
+    </div>
+
+    <div class="concept-label">Shown on Beauty coupon pages</div>
+
+    <div class="banner-multi">
+      <div class="multi-header">
+        <div>
+          <div class="from-groupon">Groupon &middot; Beauty & Wellness</div>
+          <h3>Top Spa Deals Near You</h3>
+        </div>
+        <a class="see-all" href="#">See all 200+ deals &rarr;</a>
+      </div>
+      <div class="multi-grid">
+        <div class="deal-card">
+          <div class="card-image img-massage" style="position:relative;">
+            <div class="pct-off">61% off</div>
+          </div>
+          <div class="card-body">
+            <h5>Deep Tissue Massage (60 min)</h5>
+            <span class="card-price">$39</span>
+            <span class="card-original">$99</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="card-image img-facial" style="position:relative;">
+            <div class="pct-off">65% off</div>
+          </div>
+          <div class="card-body">
+            <h5>HydraFacial + LED Therapy</h5>
+            <span class="card-price">$69</span>
+            <span class="card-original">$199</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="card-image img-yoga" style="position:relative;">
+            <div class="pct-off">70% off</div>
+          </div>
+          <div class="card-body">
+            <h5>5 Yoga Classes + Meditation</h5>
+            <span class="card-price">$29</span>
+            <span class="card-original">$95</span>
+          </div>
+        </div>
+      </div>
+      <div class="multi-footer">
+        <span class="reg-note">Create a free Groupon account to claim these deals</span>
+        <a class="cta-small">Sign Up Free</a>
+      </div>
+    </div>
+
+    <div class="concept-label">Shown on Food & Delivery coupon pages</div>
+
+    <div class="banner-multi">
+      <div class="multi-header">
+        <div>
+          <div class="from-groupon">Groupon &middot; Food & Drink</div>
+          <h3>Restaurant Deals You'll Love</h3>
+        </div>
+        <a class="see-all" href="#">See all 150+ deals &rarr;</a>
+      </div>
+      <div class="multi-grid">
+        <div class="deal-card">
+          <div class="card-image img-dinner" style="position:relative;">
+            <div class="pct-off">50% off</div>
+          </div>
+          <div class="card-body">
+            <h5>$30 Italian Dining Credit</h5>
+            <span class="card-price">$15</span>
+            <span class="card-original">$30</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="card-image img-food" style="position:relative;">
+            <div class="pct-off">45% off</div>
+          </div>
+          <div class="card-body">
+            <h5>Sushi Platter for Two</h5>
+            <span class="card-price">$35</span>
+            <span class="card-original">$65</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="card-image img-spa" style="position:relative;">
+            <div class="pct-off">40% off</div>
+          </div>
+          <div class="card-body">
+            <h5>Wine Tasting Experience</h5>
+            <span class="card-price">$29</span>
+            <span class="card-original">$49</span>
+          </div>
+        </div>
+      </div>
+      <div class="multi-footer">
+        <span class="reg-note">50M+ members already saving with Groupon</span>
+        <a class="cta-small">Sign Up Free</a>
+      </div>
+    </div>
+
+    <div class="concept-label">Shown on Activity / Entertainment coupon pages</div>
+
+    <div class="banner-multi">
+      <div class="multi-header">
+        <div>
+          <div class="from-groupon">Groupon &middot; Things To Do</div>
+          <h3>Experiences Starting at $19</h3>
+        </div>
+        <a class="see-all" href="#">See all 300+ deals &rarr;</a>
+      </div>
+      <div class="multi-grid">
+        <div class="deal-card">
+          <div class="card-image img-escape" style="position:relative;">
+            <div class="pct-off">52% off</div>
+          </div>
+          <div class="card-body">
+            <h5>Escape Room for Up to 6</h5>
+            <span class="card-price">$22</span>
+            <span class="card-original">$46</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="card-image img-bowling" style="position:relative;">
+            <div class="pct-off">55% off</div>
+          </div>
+          <div class="card-body">
+            <h5>2-Hr Bowling + Shoes</h5>
+            <span class="card-price">$19</span>
+            <span class="card-original">$42</span>
+          </div>
+        </div>
+        <div class="deal-card">
+          <div class="card-image img-golf" style="position:relative;">
+            <div class="pct-off">48% off</div>
+          </div>
+          <div class="card-body">
+            <h5>18 Holes + Cart for Two</h5>
+            <span class="card-price">$49</span>
+            <span class="card-original">$95</span>
+          </div>
+        </div>
+      </div>
+      <div class="multi-footer">
+        <span class="reg-note">New to Groupon? Create a free account in 10 seconds</span>
+        <a class="cta-small">Sign Up Free</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- CONCEPT C: SIDEBAR BANNERS                                    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Concept C: Sidebar Banners</div>
+  <div class="section-desc">
+    Persistent sidebar placement on coupon merchant pages. Sticky while user scrolls through coupon listings. Different deal per vertical.
+  </div>
+
+  <div class="banners-row">
+    <div>
+      <div class="placement-label">Beauty pages</div>
+      <div class="banner-sidebar">
+        <div class="sidebar-image img-massage" style="position:relative;">
+          <div class="badge">60% off</div>
+        </div>
+        <div class="sidebar-content">
+          <div class="from-groupon">From Groupon</div>
+          <h4>Spa Day: Massage + Facial</h4>
+          <div class="deal-detail">Top-rated spas near you</div>
+          <div class="price-row">
+            <span class="price">$59</span>
+            <span class="original-price">$149</span>
+          </div>
+          <a class="cta">Sign Up &amp; Claim</a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="placement-label">Auto / Home pages</div>
+      <div class="banner-sidebar">
+        <div class="sidebar-image img-auto" style="position:relative;">
+          <div class="badge">56% off</div>
+        </div>
+        <div class="sidebar-content">
+          <div class="from-groupon">From Groupon</div>
+          <h4>Full Synthetic Oil Change</h4>
+          <div class="deal-detail">Certified mechanics near you</div>
+          <div class="price-row">
+            <span class="price">$35</span>
+            <span class="original-price">$80</span>
+          </div>
+          <a class="cta">Sign Up &amp; Claim</a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="placement-label">General / Retail pages</div>
+      <div class="banner-sidebar">
+        <div class="sidebar-image img-activity" style="position:relative;">
+          <div class="badge">Popular</div>
+        </div>
+        <div class="sidebar-content">
+          <div class="from-groupon">From Groupon</div>
+          <h4>Fun Near You from $19</h4>
+          <div class="deal-detail">Escape rooms, bowling, axe-throwing & more</div>
+          <div class="price-row">
+            <span class="price">From $19</span>
+          </div>
+          <a class="cta">Sign Up &amp; Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- CONCEPT D: GREEN STRIP BANNERS                                -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" style="background: #eee; margin: 0; max-width: 100%; padding: 50px 40px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-title">Concept D: Compact Strip Banners</div>
+    <div class="section-desc">
+      Minimal footprint. Sits at the top of the coupon page or between listings. One-liner with strong hook. Ideal for A/B testing messaging.
+    </div>
+
+    <div class="banner-strip">
+      <div class="strip-left">
+        <div class="strip-icon">💆</div>
+        <div class="strip-text">
+          <h4>Spa deals from $39 near you</h4>
+          <p>Join Groupon free &mdash; 60% off massages, facials & more</p>
+        </div>
+      </div>
+      <a class="strip-cta">Sign Up Free</a>
+    </div>
+
+    <div class="banner-strip" style="background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);">
+      <div class="strip-left">
+        <div class="strip-icon">🍝</div>
+        <div class="strip-text">
+          <h4>Half-price dining near you</h4>
+          <p>150+ restaurant deals. Create a free Groupon account to claim.</p>
+        </div>
+      </div>
+      <a class="strip-cta" style="color: #1a1a1a;">See Restaurants</a>
+    </div>
+
+    <div class="banner-strip" style="background: linear-gradient(135deg, #0277bd 0%, #01579b 100%);">
+      <div class="strip-left">
+        <div class="strip-icon">🎯</div>
+        <div class="strip-text">
+          <h4>Escape rooms, go-karts & more from $19</h4>
+          <p>Top-rated experiences near you. Sign up and save up to 70%.</p>
+        </div>
+      </div>
+      <a class="strip-cta" style="color: #0277bd;">Explore Deals</a>
+    </div>
+
+    <div class="banner-strip" style="background: linear-gradient(135deg, #6a1b9a 0%, #4a148c 100%);">
+      <div class="strip-left">
+        <div class="strip-icon">🚗</div>
+        <div class="strip-text">
+          <h4>Oil change from $35 (56% off)</h4>
+          <p>Certified mechanics near you. Join Groupon and save.</p>
+        </div>
+      </div>
+      <a class="strip-cta" style="color: #6a1b9a;">Claim Deal</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- CONCEPT E: POST-CLICK INTERSTITIAL                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Concept E: Post-Coupon-Click Interstitial</div>
+  <div class="section-desc">
+    After the user clicks "Get Code" on a coupon, show a brief interstitial with a relevant Groupon deal before redirecting to the merchant. This is the highest-intent moment &mdash; the user just got a saving and is primed for more.
+  </div>
+
+  <div class="callout-box">
+    <p><strong>Timing:</strong> This appears for 4-5 seconds after "Get Code" click, with the coupon code visible above. User can skip immediately. Non-intrusive but high-visibility.</p>
+  </div>
+
+  <div class="banners-row">
+    <div>
+      <div class="placement-label">After beauty coupon click</div>
+      <div class="interstitial-overlay">
+        <div class="interstitial-card">
+          <div class="groupon-logo">GROUPON</div>
+          <div class="int-subtitle">While you're saving&hellip;</div>
+          <div class="int-deal">
+            <h4>60-Min Deep Tissue Massage</h4>
+            <div>
+              <span class="int-price">$39</span>
+              <span class="int-original">$99</span>
+            </div>
+            <div class="int-location">📍 Multiple locations near you</div>
+          </div>
+          <a class="int-cta">Sign Up Free &amp; Claim</a>
+          <div class="int-skip">No thanks, continue to Sephora</div>
+          <div class="int-trust">Join 50M+ Groupon members &middot; No credit card needed</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="placement-label">After food coupon click</div>
+      <div class="interstitial-overlay">
+        <div class="interstitial-card">
+          <div class="groupon-logo">GROUPON</div>
+          <div class="int-subtitle">Hungry for more savings?</div>
+          <div class="int-deal">
+            <h4>$30 Dining Credit for $15</h4>
+            <div>
+              <span class="int-price">$15</span>
+              <span class="int-original">$30</span>
+            </div>
+            <div class="int-location">📍 120+ restaurants in your city</div>
+          </div>
+          <a class="int-cta">Sign Up Free &amp; Eat</a>
+          <div class="int-skip">No thanks, continue to DoorDash</div>
+          <div class="int-trust">Join 50M+ Groupon members &middot; No credit card needed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- CONCEPT F: HERO BANNER (CATEGORY PAGE LEVEL)                  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" style="background: #eee; margin: 0; max-width: 100%; padding: 50px 40px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-title">Concept F: Hero Banner (Category Pages)</div>
+    <div class="section-desc">
+      Full-width placement at the top of Coupons category index pages (e.g., "Beauty Coupons", "Restaurant Coupons"). Highest impact, lowest frequency. One per category visit.
+    </div>
+
+    <div class="banner-hero">
+      <div class="hero-bg img-hero-spa">
+        <div class="hero-content">
+          <div class="from-groupon">Groupon Local Deals</div>
+          <h2>Spa & Wellness from $39</h2>
+          <div class="deal-detail">Massages, facials, and treatments at 60% off. Top-rated spas near you.</div>
+          <div class="hero-row">
+            <div class="price-block">
+              <span class="price">From $39</span>
+              <span class="original-price">$99</span>
+            </div>
+            <a class="cta">Sign Up Free &amp; Browse Deals</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-hero">
+      <div class="hero-bg img-activity">
+        <div class="hero-content">
+          <div class="from-groupon">Groupon Experiences</div>
+          <h2>Adventures Starting at $19</h2>
+          <div class="deal-detail">Escape rooms, skydiving, go-karts, wine tastings. 300+ experiences in your area.</div>
+          <div class="hero-row">
+            <div class="price-block">
+              <span class="price">From $19</span>
+              <span class="original-price">$45</span>
+            </div>
+            <a class="cta">Sign Up Free &amp; Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- VERTICAL MAPPING + RECOMMENDATION                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Vertical Mapping: Coupon Category → Groupon Deal</div>
+  <div class="section-desc">
+    Each coupon category should serve a contextually relevant Groupon vertical. This mapping drives higher CTR than generic banners.
+  </div>
+
+  <table style="width:100%; max-width:800px; border-collapse:collapse; font-size:14px; margin-bottom:36px;">
+    <thead>
+      <tr style="border-bottom:2px solid #333;">
+        <th style="text-align:left; padding:10px 16px; font-weight:700;">Coupons Page</th>
+        <th style="text-align:left; padding:10px 16px; font-weight:700;">Groupon Vertical</th>
+        <th style="text-align:left; padding:10px 16px; font-weight:700;">Example Deal Hook</th>
+        <th style="text-align:left; padding:10px 16px; font-weight:700;">Why It Works</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">Beauty (Sephora, Ulta, Bath &amp; Body)</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:600;">Health &amp; Beauty</td>
+        <td style="padding:10px 16px;">Spa massage $39 (61% off)</td>
+        <td style="padding:10px 16px; color:#666;">Same self-care mindset</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">Food (DoorDash, Uber Eats, Grubhub)</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:600;">Food &amp; Drink</td>
+        <td style="padding:10px 16px;">$30 dining for $15 (50% off)</td>
+        <td style="padding:10px 16px; color:#666;">Already food-motivated</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">Travel (Hotels.com, Expedia, Booking)</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:600;">Things To Do</td>
+        <td style="padding:10px 16px;">Experiences from $19 (55% off)</td>
+        <td style="padding:10px 16px; color:#666;">Trip-planning mode</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">Auto (AutoZone, Advance Auto)</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:600;">Automotive</td>
+        <td style="padding:10px 16px;">Oil change $35 (56% off)</td>
+        <td style="padding:10px 16px; color:#666;">Same need, better deal</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">Retail (Nike, Amazon, Target)</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:600;">Things To Do</td>
+        <td style="padding:10px 16px;">Fun from $19 (escape rooms, bowling)</td>
+        <td style="padding:10px 16px; color:#666;">Spend shift: products → experiences</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">Fitness (Nike, Lululemon, GNC)</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:600;">Health &amp; Beauty</td>
+        <td style="padding:10px 16px;">5 yoga classes $29 (70% off)</td>
+        <td style="padding:10px 16px; color:#666;">Fitness intent overlap</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 16px;">Home (Wayfair, Home Depot, Lowes)</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:600;">Home Services</td>
+        <td style="padding:10px 16px;">House cleaning from $49</td>
+        <td style="padding:10px 16px; color:#666;">Home improvement mindset</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="margin-top:40px;">Recommended Approach for POC</div>
+  <div class="section-desc" style="max-width:800px;">
+    Start with Concepts B (multi-deal carousel) + D (compact strip) on the top 50 Coupons pages by traffic. These have the best balance of visibility, low engineering effort, and A/B testability.
+  </div>
+
+  <table style="width:100%; max-width:800px; border-collapse:collapse; font-size:14px;">
+    <thead>
+      <tr style="border-bottom:2px solid #333;">
+        <th style="text-align:left; padding:10px 16px; font-weight:700;">Concept</th>
+        <th style="text-align:center; padding:10px 16px; font-weight:700;">Impact</th>
+        <th style="text-align:center; padding:10px 16px; font-weight:700;">Effort</th>
+        <th style="text-align:center; padding:10px 16px; font-weight:700;">Testability</th>
+        <th style="text-align:left; padding:10px 16px; font-weight:700;">POC Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">A. Contextual Inline</td>
+        <td style="padding:10px 16px; text-align:center;">High</td>
+        <td style="padding:10px 16px; text-align:center;">Medium</td>
+        <td style="padding:10px 16px; text-align:center;">Medium</td>
+        <td style="padding:10px 16px;">Phase 2</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee; background:#f8faf5;">
+        <td style="padding:10px 16px; font-weight:600;">B. Multi-Deal Carousel</td>
+        <td style="padding:10px 16px; text-align:center; font-weight:600;">High</td>
+        <td style="padding:10px 16px; text-align:center; font-weight:600;">Medium</td>
+        <td style="padding:10px 16px; text-align:center; font-weight:600;">High</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:700;">Phase 1 ✓</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">C. Sidebar</td>
+        <td style="padding:10px 16px; text-align:center;">Medium</td>
+        <td style="padding:10px 16px; text-align:center;">Low</td>
+        <td style="padding:10px 16px; text-align:center;">Low</td>
+        <td style="padding:10px 16px;">Phase 2</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee; background:#f8faf5;">
+        <td style="padding:10px 16px; font-weight:600;">D. Compact Strip</td>
+        <td style="padding:10px 16px; text-align:center; font-weight:600;">Medium</td>
+        <td style="padding:10px 16px; text-align:center; font-weight:600;">Low</td>
+        <td style="padding:10px 16px; text-align:center; font-weight:600;">High</td>
+        <td style="padding:10px 16px; color:#53a318; font-weight:700;">Phase 1 ✓</td>
+      </tr>
+      <tr style="border-bottom:1px solid #eee;">
+        <td style="padding:10px 16px;">E. Post-Click Interstitial</td>
+        <td style="padding:10px 16px; text-align:center;">Very High</td>
+        <td style="padding:10px 16px; text-align:center;">Medium</td>
+        <td style="padding:10px 16px; text-align:center;">Medium</td>
+        <td style="padding:10px 16px;">Phase 2 (needs UX sign-off)</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 16px;">F. Hero Banner</td>
+        <td style="padding:10px 16px; text-align:center;">High</td>
+        <td style="padding:10px 16px; text-align:center;">Low</td>
+        <td style="padding:10px 16px; text-align:center;">Medium</td>
+        <td style="padding:10px 16px;">Phase 2 (category pages only)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- KEY ARGUMENT                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" style="background:#1a1a1a; color:white; margin:0; max-width:100%; padding:50px 40px;">
+  <div style="max-width:800px; margin:0 auto;">
+    <div class="section-title" style="color:white;">The key argument: skip the promo code</div>
+    <div style="color:#aaa; font-size:15px; line-height:1.7; margin-top:16px;">
+      <p style="margin-bottom:16px;">
+        The promo team's proposal (25% off, max $50, codename &lt;10 chars, Purple Prices debate) adds complexity that isn't needed for v1.
+      </p>
+      <p style="margin-bottom:16px;">
+        <strong style="color:#53a318;">Groupon Local deals already carry 40-70% discounts.</strong> The "promo" is the deal itself. We don't need to layer an additional promo code on top &mdash; we just need to surface the right deals to the right users at the right moment.
+      </p>
+      <p style="margin-bottom:16px;">
+        The registration gate IS the conversion mechanism. User sees a compelling deal → clicks → hits registration wall → signs up → becomes a Groupon user. Simple.
+      </p>
+      <p style="margin-bottom:16px;">
+        If we want to add a sweetener later (e.g., "$5 off your first Groupon deal"), that can be Phase 2 once we have baseline registration conversion data from Phase 1.
+      </p>
+      <p style="color:#53a318; font-weight:600;">
+        Phase 1: Deal-led banners → registration wall → user acquired.<br>
+        Phase 2: Add promo incentive if registration rate needs boosting.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div style="padding:30px 40px; text-align:center; color:#aaa; font-size:12px;">
+  Internal mock-ups &mdash; not final creative. Deals are illustrative. &middot; Martin Gregor &middot; March 2026
+</div>
+
+</body>
+</html>

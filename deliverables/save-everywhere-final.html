@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Save Everywhere with Groupon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --surface-hover: #f0f0f2;
+    --border: #d8d8dc;
+    --text: #1d1d1f;
+    --text-muted: #6e6e73;
+    --text-dim: #aeaeb2;
+    --coral: #e0443a;
+    --amber: #d48a00;
+    --teal: #1a9e8f;
+    --green: #28a745;
+    --blue: #0066cc;
+    --purple: #7c3aed;
+    --pink: #f472b6;
+    --green-light: #dcfce7;
+    --amber-light: #fef3c7;
+    --blue-light: #dbeafe;
+    --teal-light: #ccfbf1;
+    --purple-light: #ede9fe;
+    --red-light: #fee2e2;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+  }
+
+  /* === HEADER === */
+  header {
+    text-align: center;
+    padding: 3rem 0 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  header .subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* === DECK CARDS === */
+  .deck-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .deck-card .card-label {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .deck-card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    padding-top: 0.5rem;
+    color: var(--text);
+  }
+  .deck-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  /* === PREMISE QUOTE === */
+  .premise-quote {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--gray-50);
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* === NUMBERED STEPS === */
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+  }
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content {
+    flex: 1;
+  }
+  .step-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+  .step-detail {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 0.75rem 1rem;
+    background: var(--gray-50);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+  }
+  .step-detail a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .step-detail a:hover {
+    text-decoration: underline;
+  }
+
+  /* === PROTOTYPE IFRAME === */
+  .prototype-wrapper {
+    margin-top: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .prototype-link {
+    display: block;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--blue);
+    margin-top: 0.75rem;
+  }
+  .prototype-link a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .prototype-link a:hover { text-decoration: underline; }
+
+  /* === LINEAR FLOW === */
+  .linear-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background: var(--gray-50);
+    border-radius: 12px;
+  }
+  .flow-node {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .flow-node.highlight {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+  }
+  .flow-arrow {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  /* === NUMBERS GRID === */
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 600px) { .numbers-grid { grid-template-columns: 1fr; } }
+  .number-card {
+    background: var(--gray-50);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  .number-card .big-num {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--green);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .number-card .big-num.amber { color: var(--amber); }
+  .number-card .big-num.coral { color: var(--coral); }
+  .number-card .big-num.blue { color: var(--blue); }
+  .number-card .big-num.teal { color: var(--teal); }
+  .number-card .big-num.purple { color: var(--purple); }
+  .number-card .num-label {
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+  }
+  .number-card .num-source {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+  .number-card.full-width {
+    grid-column: 1 / -1;
+  }
+
+  /* === UNKNOWNS === */
+  .unknown-item {
+    background: var(--gray-50);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .unknown-item strong {
+    color: var(--text);
+  }
+  .unknown-item .unknown-detail {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    margin-top: 0.25rem;
+  }
+
+  /* === THREE PILLARS (colored left borders) === */
+  .pillar-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid transparent;
+  }
+  .pillar-card.purple-left { border-left-color: var(--purple); }
+  .pillar-card.teal-left { border-left-color: var(--teal); }
+  .pillar-card.amber-left { border-left-color: var(--amber); }
+  .pillar-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+  .pillar-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.4rem;
+  }
+  .pillar-intro {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--gray-50);
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+  }
+
+  /* === HOOKS GRID (3x2) === */
+  .hooks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+  @media (max-width: 700px) { .hooks-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 400px) { .hooks-grid { grid-template-columns: 1fr; } }
+  .hook-item {
+    text-align: center;
+  }
+  .hook-item .hook-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin: 0.6rem 0 0.25rem;
+    color: var(--text);
+  }
+
+  /* === EFFORT PILLS === */
+  .effort-pill {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-top: 0.2rem;
+  }
+  .effort-pill.low { background: rgba(40,167,69,0.12); color: var(--green); }
+  .effort-pill.medium { background: rgba(212,138,0,0.12); color: var(--amber); }
+  .effort-pill.low-med { background: rgba(0,102,204,0.12); color: var(--blue); }
+
+  /* === MINI PHONE === */
+  .mini-phone {
+    width: 140px;
+    margin: 0 auto;
+    background: #333;
+    border-radius: 18px;
+    padding: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .mini-screen {
+    background: #fff;
+    border-radius: 14px;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    font-family: -apple-system, sans-serif;
+    color: #1d1d1f;
+    font-size: 9px;
+    line-height: 1.3;
+    padding: 20px 8px 8px;
+  }
+  .mini-notch {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 10px;
+    background: #333;
+    border-radius: 10px;
+  }
+  .mini-url-bar {
+    background: #f2f2f7;
+    border-radius: 6px;
+    padding: 3px 6px;
+    font-size: 7.5px;
+    color: #8e8e93;
+    margin-bottom: 6px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .mini-toast {
+    background: #34c759;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 600;
+    padding: 6px 8px;
+    border-radius: 8px;
+    margin-top: 6px;
+    text-align: center;
+  }
+  .mini-notif {
+    background: #f2f2f7;
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .mini-notif-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    background: #53b83a;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 700;
+  }
+  .mini-notif-text { flex: 1; font-size: 8px; line-height: 1.35; }
+  .mini-notif-title { font-weight: 700; margin-bottom: 1px; }
+  .mini-app-header {
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1d1d1f;
+  }
+  .mini-bucks-amount {
+    font-size: 20px;
+    font-weight: 800;
+    color: #d48a00;
+    text-align: center;
+    margin: 12px 0 6px;
+  }
+  .mini-btn {
+    background: #53b83a;
+    color: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 8.5px;
+    margin-top: 6px;
+  }
+  .mini-deal-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 6px 8px;
+    margin-bottom: 4px;
+    border: 1px solid #e5e5ea;
+  }
+  .mini-deal-title { font-weight: 600; font-size: 8px; }
+  .mini-deal-price { font-weight: 700; color: #53b83a; font-size: 9px; }
+  .mini-alert-box {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 6px;
+    font-size: 8px;
+    text-align: center;
+  }
+  .mini-progress-bar {
+    background: #e5e5ea;
+    border-radius: 4px;
+    height: 6px;
+    margin: 6px 0;
+    overflow: hidden;
+  }
+  .mini-progress-fill {
+    background: #d48a00;
+    height: 100%;
+    border-radius: 4px;
+    width: 74%;
+  }
+  .mini-code-list {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0;
+  }
+  .mini-code-list li {
+    background: #f2f2f7;
+    border-radius: 6px;
+    padding: 4px 6px;
+    margin-bottom: 3px;
+    font-size: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mini-code-list .code-val {
+    font-weight: 700;
+    color: #53b83a;
+  }
+  .mini-cta-btn {
+    background: #53b83a;
+    color: #fff;
+    border-radius: 20px;
+    padding: 8px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 9px;
+    margin-top: 8px;
+  }
+  .mini-rec-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .mini-rec-item:last-child { border-bottom: none; }
+  .mini-rec-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: #f2f2f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .mini-rec-text { flex: 1; }
+  .mini-rec-brand { font-weight: 600; font-size: 8px; }
+  .mini-rec-code { font-size: 7.5px; color: #53b83a; font-weight: 600; }
+
+  /* === COUPONS SPACE ITEMS === */
+  .compact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .compact-item h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .compact-item p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* === WHAT'S NEXT === */
+  .next-section {
+    margin-bottom: 1.25rem;
+  }
+  .next-section h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .next-list {
+    list-style: none;
+    padding: 0;
+  }
+  .next-list li {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .next-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+  .next-list.needs li::before {
+    background: var(--amber);
+  }
+  .next-direction {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--gray-50);
+    border-radius: 8px;
+  }
+
+  /* === SUPPORTING LINKS === */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  @media (max-width: 500px) { .links-grid { grid-template-columns: 1fr; } }
+  .link-card {
+    display: block;
+    background: var(--gray-50);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow 0.15s;
+  }
+  .link-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .link-card .link-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 0.15rem;
+  }
+  .link-card .link-desc {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  /* === HOOKS SECTION HEADING === */
+  .hooks-heading {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 0.25rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== -->
+<!--         TITLE                  -->
+<!-- ============================== -->
+<header>
+  <h1>Save Everywhere with Groupon</h1>
+  <div class="subtitle">Safari Extension + Cashback + Coupons in the App</div>
+</header>
+
+<!-- ============================== -->
+<!--     SECTION 1: THE PREMISE     -->
+<!-- ============================== -->
+<div class="deck-card">
+  <span class="card-label">01 / The Premise</span>
+  <h2>The Premise</h2>
+
+  <div class="premise-quote">
+    Coupons content provides a mechanism for Groupon to be part of our customers' shopping experience across thousands of brands and millions of checkouts.
+  </div>
+
+  <div class="premise-quote">
+    By delivering coupons content through a Safari extension within the Groupon app, we can extend Groupon's reach to deliver value for our customers across all their shopping experiences.
+  </div>
+</div>
+
+<!-- ============================== -->
+<!--    SECTION 2: HOW IT WORKS     -->
+<!-- ============================== -->
+<div class="deck-card">
+  <span class="card-label">02 / How It Works</span>
+  <h2>How It Works</h2>
+
+  <!-- Step 1 -->
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <p>A Safari extension is added to the Groupon app. When a user downloads the app and enables the extension, Groupon will pop up when they shop at leading retailers on their phone.</p>
+
+      <div class="prototype-wrapper">
+        <iframe src="safari-extension-prototype.html" style="width:100%;height:600px;border:none;border-radius:12px;"></iframe>
+      </div>
+      <div class="prototype-link">
+        <a href="safari-extension-prototype.html" target="_blank">Click through the journey, or open fullscreen</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <p>Coupons content is strengthened by cashback offers which upsell into Groupon Bucks - leading the user back to Groupon.</p>
+
+      <div class="linear-flow">
+        <div class="flow-node">User on Nike</div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-node highlight">Extension popup</div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-node">Earns Bucks</div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-node">Opens Groupon app</div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-node highlight">Redeems on local deal</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <p>Rather than the Genie extension which only works on desktop, this works on mobile - where our customers shop!</p>
+      <div class="step-detail">61% of coupons traffic is mobile (BQ). Genie reaches only 39%.</div>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <p>As an extension of the app, acquisition is supercharged using the existing app base.</p>
+      <div class="step-detail">8-10M monthly active users (Tableau). No separate download. Every app install becomes a Safari extension install.</div>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="step">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <p>Integrating data from users' off-Groupon shopping experience into their Groupon profile enhances opportunity for personalisation.</p>
+      <div class="step-detail">Users who shop Nike, Amazon, Target through the extension build a shopping profile. This feeds personalisation - complementing Viktor Varoczi's GROUPON LIFE initiative.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!--    SECTION 3: THE NUMBERS      -->
+<!-- ============================== -->
+<div class="deck-card">
+  <span class="card-label">03 / The Numbers</span>
+  <h2>The Numbers</h2>
+
+  <div class="numbers-grid">
+    <div class="number-card">
+      <span class="big-num">8-10M</span>
+      <div class="num-label">US App MAU</div>
+      <div class="num-source">Tableau, Mar 25 - Apr 7</div>
+    </div>
+
+    <div class="number-card">
+      <span class="big-num teal">61%</span>
+      <div class="num-label">Mobile traffic share</div>
+      <div class="num-source">BQ, 2025</div>
+    </div>
+
+    <div class="number-card">
+      <span class="big-num blue">~50%</span>
+      <div class="num-label">US Safari mobile share</div>
+      <div class="num-source">StatCounter</div>
+    </div>
+
+    <div class="number-card">
+      <span class="big-num amber">$6/user/yr</span>
+      <div class="num-label">Genie proof: 981 installs, actual revenue</div>
+      <div class="num-source">CJ, 23 weeks</div>
+    </div>
+
+    <div class="number-card">
+      <span class="big-num">$9.81/user/yr</span>
+      <div class="num-label">With Bucks + cashback upsell</div>
+      <div class="num-source">LTV model, high scenario</div>
+    </div>
+
+    <div class="number-card">
+      <span class="big-num purple">$4-16M/yr</span>
+      <div class="num-label">Revenue potential at 10-30% activation</div>
+      <div class="num-source">Modelled from MAU + Safari share</div>
+    </div>
+
+    <div class="number-card full-width">
+      <span class="big-num coral">30M sessions / $12.6M commission</span>
+      <div class="num-label">Current coupons (declining 17% YoY)</div>
+      <div class="num-source">BQ, 2025</div>
+    </div>
+
+    <div class="number-card full-width" style="background: var(--surface); text-align: center;">
+      <div class="num-label" style="margin-bottom: 0.25rem;">Competitor proof: Honey (in PayPal), Rakuten, Capital One Shopping all do this. Honey in crisis (lost 8M users).</div>
+      <div class="num-source"><a href="competitor-research-2026-04-08.html" style="color: var(--blue); text-decoration: none; font-weight: 600;">Full competitor research &rarr;</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!--     SECTION 4: UNKNOWNS        -->
+<!-- ============================== -->
+<div class="deck-card">
+  <span class="card-label">04 / Unknowns</span>
+  <h2>Unknowns</h2>
+
+  <div class="unknown-item">
+    <strong>App Store approval</strong> - can we bundle a Safari extension inside the app?
+    <div class="unknown-detail">2-week iOS engineering spike to validate</div>
+  </div>
+
+  <div class="unknown-item">
+    <strong>Extension activation rate</strong> - Honey gets ~30% from PayPal, what's realistic for Groupon?
+    <div class="unknown-detail">10-30% range estimated</div>
+  </div>
+
+  <div class="unknown-item">
+    <strong>iOS share of app users</strong> - estimated ~55%, need confirmed data from BI
+    <div class="unknown-detail">Need confirmed data from BI</div>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!--  SECTION 5: WHY ALL THREE      -->
+<!-- ============================== -->
+<div class="deck-card">
+  <span class="card-label">05 / Why We Need All Three</span>
+  <h2>Safari Extension + Cashback/Bucks + Coupons in the App - Why We Need All Three</h2>
+
+  <div class="pillar-intro">
+    Rather than a standalone extension with just coupons content, we believe the real value of this feature would be based on the extension + cashback/Bucks + coupons account/app integration.
+  </div>
+
+  <!-- Pillar 1: Safari Extension = Reach -->
+  <div class="pillar-card purple-left">
+    <h4>Safari Extension = Reach</h4>
+    <p>The distribution layer. Safari inside the Groupon app puts us on every retailer site the user visits. 8-10M app users, ~50% on Safari, zero separate download.</p>
+  </div>
+
+  <!-- Pillar 2: Cashback / Bucks = Value Creation -->
+  <div class="pillar-card teal-left">
+    <h4>Cashback / Groupon Bucks = Value Creation</h4>
+    <p>The cashback element gives us a way of creating valuable content for the user without being reliant on codes issued by merchants.</p>
+    <p>Most importantly, cashback also opens the doorway to an upsell into Groupon Bucks.</p>
+  </div>
+
+  <!-- Pillar 3: Coupons in the App = Personalisation -->
+  <div class="pillar-card amber-left">
+    <h4>Coupons in the App = Personalisation</h4>
+    <p>Coupons integration into the account opens the way for more personalisation and messaging - allow customers to follow their favourite brands for alerts when coupons/cashback offers are available.</p>
+  </div>
+
+  <!-- Engagement Hooks: 6 Mini Phone Mockups -->
+  <div class="hooks-heading">What "Coupons in the App" looks like</div>
+
+  <div class="hooks-grid">
+    <!-- 1. Follow Stores + Alerts -->
+    <div class="hook-item">
+      <div class="mini-phone"><div class="mini-screen">
+        <div class="mini-notch"></div>
+        <div class="mini-app-header">Groupon</div>
+        <div class="mini-notif">
+          <div class="mini-notif-icon">G</div>
+          <div class="mini-notif-text">
+            <div class="mini-notif-title">Nike</div>
+            New code: 20% off sitewide
+          </div>
+        </div>
+        <div class="mini-notif">
+          <div class="mini-notif-icon">G</div>
+          <div class="mini-notif-text">
+            <div class="mini-notif-title">ASOS</div>
+            Flash sale: 30% off everything
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:12px; font-size:7.5px; color:#8e8e93;">Following: 12 stores</div>
+      </div></div>
+      <div class="hook-title">Follow Stores + Alerts</div>
+      <span class="effort-pill low">Low effort</span>
+    </div>
+
+    <!-- 2. Weekly Best Codes -->
+    <div class="hook-item">
+      <div class="mini-phone"><div class="mini-screen">
+        <div class="mini-notch"></div>
+        <div class="mini-app-header">This Week's Best</div>
+        <ul class="mini-code-list">
+          <li><span>ASOS</span> <span class="code-val">30% off</span></li>
+          <li><span>Nike</span> <span class="code-val">25% off</span></li>
+          <li><span>Uber Eats</span> <span class="code-val">20% off</span></li>
+          <li><span>Target</span> <span class="code-val">15% off</span></li>
+          <li><span>Amazon</span> <span class="code-val">$10 off</span></li>
+        </ul>
+        <div style="text-align:center; margin-top:4px; font-size:7px; color:#8e8e93;">Updated every Monday</div>
+      </div></div>
+      <div class="hook-title">Weekly Best Codes</div>
+      <span class="effort-pill low">Low effort</span>
+    </div>
+
+    <!-- 3. Code Expiry Alerts -->
+    <div class="hook-item">
+      <div class="mini-phone"><div class="mini-screen">
+        <div class="mini-notch"></div>
+        <div class="mini-app-header">Alerts</div>
+        <div class="mini-notif">
+          <div class="mini-notif-icon" style="background:#ff3b30;">!</div>
+          <div class="mini-notif-text">
+            <div class="mini-notif-title">Expiring Tonight!</div>
+            Your ASOS 30% off expires tonight!
+          </div>
+        </div>
+        <div class="mini-alert-box">
+          <strong>Nike 20% off</strong><br>
+          Expires in 2 days
+        </div>
+        <div style="text-align:center; margin-top:10px; font-size:7.5px; color:#53b83a; font-weight:600;">Use code now</div>
+      </div></div>
+      <div class="hook-title">Code Expiry Alerts</div>
+      <span class="effort-pill low">Low effort</span>
+    </div>
+
+    <!-- 4. Cashback in Bucks -->
+    <div class="hook-item">
+      <div class="mini-phone"><div class="mini-screen">
+        <div class="mini-notch"></div>
+        <div class="mini-app-header">Groupon Bucks</div>
+        <div class="mini-bucks-amount">$12.40</div>
+        <div class="mini-progress-bar"><div class="mini-progress-fill"></div></div>
+        <div style="text-align:center; font-size:7.5px; color:#8e8e93; margin-bottom:8px;">$7.60 to next reward</div>
+        <div class="mini-toast" style="background:#d48a00;">+$2.40 Groupon Bucks earned</div>
+        <div style="text-align:center; margin-top:8px; font-size:7px; color:#8e8e93;">From Nike purchase</div>
+      </div></div>
+      <div class="hook-title">Cashback in Bucks</div>
+      <span class="effort-pill medium">Medium effort</span>
+    </div>
+
+    <!-- 5. Web-to-App Bridge -->
+    <div class="hook-item">
+      <div class="mini-phone"><div class="mini-screen">
+        <div class="mini-notch"></div>
+        <div class="mini-url-bar">groupon.com/coupons/nike</div>
+        <div style="margin-top:8px; font-size:8px; font-weight:600;">Nike: 20% Off Sitewide</div>
+        <div style="font-size:7.5px; color:#8e8e93; margin:4px 0;">Code: SAVE20 - Verified today</div>
+        <div class="mini-cta-btn">Save this code to the Groupon app</div>
+        <div style="text-align:center; margin-top:10px; font-size:7px; color:#8e8e93;">Opens in Groupon app</div>
+      </div></div>
+      <div class="hook-title">Web-to-App Bridge</div>
+      <span class="effort-pill low-med">Low-Med effort</span>
+    </div>
+
+    <!-- 6. Smart Recommendations -->
+    <div class="hook-item">
+      <div class="mini-phone"><div class="mini-screen">
+        <div class="mini-notch"></div>
+        <div class="mini-app-header">For You</div>
+        <div style="font-size:7.5px; color:#8e8e93; margin-bottom:6px;">Based on your shopping:</div>
+        <div class="mini-rec-item">
+          <div class="mini-rec-icon">N</div>
+          <div class="mini-rec-text">
+            <div class="mini-rec-brand">Nike</div>
+            <div class="mini-rec-code">20% off sitewide</div>
+          </div>
+        </div>
+        <div class="mini-rec-item">
+          <div class="mini-rec-icon">A</div>
+          <div class="mini-rec-text">
+            <div class="mini-rec-brand">Adidas</div>
+            <div class="mini-rec-code">15% off + free shipping</div>
+          </div>
+        </div>
+        <div class="mini-rec-item">
+          <div class="mini-rec-icon">T</div>
+          <div class="mini-rec-text">
+            <div class="mini-rec-brand">Target</div>
+            <div class="mini-rec-code">$5 off $50+</div>
+          </div>
+        </div>
+      </div></div>
+      <div class="hook-title">Smart Recommendations</div>
+      <span class="effort-pill medium">Medium effort</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!--  SECTION 6: THE COUPONS SPACE  -->
+<!-- ============================== -->
+<div class="deck-card">
+  <span class="card-label">06 / The Coupons Space</span>
+  <h2>The Coupons Space</h2>
+
+  <p style="font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.25rem; color: var(--text);">Lead with the Safari extension - then support with these. Our organic coupons traffic is declining, but these initiatives both stand on their own and feed the Safari strategy:</p>
+
+  <div class="compact-item">
+    <h4>User Registration + Rewards</h4>
+    <p>$3.83/registration (BQ verified), needs auth integration, $2.1-4.6M/yr</p>
+  </div>
+
+  <div class="compact-item">
+    <h4>Genie + Rewards</h4>
+    <p>Proven at $6/user, 34 MD for 26-59x growth, proves the model Safari inherits</p>
+  </div>
+
+  <div class="compact-item">
+    <h4>Cashback</h4>
+    <p>In planning, builds on Bucks infrastructure</p>
+  </div>
+
+  <p style="font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); font-style: italic; margin-top: 1rem; padding: 0.75rem 1rem; background: var(--gray-50); border-radius: 8px;">Every registered coupons user becomes a potential Safari extension user.</p>
+</div>
+
+<!-- ============================== -->
+<!--    SECTION 7: WHAT'S NEXT      -->
+<!-- ============================== -->
+<div class="deck-card">
+  <span class="card-label">07 / What's Next</span>
+  <h2>What's Next</h2>
+
+  <div class="next-section">
+    <h3>Already executing:</h3>
+    <ul class="next-list">
+      <li>Genie rewards integration (34 MD)</li>
+      <li>Registration A/B test</li>
+      <li>Cashback scoping</li>
+    </ul>
+  </div>
+
+  <div class="next-section">
+    <h3>What we need:</h3>
+    <ul class="next-list needs">
+      <li>2-week iOS spike (the one decision point)</li>
+    </ul>
+  </div>
+
+  <div class="next-direction">We're presenting for direction - not asking approval on every sub-project.</div>
+</div>
+
+<!-- ============================== -->
+<!--  SECTION 8: SUPPORTING MATERIALS -->
+<!-- ============================== -->
+<div class="deck-card">
+  <span class="card-label">08 / Supporting Materials</span>
+  <h2>Supporting Materials</h2>
+
+  <div class="links-grid">
+    <a class="link-card" href="safari-extension-prototype.html">
+      <div class="link-title">Safari Extension Prototype</div>
+      <div class="link-desc">Interactive click-through of the user journey</div>
+    </a>
+
+    <a class="link-card" href="competitor-research-2026-04-08.html">
+      <div class="link-title">Competitor Research</div>
+      <div class="link-desc">Honey, Rakuten, Capital One Shopping analysis</div>
+    </a>
+
+    <a class="link-card" href="save-everywhere-data-analysis.html">
+      <div class="link-title">Full Data Analysis</div>
+      <div class="link-desc">Traffic, revenue, mobile share, activation modelling</div>
+    </a>
+
+    <a class="link-card" href="genie-ltv-model.html">
+      <div class="link-title">LTV Model</div>
+      <div class="link-desc">3-scenario revenue model: $6 to $9.81/user/yr</div>
+    </a>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!--           FOOTER               -->
+<!-- ============================== -->
+<footer>
+  Prepared by Martin Gregor - Coupons &amp; Ecosystem - April 2026
+</footer>
+
+</body>
+</html>

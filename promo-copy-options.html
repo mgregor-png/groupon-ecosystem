@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cashback Promo Copy Options</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #333; padding: 32px; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  .subtitle { color: #666; margin-bottom: 32px; font-size: 14px; }
+  .section { margin-bottom: 40px; }
+  .section h2 { font-size: 18px; margin-bottom: 4px; color: #1a1a1a; }
+  .section .note { font-size: 13px; color: #888; margin-bottom: 16px; }
+  .card { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); position: relative; }
+  .card-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-bottom: 12px; }
+  .headline { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .subline { font-size: 15px; color: #555; margin-bottom: 12px; }
+  .cta { display: inline-block; padding: 10px 24px; border-radius: 24px; font-weight: 600; font-size: 14px; border: none; cursor: pointer; }
+  .copy-btn { position: absolute; top: 16px; right: 16px; background: #eee; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; color: #555; }
+  .copy-btn:hover { background: #ddd; }
+  .copy-btn.copied { background: #53a318; color: #fff; }
+
+  /* Groupon green theme */
+  .green .headline { color: #53a318; }
+  .green .cta { background: #53a318; color: #fff; }
+
+  /* Dollar/cash theme */
+  .cash .headline { color: #1a1a1a; }
+  .cash .cta { background: #53a318; color: #fff; }
+
+  /* Banner previews */
+  .banner-preview { border-radius: 8px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .banner-preview .banner-text { font-size: 14px; font-weight: 600; color: #fff; }
+  .banner-preview .banner-cta { background: #fff; color: #333; padding: 6px 16px; border-radius: 4px; font-size: 13px; font-weight: 600; white-space: nowrap; margin-left: 16px; }
+  .bg-green { background: #53a318; }
+  .bg-dark { background: #1a1a1a; }
+  .bg-blue { background: #0052cc; }
+
+  /* Popup/modal preview */
+  .popup-preview { max-width: 360px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+  .popup-img { width: 100%; height: 160px; object-fit: cover; }
+  .popup-img-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg, #53a318 0%, #3d7a12 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 48px; }
+  .popup-body { padding: 20px; text-align: center; }
+  .popup-body .headline { font-size: 20px; margin-bottom: 8px; }
+  .popup-body .subline { font-size: 14px; margin-bottom: 16px; }
+  .popup-body .cta { display: block; width: 100%; text-align: center; padding: 12px; font-size: 15px; }
+  .popup-body .terms { font-size: 11px; color: #aaa; margin-top: 10px; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+
+  /* Deal card overlay */
+  .deal-card { max-width: 340px; border: 2px solid #53a318; border-radius: 12px; overflow: hidden; background: #fff; }
+  .deal-badge { background: #53a318; color: #fff; font-size: 12px; font-weight: 700; padding: 4px 10px; display: inline-block; }
+  .deal-card-body { padding: 16px; }
+  .deal-card-body .merchant { font-size: 13px; color: #888; margin-bottom: 4px; }
+  .deal-card-body .deal-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .deal-card-body .cashback-line { font-size: 14px; color: #53a318; font-weight: 600; margin-bottom: 12px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px; }
+  .tag-recommended { background: #53a318; color: #fff; }
+  .tag-alternative { background: #f0f0f0; color: #666; }
+  .tag-bold { background: #ff5a5f; color: #fff; }
+</style>
+</head>
+<body>
+
+<h1>Cashback Promo Copy Options</h1>
+<p class="subtitle">Click "Copy" on any card to grab the text. Previews are approximate — adapt to your design tool.</p>
+
+<!-- ============================================ -->
+<div class="section">
+  <h2>1. Top Banner (Sticky Bar)</h2>
+  <p class="note">Replaces the current "Escape rooms, bowling & more from $17 with code GPNLOVE" banner</p>
+
+  <div class="card">
+    <span class="tag tag-recommended">Recommended</span>
+    <div class="card-label">Option A — Dollar hook</div>
+    <div class="banner-preview bg-dark">
+      <span class="banner-text">Get $10 cash back on your first Groupon deal</span>
+      <span class="banner-cta">Claim $10</span>
+    </div>
+    <button class="copy-btn" onclick="copyText(this, 'Get $10 cash back on your first Groupon deal\nCTA: Claim $10')">Copy</button>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-alternative">Alternative</span>
+    <div class="card-label">Option B — Cashback intro</div>
+    <div class="banner-preview bg-green">
+      <span class="banner-text">New: Earn cash back on every Groupon purchase</span>
+      <span class="banner-cta">Learn More</span>
+    </div>
+    <button class="copy-btn" onclick="copyText(this, 'New: Earn cash back on every Groupon purchase\nCTA: Learn More')">Copy</button>
+  </div>
+
+  <div class="card">
+    <span class="tag tag-bold">Bold</span>
+    <div class="card-label">Option C — Competitor reframe</div>
+    <div class="banner-preview bg-blue">
+      <span class="banner-text">Stop leaving money on the table — get cash back with Groupon</span>
+      <span class="banner-cta">Start Earning</span>
+    </div>
+    <button class="copy-btn" onclick="copyText(this, 'Stop leaving money on the table — get cash back with Groupon\nCTA: Start Earning')">Copy</button>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<div class="section">
+  <h2>2. Popup / Modal Promo</h2>
+  <p class="note">Replaces the current "Extra 25% Off Local Deals!" overlay</p>
+
+  <div class="grid">
+    <div class="card">
+      <span class="tag tag-recommended">Recommended</span>
+      <div class="card-label">Option A — $10 cashback hook</div>
+      <div class="popup-preview">
+        <div class="popup-img-placeholder">$10</div>
+        <div class="popup-body">
+          <div class="headline" style="color:#1a1a1a;">Your first $10 is on us</div>
+          <div class="subline">Sign up for Groupon Cash Back and get $10 back on your next deal. No code needed.</div>
+          <button class="cta" style="background:#53a318;color:#fff;border:none;">Get My $10 Cash Back</button>
+          <div class="terms">Min. purchase $25. Cash back credited within 48 hrs.</div>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyText(this, 'Headline: Your first $10 is on us\nSubline: Sign up for Groupon Cash Back and get $10 back on your next deal. No code needed.\nCTA: Get My $10 Cash Back\nTerms: Min. purchase $25. Cash back credited within 48 hrs.')">Copy</button>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-alternative">Alternative</span>
+      <div class="card-label">Option B — Cashback value prop</div>
+      <div class="popup-preview">
+        <div class="popup-img-placeholder" style="background:linear-gradient(135deg,#0052cc,#003d99);">%</div>
+        <div class="popup-body">
+          <div class="headline" style="color:#1a1a1a;">Coupons save you money.<br>Cash back <em>makes</em> you money.</div>
+          <div class="subline">Earn up to 10% cash back on every Groupon purchase. It adds up fast.</div>
+          <button class="cta" style="background:#53a318;color:#fff;border:none;">Start Earning Cash Back</button>
+          <div class="terms">Cash back rates vary by merchant. Sign-up required.</div>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyText(this, 'Headline: Coupons save you money. Cash back makes you money.\nSubline: Earn up to 10% cash back on every Groupon purchase. It adds up fast.\nCTA: Start Earning Cash Back\nTerms: Cash back rates vary by merchant. Sign-up required.')">Copy</button>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-bold">Bold</span>
+      <div class="card-label">Option C — Urgency + dollar</div>
+      <div class="popup-preview">
+        <div class="popup-img-placeholder" style="background:linear-gradient(135deg,#ff5a5f,#d94045);">$10</div>
+        <div class="popup-body">
+          <div class="headline" style="color:#1a1a1a;">Don't just save — get paid</div>
+          <div class="subline">Join Groupon Cash Back today and we'll put $10 in your account. Use it on any deal.</div>
+          <button class="cta" style="background:#ff5a5f;color:#fff;border:none;">Claim Your $10</button>
+          <div class="terms">Limited time. One per account. $25 min. purchase.</div>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyText(this, 'Headline: Don\'t just save — get paid\nSubline: Join Groupon Cash Back today and we\'ll put $10 in your account. Use it on any deal.\nCTA: Claim Your $10\nTerms: Limited time. One per account. $25 min. purchase.')">Copy</button>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-alternative">Alternative</span>
+      <div class="card-label">Option D — Social proof angle</div>
+      <div class="popup-preview">
+        <div class="popup-img-placeholder" style="background:linear-gradient(135deg,#53a318,#3d7a12);">CB</div>
+        <div class="popup-body">
+          <div class="headline" style="color:#1a1a1a;">Groupon users earned $2M+ in cash back</div>
+          <div class="subline">Sign up now and get $10 to start. Earn cash back every time you buy a deal.</div>
+          <button class="cta" style="background:#53a318;color:#fff;border:none;">Get $10 Cash Back Free</button>
+          <div class="terms">Cash back available on eligible deals. $25 min. purchase for bonus.</div>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyText(this, 'Headline: Groupon users earned $2M+ in cash back\nSubline: Sign up now and get $10 to start. Earn cash back every time you buy a deal.\nCTA: Get $10 Cash Back Free\nTerms: Cash back available on eligible deals. $25 min. purchase for bonus.')">Copy</button>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<div class="section">
+  <h2>3. In-Feed Deal Card with Cashback Badge</h2>
+  <p class="note">For inserting a cashback promo as a "deal" within the coupons feed itself</p>
+
+  <div class="grid">
+    <div class="card">
+      <span class="tag tag-recommended">Recommended</span>
+      <div class="card-label">Option A — Cashback deal card</div>
+      <div class="deal-card">
+        <div class="deal-badge">CASH BACK</div>
+        <div class="deal-card-body">
+          <div class="merchant">Groupon Cash Back</div>
+          <div class="deal-title">Get $10 back on your first deal</div>
+          <div class="cashback-line">$10 cash back — no code needed</div>
+          <button class="cta" style="background:#53a318;color:#fff;border:none;font-size:13px;padding:8px 20px;">Activate Cash Back</button>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyText(this, 'Badge: CASH BACK\nMerchant: Groupon Cash Back\nTitle: Get $10 back on your first deal\nCashback line: $10 cash back — no code needed\nCTA: Activate Cash Back')">Copy</button>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-alternative">Alternative</span>
+      <div class="card-label">Option B — Earnings framing</div>
+      <div class="deal-card">
+        <div class="deal-badge" style="background:#0052cc;">NEW</div>
+        <div class="deal-card-body">
+          <div class="merchant">Introducing Cash Back</div>
+          <div class="deal-title">Earn money back on every Groupon purchase</div>
+          <div class="cashback-line">Up to 10% back + $10 sign-up bonus</div>
+          <button class="cta" style="background:#53a318;color:#fff;border:none;font-size:13px;padding:8px 20px;">See How It Works</button>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyText(this, 'Badge: NEW\nMerchant: Introducing Cash Back\nTitle: Earn money back on every Groupon purchase\nCashback line: Up to 10% back + $10 sign-up bonus\nCTA: See How It Works')">Copy</button>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================ -->
+<div class="section">
+  <h2>4. Quick Copy Reference</h2>
+  <p class="note">All headlines and CTAs in one place for easy grab</p>
+
+  <div class="card">
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <thead>
+        <tr style="border-bottom:2px solid #eee;text-align:left;">
+          <th style="padding:8px;">Placement</th>
+          <th style="padding:8px;">Headline</th>
+          <th style="padding:8px;">Supporting Copy</th>
+          <th style="padding:8px;">CTA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px;color:#888;">Banner</td>
+          <td style="padding:8px;font-weight:600;">Get $10 cash back on your first Groupon deal</td>
+          <td style="padding:8px;">—</td>
+          <td style="padding:8px;">Claim $10</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px;color:#888;">Popup</td>
+          <td style="padding:8px;font-weight:600;">Your first $10 is on us</td>
+          <td style="padding:8px;">Sign up for Groupon Cash Back and get $10 back on your next deal. No code needed.</td>
+          <td style="padding:8px;">Get My $10 Cash Back</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px;color:#888;">Popup (alt)</td>
+          <td style="padding:8px;font-weight:600;">Coupons save you money. Cash back <em>makes</em> you money.</td>
+          <td style="padding:8px;">Earn up to 10% cash back on every Groupon purchase. It adds up fast.</td>
+          <td style="padding:8px;">Start Earning Cash Back</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px;color:#888;">Popup (bold)</td>
+          <td style="padding:8px;font-weight:600;">Don't just save — get paid</td>
+          <td style="padding:8px;">Join Groupon Cash Back today and we'll put $10 in your account.</td>
+          <td style="padding:8px;">Claim Your $10</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;color:#888;">In-feed card</td>
+          <td style="padding:8px;font-weight:600;">Get $10 back on your first deal</td>
+          <td style="padding:8px;">$10 cash back — no code needed</td>
+          <td style="padding:8px;">Activate Cash Back</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="copy-btn" onclick="copyTable(this)">Copy Table</button>
+  </div>
+</div>
+
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+function copyTable(btn) {
+  const rows = [
+    ['Placement', 'Headline', 'Supporting Copy', 'CTA'],
+    ['Banner', 'Get $10 cash back on your first Groupon deal', '—', 'Claim $10'],
+    ['Popup', 'Your first $10 is on us', 'Sign up for Groupon Cash Back and get $10 back on your next deal. No code needed.', 'Get My $10 Cash Back'],
+    ['Popup (alt)', 'Coupons save you money. Cash back makes you money.', 'Earn up to 10% cash back on every Groupon purchase. It adds up fast.', 'Start Earning Cash Back'],
+    ['Popup (bold)', "Don't just save — get paid", "Join Groupon Cash Back today and we'll put $10 in your account.", 'Claim Your $10'],
+    ['In-feed card', 'Get $10 back on your first deal', '$10 cash back — no code needed', 'Activate Cash Back'],
+  ];
+  const text = rows.map(r => r.join('\t')).join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Table'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>

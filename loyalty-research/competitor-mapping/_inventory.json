@@ -1,0 +1,680 @@
+[
+  {
+    "slug": "rakuten",
+    "label": "01-landing",
+    "url": "https://www.rakuten.com/",
+    "captured_utc": "2026-04-22T10:37:00.596277+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.rakuten.com/geogating/sorry?old=/",
+    "title": "Rakuten: Shop. Get Cash Back. Repeat.",
+    "fold_bytes": 230975,
+    "full_bytes": 244866,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "rakuten",
+    "label": "02-signup-page",
+    "url": "https://www.rakuten.com/join",
+    "captured_utc": "2026-04-22T10:37:00.597457+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.rakuten.com/geogating/sorry?old=/join",
+    "title": "Rakuten: Shop. Get Cash Back. Repeat.",
+    "fold_bytes": 230972,
+    "full_bytes": 244851,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "rakuten",
+    "label": "03-how-it-works",
+    "url": "https://www.rakuten.com/help/article/how-does-rakuten-work-360002117047",
+    "captured_utc": "2026-04-22T10:37:00.597758+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.rakuten.com/help/article/how-does-rakuten-work-360002117047",
+    "title": "How Does Rakuten Work? | Rakuten Help",
+    "fold_bytes": 137973,
+    "full_bytes": 290691,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "rakuten",
+    "label": "04-big-fat-check-faq",
+    "url": "https://www.rakuten.com/blog/rakuten-big-fat-check-schedule-faqs/",
+    "captured_utc": "2026-04-22T10:37:00.598260+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.rakuten.com/geogating/sorry?old=/blog/rakuten-big-fat-check-schedule-faqs/",
+    "title": "Rakuten: Shop. Get Cash Back. Repeat.",
+    "fold_bytes": 230975,
+    "full_bytes": 244866,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "rakuten",
+    "label": "05-safari-walkthrough",
+    "url": "https://www.rakuten.ca/button/safari/walkthrough",
+    "captured_utc": "2026-04-22T10:37:00.599237+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.rakuten.ca/button/safari/walkthrough",
+    "title": "Rakuten Button Cash Back - Installation Instructions",
+    "fold_bytes": 129019,
+    "full_bytes": 385543,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "rakuten",
+    "label": "06-referral-page",
+    "url": "https://www.rakuten.com/referral",
+    "captured_utc": "2026-04-22T10:37:18.698416+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.rakuten.com/geogating/sorry?old=/referral",
+    "title": "Rakuten: Shop. Get Cash Back. Repeat.",
+    "fold_bytes": 230975,
+    "full_bytes": 244866,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "rakuten",
+    "label": "07-chrome-web-store",
+    "url": "https://chromewebstore.google.com/detail/rakuten-cash-back-browser/chhjbpecpncaggjpdakmflnfcopglcmi",
+    "captured_utc": "2026-04-22T10:37:19.965306+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://consent.google.com/m?continue=https://chromewebstore.google.com/detail/rakuten-cash-back-browser/chhjbpecpncaggjpdakmflnfcopglcmi&gl=CZ&m=0&pc=cws&cm=2&hl=en-US&src=1",
+    "title": "Before you continue",
+    "fold_bytes": 113401,
+    "full_bytes": 125700,
+    "status": "ok"
+  },
+  {
+    "slug": "rakuten",
+    "label": "08-ios-app-store",
+    "url": "https://apps.apple.com/us/app/rakuten-cash-back-deals/id723134859",
+    "captured_utc": "2026-04-22T10:37:21.377256+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://apps.apple.com/us/app/rakuten-cash-back-deals/id723134859",
+    "title": "\u200eRakuten: Cash Back & Deals App - App Store",
+    "fold_bytes": 630659,
+    "full_bytes": 974228,
+    "status": "ok"
+  },
+  {
+    "slug": "rakuten",
+    "label": "09-rakuten-plus",
+    "url": "https://www.rakuten.com/rp/member/join",
+    "captured_utc": "2026-04-22T10:37:24.926871+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.rakuten.com/geogating/sorry?old=/rp/member/join",
+    "title": "Rakuten: Shop. Get Cash Back. Repeat.",
+    "fold_bytes": 230975,
+    "full_bytes": 244866,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "capital-one-shopping",
+    "label": "01-landing",
+    "url": "https://capitaloneshopping.com/",
+    "captured_utc": "2026-04-22T10:37:29.760011+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://capitaloneshopping.com/",
+    "title": "Capital One Shopping: Coupons, Loyalty, and Deals",
+    "fold_bytes": 110266,
+    "full_bytes": 810147,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "capital-one-shopping",
+    "label": "02-signup-signin",
+    "url": "https://capitaloneshopping.com/sign-in",
+    "captured_utc": "2026-04-22T10:37:31.514509+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://capitaloneshopping.com/sign-in",
+    "title": "Sign In | Capital One Shopping",
+    "fold_bytes": 39349,
+    "full_bytes": 39349,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "capital-one-shopping",
+    "label": "03-how-it-works",
+    "url": "https://capitaloneshopping.com/how-it-works",
+    "captured_utc": "2026-04-22T10:37:32.714626+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://capitaloneshopping.com/not-found",
+    "title": "Page Not Found",
+    "fold_bytes": 44669,
+    "full_bytes": 44669,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "capital-one-shopping",
+    "label": "04-rewards-page",
+    "url": "https://capitaloneshopping.com/rewards",
+    "captured_utc": "2026-04-22T10:37:34.491469+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://capitaloneshopping.com/not-found",
+    "title": "Page Not Found",
+    "fold_bytes": 44669,
+    "full_bytes": 44669,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "capital-one-shopping",
+    "label": "05-chrome-web-store",
+    "url": "https://chromewebstore.google.com/detail/capital-one-shopping-save/nenlahapcbofgnanklpelkaejcehkggg",
+    "captured_utc": "2026-04-22T10:37:42.442072+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://consent.google.com/m?continue=https://chromewebstore.google.com/detail/capital-one-shopping-save/nenlahapcbofgnanklpelkaejcehkggg&gl=CZ&m=0&pc=cws&cm=2&hl=en-US&src=1",
+    "title": "Before you continue",
+    "fold_bytes": 113401,
+    "full_bytes": 125690,
+    "status": "ok"
+  },
+  {
+    "slug": "capital-one-shopping",
+    "label": "06-ios-app-store",
+    "url": "https://apps.apple.com/us/app/capital-one-shopping-save-now/id1089294040",
+    "captured_utc": "2026-04-22T10:37:53.531738+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://apps.apple.com/us/app/capital-one-shopping-save-now/id1089294040",
+    "title": "\u200eCapital One Shopping: Save Now App - App Store",
+    "fold_bytes": 566441,
+    "full_bytes": 934394,
+    "status": "ok"
+  },
+  {
+    "slug": "capital-one-shopping",
+    "label": "07-ios-safari-extension",
+    "url": "https://apps.apple.com/us/app/capital-one-shopping-extension/id1477110326",
+    "captured_utc": "2026-04-22T10:37:54.634856+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://apps.apple.com/us/app/capital-one-shopping-extension/id1477110326?mt=12",
+    "title": "\u200eCapital One Shopping Extension App - App Store",
+    "fold_bytes": 409090,
+    "full_bytes": 622470,
+    "status": "ok"
+  },
+  {
+    "slug": "honey",
+    "label": "01-landing",
+    "url": "https://www.joinhoney.com/",
+    "captured_utc": "2026-04-22T10:38:02.017647+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.joinhoney.com/",
+    "title": "Automatic Coupons, Promo Codes, and Deals | Honey",
+    "fold_bytes": 107492,
+    "full_bytes": 319271,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "honey",
+    "label": "02-features-droplist",
+    "url": "https://www.joinhoney.com/features/droplist",
+    "captured_utc": "2026-04-22T10:38:05.051580+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.joinhoney.com/features/droplist",
+    "title": "Droplist | Honey",
+    "fold_bytes": 205579,
+    "full_bytes": 405639,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "honey",
+    "label": "03-features-gold",
+    "url": "https://www.joinhoney.com/features/honeygold",
+    "captured_utc": "2026-04-22T10:38:05.241422+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.joinhoney.com/features/honeygold",
+    "title": "Honey Gold | Honey",
+    "fold_bytes": 269321,
+    "full_bytes": 565492,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "honey",
+    "label": "04-terms",
+    "url": "https://www.joinhoney.com/terms",
+    "captured_utc": "2026-04-22T10:38:06.609205+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.joinhoney.com/terms",
+    "title": "Honey",
+    "fold_bytes": 27691,
+    "full_bytes": 27691,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "honey",
+    "label": "05-chrome-web-store",
+    "url": "https://chromewebstore.google.com/detail/honey-automatic-coupons-r/bmnlcjabgnpnenekpadlanbbkooimhnj",
+    "captured_utc": "2026-04-22T10:38:09.868080+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://consent.google.com/m?continue=https://chromewebstore.google.com/detail/honey-automatic-coupons-r/bmnlcjabgnpnenekpadlanbbkooimhnj&gl=CZ&m=0&pc=cws&cm=2&hl=en-US&src=1",
+    "title": "Before you continue",
+    "fold_bytes": 113401,
+    "full_bytes": 125696,
+    "status": "ok"
+  },
+  {
+    "slug": "honey",
+    "label": "06-ios-app-store",
+    "url": "https://apps.apple.com/us/app/paypal-honey-coupons-rewards/id1358499588",
+    "captured_utc": "2026-04-22T10:38:16.019161+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://apps.apple.com/us/app/paypal-honey-coupons-rewards/id1358499588",
+    "title": "\u200ePayPal Honey: Coupons, Rewards App - App Store",
+    "fold_bytes": 535393,
+    "full_bytes": 936117,
+    "status": "ok"
+  },
+  {
+    "slug": "honey",
+    "label": "07-paypal-help-bundled-extension",
+    "url": "https://www.paypal.com/us/cshelp/article/what-is-the-paypal-honey-mobile-safari-extension-help593",
+    "captured_utc": "2026-04-22T10:38:21.079720+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.paypal.com/us/cshelp/article/what-is-the-paypal-honey-mobile-safari-extension-help593",
+    "title": "What is the PayPal Honey mobile Safari extension? | PayPal US",
+    "fold_bytes": 135877,
+    "full_bytes": 169782,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "honey",
+    "label": "08-help-safari-mobile",
+    "url": "https://help.joinhoney.com/article/350-honey-mobile-safari-extension",
+    "captured_utc": "2026-04-22T10:38:22.824755+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://help.joinhoney.com/article/350-honey-mobile-safari-extension",
+    "title": "Honey Mobile Safari Extension - Honey",
+    "fold_bytes": 108641,
+    "full_bytes": 147413,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "ibotta",
+    "label": "01-landing",
+    "url": "https://home.ibotta.com/",
+    "captured_utc": "2026-04-22T10:38:32.147804+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://home.ibotta.com/",
+    "title": "Ibotta: Earn Cash Back on Groceries & More",
+    "fold_bytes": 170176,
+    "full_bytes": 621961,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "ibotta",
+    "label": "02-how-it-works",
+    "url": "https://home.ibotta.com/how-it-works/",
+    "captured_utc": "2026-04-22T10:38:38.880577+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 404,
+    "final_url": "https://home.ibotta.com/how-it-works",
+    "title": "ibotta",
+    "status": "timeout_but_captured;screenshot_err:TimeoutError:Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n"
+  },
+  {
+    "slug": "ibotta",
+    "label": "03-ipn-performance-network",
+    "url": "https://ipn.ibotta.com/",
+    "captured_utc": "2026-04-22T10:38:41.251051+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "final_url": "https://ipn.ibotta.com/",
+    "title": "The Ibotta Performance Network",
+    "status": "timeout_but_captured;screenshot_err:TimeoutError:Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n"
+  },
+  {
+    "slug": "ibotta",
+    "label": "04-ios-app-store",
+    "url": "https://apps.apple.com/us/app/ibotta-cash-back-savings-app/id559887125",
+    "captured_utc": "2026-04-22T10:38:41.462375+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "final_url": "https://apps.apple.com/us/app/ibotta-save-earn-cash-back/id559887125",
+    "title": "\u200eIbotta: Save & Earn Cash Back App - App Store",
+    "status": "timeout_but_captured;screenshot_err:TimeoutError:Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n"
+  },
+  {
+    "slug": "ibotta",
+    "label": "05-investor-relations",
+    "url": "https://investors.ibotta.com/",
+    "captured_utc": "2026-04-22T10:38:44.362418+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "final_url": "https://investors.ibotta.com/",
+    "title": "",
+    "status": "timeout_but_captured;screenshot_err:TimeoutError:Page.screenshot: Timeout 30000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n"
+  },
+  {
+    "slug": "retailmenot",
+    "label": "01-landing",
+    "url": "https://www.retailmenot.com/",
+    "captured_utc": "2026-04-22T10:38:51.977746+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "final_url": "about:blank",
+    "status": "timeout_but_captured;screenshot_err:Error:Page.title: Execution context was destroyed, most likely because of a navigation"
+  },
+  {
+    "slug": "retailmenot",
+    "label": "02-guaranteed-cashback",
+    "url": "https://www.retailmenot.com/cashback",
+    "captured_utc": "2026-04-22T10:39:22.395760+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "final_url": "about:blank",
+    "status": "error:Error:Page.goto: net::ERR_SOCKET_NOT_CONNECTED at https://www.retailmenot.com/cashback\nCall log:\n  - navigating to \"https://www.retailmenot.com/cashback\", waiting until \"domcontentloaded\"\n;screenshot_err:Error:Page.title: Execution context was destroyed, most likely because of a navigation"
+  },
+  {
+    "slug": "retailmenot",
+    "label": "03-ios-app-store",
+    "url": "https://apps.apple.com/us/app/retailmenot-cash-back-codes/id376121913",
+    "captured_utc": "2026-04-22T10:39:25.060749+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 404,
+    "final_url": "https://apps.apple.com/us/app/retailmenot-cash-back-codes/id376121913",
+    "title": "\u200eApp Store",
+    "fold_bytes": 56306,
+    "full_bytes": 56306,
+    "status": "ok"
+  },
+  {
+    "slug": "coupert",
+    "label": "01-landing",
+    "url": "https://www.coupert.com/",
+    "captured_utc": "2026-04-22T10:39:38.219817+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.coupert.com/",
+    "title": "Coupert: Shopping Assistant for Coupons, Cashback & Price Comparison.",
+    "fold_bytes": 400145,
+    "full_bytes": 456570,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "coupert",
+    "label": "02-welcome",
+    "url": "https://www.coupert.com/welcome",
+    "captured_utc": "2026-04-22T10:39:41.311259+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 403,
+    "final_url": "https://www.coupert.com/welcome",
+    "title": "Just a moment...",
+    "fold_bytes": 37866,
+    "full_bytes": 37966,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "coupert",
+    "label": "03-cashback-help",
+    "url": "https://help.coupert.com/cash-back/coupert-cash-back/",
+    "captured_utc": "2026-04-22T10:39:41.508973+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://help.coupert.com/getting-started-core-functionality/cash-back-en-getting-started-core-functionality/coupert-cash-back/",
+    "title": "Coupert Cash Back - Coupert",
+    "fold_bytes": 168744,
+    "full_bytes": 1147666,
+    "status": "ok"
+  },
+  {
+    "slug": "coupert",
+    "label": "04-chrome-web-store",
+    "url": "https://chromewebstore.google.com/detail/coupert-automatic-coupons/mfidniedemcgceagapgdekdbmanojomk",
+    "captured_utc": "2026-04-22T10:39:44.436613+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://consent.google.com/m?continue=https://chromewebstore.google.com/detail/coupert-automatic-coupons/mfidniedemcgceagapgdekdbmanojomk&gl=CZ&m=0&pc=cws&cm=2&hl=en-US&src=1",
+    "title": "Before you continue",
+    "fold_bytes": 113401,
+    "full_bytes": 125690,
+    "status": "ok"
+  },
+  {
+    "slug": "coupert",
+    "label": "05-vs-honey-blog",
+    "url": "https://www.coupert.com/research/coupert-vs-honey-which-coupon-extension-performs-best-in-2025",
+    "captured_utc": "2026-04-22T10:39:52.418009+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://www.coupert.com/research/coupert-vs-honey-which-coupon-extension-performs-best-in-2025",
+    "title": "Coupert vs Honey: Which Coupon Extension Performs Best in 2025?",
+    "fold_bytes": 417800,
+    "full_bytes": 1990337,
+    "status": "ok"
+  },
+  {
+    "slug": "slickdeals",
+    "label": "01-landing",
+    "url": "https://slickdeals.net/",
+    "captured_utc": "2026-04-22T10:39:54.627001+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 403,
+    "final_url": "https://slickdeals.net/",
+    "title": "Just a moment...",
+    "fold_bytes": 37953,
+    "full_bytes": 37953,
+    "status": "timeout_but_captured"
+  },
+  {
+    "slug": "slickdeals",
+    "label": "02-corp-how-it-works",
+    "url": "https://corp-site.slickdeals.net/how-slickdeals-works/",
+    "captured_utc": "2026-04-22T10:39:59.546925+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://corp-site.slickdeals.net/how-slickdeals-works/",
+    "title": "How Slickdeals Works - Slickdeals",
+    "fold_bytes": 878244,
+    "full_bytes": 1666359,
+    "status": "ok"
+  },
+  {
+    "slug": "slickdeals",
+    "label": "03-api-sales",
+    "url": "https://corp-site.slickdeals.net/api-sales/",
+    "captured_utc": "2026-04-22T10:40:02.715032+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://corp-site.slickdeals.net/api-sales/",
+    "title": "API Sales - Slickdeals",
+    "fold_bytes": 194128,
+    "full_bytes": 2153660,
+    "status": "ok"
+  },
+  {
+    "slug": "slickdeals",
+    "label": "04-advertising-audience",
+    "url": "https://sales.slickdeals.net/audience",
+    "captured_utc": "2026-04-22T10:40:05.444079+00:00",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "http_status": 200,
+    "final_url": "https://sales.slickdeals.net/audience",
+    "title": "Slickdeals Audience",
+    "fold_bytes": 279340,
+    "full_bytes": 1177580,
+    "status": "timeout_but_captured"
+  }
+]

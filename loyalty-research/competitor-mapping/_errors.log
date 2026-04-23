@@ -1,0 +1,47 @@
+rakuten/01-landing (https://www.rakuten.com/): timeout_but_captured
+rakuten/02-signup-page (https://www.rakuten.com/join): timeout_but_captured
+rakuten/03-how-it-works (https://www.rakuten.com/help/article/how-does-rakuten-work-360002117047): timeout_but_captured
+rakuten/04-big-fat-check-faq (https://www.rakuten.com/blog/rakuten-big-fat-check-schedule-faqs/): timeout_but_captured
+rakuten/05-safari-walkthrough (https://www.rakuten.ca/button/safari/walkthrough): timeout_but_captured
+rakuten/06-referral-page (https://www.rakuten.com/referral): timeout_but_captured
+rakuten/09-rakuten-plus (https://www.rakuten.com/rp/member/join): timeout_but_captured
+capital-one-shopping/01-landing (https://capitaloneshopping.com/): timeout_but_captured
+capital-one-shopping/02-signup-signin (https://capitaloneshopping.com/sign-in): timeout_but_captured
+capital-one-shopping/03-how-it-works (https://capitaloneshopping.com/how-it-works): timeout_but_captured
+capital-one-shopping/04-rewards-page (https://capitaloneshopping.com/rewards): timeout_but_captured
+honey/01-landing (https://www.joinhoney.com/): timeout_but_captured
+honey/02-features-droplist (https://www.joinhoney.com/features/droplist): timeout_but_captured
+honey/03-features-gold (https://www.joinhoney.com/features/honeygold): timeout_but_captured
+honey/04-terms (https://www.joinhoney.com/terms): timeout_but_captured
+honey/07-paypal-help-bundled-extension (https://www.paypal.com/us/cshelp/article/what-is-the-paypal-honey-mobile-safari-extension-help593): timeout_but_captured
+honey/08-help-safari-mobile (https://help.joinhoney.com/article/350-honey-mobile-safari-extension): timeout_but_captured
+ibotta/01-landing (https://home.ibotta.com/): timeout_but_captured
+ibotta/02-how-it-works (https://home.ibotta.com/how-it-works/): timeout_but_captured;screenshot_err:TimeoutError:Page.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+
+ibotta/03-ipn-performance-network (https://ipn.ibotta.com/): timeout_but_captured;screenshot_err:TimeoutError:Page.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+
+ibotta/04-ios-app-store (https://apps.apple.com/us/app/ibotta-cash-back-savings-app/id559887125): timeout_but_captured;screenshot_err:TimeoutError:Page.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+
+ibotta/05-investor-relations (https://investors.ibotta.com/): timeout_but_captured;screenshot_err:TimeoutError:Page.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+
+retailmenot/01-landing (https://www.retailmenot.com/): timeout_but_captured;screenshot_err:Error:Page.title: Execution context was destroyed, most likely because of a navigation
+retailmenot/02-guaranteed-cashback (https://www.retailmenot.com/cashback): error:Error:Page.goto: net::ERR_SOCKET_NOT_CONNECTED at https://www.retailmenot.com/cashback
+Call log:
+  - navigating to "https://www.retailmenot.com/cashback", waiting until "domcontentloaded"
+;screenshot_err:Error:Page.title: Execution context was destroyed, most likely because of a navigation
+coupert/01-landing (https://www.coupert.com/): timeout_but_captured
+coupert/02-welcome (https://www.coupert.com/welcome): timeout_but_captured
+slickdeals/01-landing (https://slickdeals.net/): timeout_but_captured
+slickdeals/04-advertising-audience (https://sales.slickdeals.net/audience): timeout_but_captured

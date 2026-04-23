@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternative Monetisation — Brainstorm Ideas</title>
+<style>
+  :root {
+    --green: #16a34a;
+    --green-light: #dcfce7;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+    --red: #dc2626;
+    --red-light: #fee2e2;
+    --purple: #7c3aed;
+    --purple-light: #ede9fe;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--gray-900);
+    background: var(--gray-50);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gray-200);
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    color: var(--gray-500);
+  }
+
+  .meta span { display: flex; align-items: center; gap: 0.35rem; }
+  .meta strong { color: var(--gray-700); font-weight: 600; }
+
+  .insight-box {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  .insight-box strong { color: var(--blue); }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  /* Idea cards */
+  .idea-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: box-shadow 0.15s;
+  }
+
+  .idea-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+  .idea-card.foundation {
+    background: var(--gray-100);
+    border-left: 4px solid var(--gray-500);
+  }
+
+  .idea-card.recommended {
+    border-left: 4px solid var(--green);
+  }
+
+  .idea-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .idea-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gray-700);
+    flex-shrink: 0;
+  }
+
+  .idea-card.recommended .idea-number {
+    background: var(--green);
+    color: #fff;
+  }
+
+  .idea-card.foundation .idea-number {
+    background: var(--gray-500);
+    color: #fff;
+  }
+
+  .idea-title { font-size: 1.05rem; font-weight: 700; }
+
+  .idea-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .tag.low { background: var(--green-light); color: var(--green); }
+  .tag.medium { background: var(--amber-light); color: var(--amber); }
+  .tag.high { background: var(--red-light); color: var(--red); }
+  .tag.rec { background: var(--green-light); color: var(--green); }
+
+  .idea-section { margin-bottom: 0.6rem; }
+  .idea-section:last-child { margin-bottom: 0; }
+
+  .idea-section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray-500);
+    margin-bottom: 0.2rem;
+  }
+
+  .idea-section p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .risk-note {
+    background: var(--amber-light);
+    border-radius: 6px;
+    padding: 0.6rem 0.8rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .risk-note strong { color: var(--amber); }
+
+  /* Matrix */
+  .matrix-wrap {
+    overflow-x: auto;
+    margin: 1rem 0 2rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  th {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    background: var(--gray-100);
+    font-weight: 600;
+    border-bottom: 2px solid var(--gray-200);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  tr:hover td { background: var(--gray-50); }
+
+  td:not(:first-child):not(:nth-child(2)) { text-align: center; }
+
+  .stars { color: var(--amber); letter-spacing: -1px; }
+
+  /* Recommendation */
+  .reco-box {
+    background: var(--green-light);
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .reco-box h3 {
+    color: var(--green);
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .reco-item {
+    margin-bottom: 0.6rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--green);
+    font-size: 0.9rem;
+  }
+
+  .reco-item strong { display: block; font-size: 0.95rem; }
+
+  /* Risk & set-aside sections */
+  .risk-section, .aside-section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .risk-section { border-left: 4px solid var(--amber); }
+  .aside-section { border-left: 4px solid var(--gray-300); }
+
+  .risk-section ul, .aside-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .risk-section li, .aside-section li {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .risk-section li:last-child, .aside-section li:last-child { border-bottom: none; }
+
+  /* Questions */
+  .questions ol {
+    padding-left: 1.25rem;
+  }
+
+  .questions li {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .questions li:last-child { border-bottom: none; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    text-align: center;
+  }
+
+  @media print {
+    body { padding: 1rem; font-size: 0.85rem; }
+    .idea-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Alternative Monetisation — Brainstorm Ideas</h1>
+  <div class="meta">
+    <span><strong>For discussion:</strong> Martin + Becky, 2026-03-26</span>
+    <span><strong>Lens:</strong> Frequency-first</span>
+    <span><strong>Goal:</strong> Double monetisation per UDV</span>
+  </div>
+</header>
+
+<div class="insight-box">
+  <strong>The Big Insight:</strong> The highest-frequency savings apps (Fetch, Temu, Shopkick) have <strong>decoupled "reason to open" from "intent to transact."</strong> Groupon currently requires purchase intent to justify an open. Every idea below creates an open-worthy trigger <em>independent</em> of active deal hunting.
+</div>
+
+<h2>Ideas</h2>
+
+<!-- Idea 0 -->
+<div class="idea-card foundation">
+  <div class="idea-header">
+    <span class="idea-number">0</span>
+    <span class="idea-title">Foundation: Savings Wallet / Groupon Credits Balance</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag rec">Enabler</span>
+  </div>
+  <div class="idea-section">
+    <p><strong>Not a standalone feature — an enabler for everything below.</strong> A visible, growing balance ("You've earned $14.20 this month") is the retention glue that makes streaks, spins, receipts, and referrals compound. Fetch, Ibotta, and Shopkick all use an accumulating balance as the primary daily-open driver. Users check their balance even when not shopping.</p>
+  </div>
+</div>
+
+<!-- Idea 1 -->
+<div class="idea-card recommended">
+  <div class="idea-header">
+    <span class="idea-number">1</span>
+    <span class="idea-title">Daily Deal Drop + Check-in Streak</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag low">POC: Low effort</span>
+    <span class="tag rec">Recommended</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>3-5 curated deals rotate every 24 hours (visible only to app users). Opening the app daily builds a streak — hit 7 days and unlock a bonus (e.g. extra 10% off next purchase, exclusive deal access). Miss a day, lose the streak.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Loss aversion is the strongest behavioural lever. Duolingo users who hit 7-day streaks are 3.6x more likely to stay engaged long-term. Temu's daily check-in drives 89% interaction rates. The time-limited deal rotation creates genuine FOMO — today's deals won't be here tomorrow.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Local deals already have natural scarcity and freshness. The app install base is the distribution channel. Coupons team could curate the daily selection from existing inventory — no new supply needed.</p>
+  </div>
+  <div class="risk-note">
+    <strong>Risk:</strong> Streak rewards must be concrete (credits, exclusive deal unlock) — not abstract. Duolingo streaks work because the daily activity has intrinsic value (learning). Groupon streaks are extrinsically motivated, so the reward needs to carry the weight.
+  </div>
+</div>
+
+<!-- Idea 2 -->
+<div class="idea-card recommended">
+  <div class="idea-header">
+    <span class="idea-number">2</span>
+    <span class="idea-title">"Watch This Deal" — Price &amp; Availability Alerts</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag medium">POC: Medium effort</span>
+    <span class="tag rec">Recommended</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>Let users save deals/categories they're interested in ("watching"). Notify them when: a deal restarts, a new deal appears in their watched category, or a price drops. Like Honey's Droplist but for local deals.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Honey's Droplist model proves that deferred desire + permission-based alerts has the highest re-engagement quality. Users opt in, so notifications feel like a service, not spam. Each alert is a high-intent return visit.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Groupon's deals are inherently cyclical — restaurants rerun offers, seasonal deals return. Currently there's no way for a user to say "tell me when there's a spa deal near me under $50." This fills a real gap.</p>
+  </div>
+</div>
+
+<!-- Idea 3 -->
+<div class="idea-card">
+  <div class="idea-header">
+    <span class="idea-number">3</span>
+    <span class="idea-title">Spin-to-Win / Daily Reward Game</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag low">POC: Low-Med effort</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>One daily spin (slot machine, scratch card, wheel) that awards variable rewards: Groupon credits, percentage-off coupons, or entries into a monthly prize draw. Variable-ratio reward schedule.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Temu's spin wheels drive 89.4% interaction rates. Fetch Play boosted CLV by 10% and monthly opens by 5%. Over 50% of Temu users made unplanned purchases after gamified interactions. Same mechanism as slot machines — maximises compulsive opens.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>"Entertainment-first, commerce-second." Works if Groupon is willing to give away small credits to drive daily opens. Cost per daily open is tiny vs. paid re-engagement. Works well with price-sensitive audience.</p>
+  </div>
+  <div class="risk-note">
+    <strong>Brand fit question:</strong> Temu's stats come from users already in-app for cheap shopping. Groupon's audience is different — spin wheels may feel incongruent. Needs discussion.
+  </div>
+</div>
+
+<!-- Idea 4 -->
+<div class="idea-card">
+  <div class="idea-header">
+    <span class="idea-number">4</span>
+    <span class="idea-title">Community Picks / Social Deal Voting</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag medium">POC: Medium effort</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>Users upvote deals. A "Trending" or "Community Picks" feed surfaces the highest-voted deals. Optional later phase: users submit external deals (Slickdeals model).</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Slickdeals converts 40% of its 12M MAU to DAU. Social proof ("68,000 people liked this deal") makes deals feel discovered, not sold. Voting gives users agency.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Moderate. No community infrastructure today. Starting with just upvotes on existing deals is low-risk, but upvotes need critical mass to produce meaningful signal.</p>
+  </div>
+</div>
+
+<!-- Idea 5 -->
+<div class="idea-card">
+  <div class="idea-header">
+    <span class="idea-number">5</span>
+    <span class="idea-title">Receipt Scanning → Groupon Credits</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag high">POC: High effort</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>Scan any local receipt (restaurant, salon, gym) to earn Groupon credits. Bonus credits for Groupon merchant receipts. Post-purchase touchpoint for every local spend.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Fetch gets more daily opens than Starbucks by making "scan any receipt" a zero-friction habit. Ibotta drives $500M+ revenue. Attaching to existing behaviour is the fastest path to habit formation.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Groupon could own "local services receipt scanning" — a category Fetch/Ibotta don't cover. Best pursued via partnership, not DIY build.</p>
+  </div>
+</div>
+
+<!-- Idea 6 -->
+<div class="idea-card">
+  <div class="idea-header">
+    <span class="idea-number">6</span>
+    <span class="idea-title">"Groupon Select" Reinvention → Daily Exclusive Access</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag low">POC: Low-Med effort</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>Revamp Select ($4.99/mo) from flat discount to daily-engagement membership: exclusive "Member Deal of the Day," early access, streak bonuses, quarterly "Big Savings Report."</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Amazon Prime (90%+ renewal) and Costco (90.4% renewal) prove paid membership drives frequency through "fee recovery" psychology. Daily exclusive content gives a reason to open <em>because you're a member</em>.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Select already exists — infrastructure is there. Gap is perceived value and daily engagement hook. Depends on current Select retention data.</p>
+  </div>
+</div>
+
+<!-- Idea 7 -->
+<div class="idea-card">
+  <div class="idea-header">
+    <span class="idea-number">7</span>
+    <span class="idea-title">Geo-Push: "You're Near a Deal"</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag medium">POC: Medium effort</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>Contextual push when a user is near a Groupon merchant (within 200m): "The spa next door has 40% off today." Passive, location-triggered engagement.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Shopkick leads all shopping apps in frequency because physical location is the trigger. Notification arrives at the exact moment of opportunity. Proximity-triggered notifications convert 2-3x higher than standard push.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Very high — Groupon's USP is <em>local</em>. This turns every walk past a merchant into a potential transaction. Strongest natural advantage on this list.</p>
+  </div>
+</div>
+
+<!-- Idea 8 -->
+<div class="idea-card recommended">
+  <div class="idea-header">
+    <span class="idea-number">8</span>
+    <span class="idea-title">Curated Local Content — "What to Do This Weekend"</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag low">POC: Low effort</span>
+    <span class="tag rec">Recommended</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>Weekly push / in-app section: "Top 5 things to do in [City] this weekend" — curated from Groupon's deal inventory + editorial recommendations. Think The Strategist but for local experiences.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Creates a weekly ritual. Content-driven engagement is lower friction than transactional — users browse for inspiration. The Strategist earns $2M+/month from this model.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Natural. Nobody else can say "here are 5 great restaurant deals near you this weekend" with actual attached offers. Positions the app as a <em>planning tool</em>, not just a discount marketplace. Most defensible idea on the list.</p>
+  </div>
+</div>
+
+<!-- Idea 9 -->
+<div class="idea-card recommended">
+  <div class="idea-header">
+    <span class="idea-number">9</span>
+    <span class="idea-title">Last-Minute Local Deals (HotelTonight Model)</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag medium">POC: Medium effort</span>
+    <span class="tag rec">Recommended</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>Fill merchant dead time — empty restaurant tables Tuesday lunch, salon gaps at 4pm, gym off-peak slots. "3 spa slots left today, 60% off." Deep discounts on genuinely time-sensitive inventory.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Creates urgency-driven opens independent of user intent. Unlike standard deals (available for weeks), these expire in hours. Users learn to check "what's available right now near me?" — a fundamentally different, higher-frequency behaviour.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Uniquely strong. Nobody else can surface "your favourite salon has a 4pm gap today, 50% off." Intersection of local advantage + time-sensitivity + real merchant value.</p>
+  </div>
+</div>
+
+<!-- Idea 10 -->
+<div class="idea-card">
+  <div class="idea-header">
+    <span class="idea-number">10</span>
+    <span class="idea-title">Merchant Self-Service — Instant Deal Publishing</span>
+  </div>
+  <div class="idea-tags">
+    <span class="tag high">POC: High effort</span>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">What</div>
+    <p>Merchants publish deals in 2-3 clicks. Real-time "flash deals" activated when business is slow ("Tuesday afternoon, 50% off — 2 hours only").</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Why it drives frequency</div>
+    <p>Flash deals create urgency and unpredictability. Users check back because "something new might have dropped." Merchant-generated supply scales inventory without Groupon's sales team.</p>
+  </div>
+  <div class="idea-section">
+    <div class="idea-section-label">Groupon fit</div>
+    <p>Addresses supply scaling and frequency. High effort for Core (platform changes). Could test manually first — merchants message a rep, deal goes live within an hour.</p>
+  </div>
+</div>
+
+<!-- Evaluation Matrix -->
+<h2>Quick Evaluation Matrix</h2>
+<div class="matrix-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Idea</th>
+      <th>Frequency Impact</th>
+      <th>Speed to Test</th>
+      <th>Groupon Differentiation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1</strong></td>
+      <td>Daily Deal Drop + Streak</td>
+      <td><span class="stars">★★★★★</span></td>
+      <td><span class="stars">★★★★★</span></td>
+      <td><span class="stars">★★★</span></td>
+    </tr>
+    <tr>
+      <td><strong>2</strong></td>
+      <td>Watch This Deal</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★★★</span></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Spin-to-Win</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Community Picks</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★★</span></td>
+      <td><span class="stars">★★★</span></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Receipt Scanning</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★</span></td>
+      <td><span class="stars">★★★★</span></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Select Reinvention</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★★</span></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Geo-Push</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★★</span></td>
+      <td><span class="stars">★★★★★</span></td>
+    </tr>
+    <tr>
+      <td><strong>8</strong></td>
+      <td>Weekend Content</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="stars">★★★★★</span></td>
+      <td><span class="stars">★★★★</span></td>
+    </tr>
+    <tr>
+      <td><strong>9</strong></td>
+      <td>Last-Minute Deals</td>
+      <td><span class="stars">★★★★★</span></td>
+      <td><span class="stars">★★★</span></td>
+      <td><span class="stars">★★★★★</span></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Merchant Self-Service</td>
+      <td><span class="stars">★★★</span></td>
+      <td><span class="stars">★★</span></td>
+      <td><span class="stars">★★★★</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Recommendation -->
+<div class="reco-box">
+  <h3>Recommendation: 4-Concept Bundle</h3>
+  <p style="font-size:0.9rem; margin-bottom:1rem;">These aren't competing — they're complementary engagement layers targeting different user behaviours.</p>
+  <div class="reco-item">
+    <strong>Primary: Daily Deal Drop + Streak (#1)</strong>
+    Daily habit engine. Strongest behavioural evidence, lowest effort, uses existing inventory. Pair with Savings Wallet so credits accumulate visibly.
+  </div>
+  <div class="reco-item">
+    <strong>Complementary: Watch This Deal (#2)</strong>
+    Passive re-engagement for users who won't check daily but will return when something matches. Captures the intent-based segment that streaks miss.
+  </div>
+  <div class="reco-item">
+    <strong>Sleeper: Weekend Content (#8)</strong>
+    Easiest to ship, most defensible. Positions Groupon as a planning tool, not just a discount marketplace.
+  </div>
+  <div class="reco-item">
+    <strong>Uniquely Groupon: Last-Minute Deals (#9)</strong>
+    Nobody else can do "your salon has a 4pm gap." Intersection of local advantage + time-sensitivity + real merchant value.
+  </div>
+</div>
+
+<!-- Risks -->
+<h2>Risks to Name Upfront</h2>
+<div class="risk-section">
+  <ul>
+    <li><strong>Cannibalisation:</strong> Could daily deals train users to wait instead of buying now? Mitigate by making daily deals <em>additive</em> inventory (flash/exclusive), not discounts on what's already available.</li>
+    <li><strong>Push notification fatigue:</strong> 4-5 ideas rely on push. Need a notification strategy — one daily digest ("Morning Brief"), not 5 separate pushes.</li>
+    <li><strong>App landing experience:</strong> Current app is built for purchase intent. Opens without intent need a "non-transactional" landing zone (daily deals tab, trending section).</li>
+  </ul>
+</div>
+
+<!-- Set aside -->
+<h2>What We Considered and Set Aside</h2>
+<div class="aside-section">
+  <ul>
+    <li><strong>3P Marketplace (goods replacement):</strong> Revenue play, not frequency. Being handled separately by Core.</li>
+    <li><strong>Full cashback programme:</strong> Not differentiated — every competitor has one. Promo test on Coupons pages is the separate workstream.</li>
+    <li><strong>Social feed / UGC:</strong> Requires community flywheel Groupon doesn't have. Cold-start problem is severe.</li>
+    <li><strong>Referral/invite loop:</strong> Good growth mechanic, but complements rather than drives frequency. Layer it on later.</li>
+  </ul>
+</div>
+
+<!-- Questions -->
+<h2>Discussion Questions for Becky</h2>
+<div class="questions">
+  <ol>
+    <li>Does the <strong>frequency-first</strong> framing resonate, or does Dusan/Adam need to see revenue-first concepts too?</li>
+    <li><strong>My recommendation:</strong> Go deep on the 4-concept bundle (Daily Deals + Watch + Weekend Content + Last-Minute). Does that feel right, or should we narrow to 1-2?</li>
+    <li>Is the app team open to <strong>gamification mechanics</strong> (streaks, daily rewards) or would that feel off-brand?</li>
+    <li>Does Becky have visibility into <strong>Groupon Select</strong> performance data? That determines whether #6 is worth pursuing.</li>
+    <li><strong>Geo-push</strong> — does Core already do this? If not, why not?</li>
+    <li>What does "double monetisation" look like in actual numbers? Do we have current UDV revenue figures to anchor against?</li>
+  </ol>
+</div>
+
+<footer>
+  Prepared for internal discussion only &middot; Martin Gregor &middot; March 2026
+</footer>
+
+</body>
+</html>
