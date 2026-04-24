@@ -58,7 +58,7 @@ Per-agent focus:
 | Research depth | Scored 8/9 on the startup-competitors skill's matrix (Deep), but deviated to Deep+scan+partnership mix rather than uniform Deep. Honest because the brief was asymmetric. |
 | Starbucks vs Bonvoy | Recommended Starbucks over Marriott Bonvoy. Reason: Starbucks is daily/weekly frequency (matches habit goal), Bonvoy is low-frequency travel (wrong cadence). |
 | Starbucks dropped | After research, Starbucks was removed from the final report. Honest finding from agent A4: the habit driver is pre-loaded stored value + mobile order, which does not port to Groupon (episodic, unpredictable-basket commerce). Raw research preserved in `raw/` for audit trail; benchmark removed from recommendation set. |
-| Output shape pivot | Default skill produces battle cards. Switched to mechanic cards because Groupon isn't selling against Rakuten's sales team — we're learning from them. Battle cards would have been the wrong artifact. |
+| Output shape pivot | Default skill produces battle cards. Switched to mechanic cards because Groupon isn't selling against Rakuten's sales team - we're learning from them. Battle cards would have been the wrong artifact. |
 | Rebecca merge discovery | After fetching Rebecca's doc, found it was much richer than the brief implied (full report structure, 60+ cited sources, stacking-vs-switching thesis). Merge strategy shifted from "use her as draft input" to "use her structure as the skeleton, add depth/benchmark/partnership." |
 | Honesty hits | Agents were instructed to surface competitor STRENGTHS and churn signals, not just weaknesses. Cherry-picking weaknesses would have been bad competitive intelligence. |
 
@@ -72,19 +72,72 @@ Per-agent focus:
 ## 7. Raw research files (audit trail)
 
 All raw outputs preserved in `raw/`:
-- `rebecca-draft.md` — extracted from Rebecca's Google Doc via gws CLI
-- `rakuten-mechanics.md` — agent A1
-- `capital-one-shopping-mechanics.md` — agent A2
-- `honey-mechanics-and-cautionary-tale.md` — agent A3
-- `tier2-scan-and-starbucks-benchmark.md` — agent A4
-- `slickdeals-partnership-feasibility.md` — agent A5
+- `rebecca-draft.md` - extracted from Rebecca's Google Doc via gws CLI
+- `rakuten-mechanics.md` - agent A1
+- `capital-one-shopping-mechanics.md` - agent A2
+- `honey-mechanics-and-cautionary-tale.md` - agent A3
+- `tier2-scan-and-starbucks-benchmark.md` - agent A4
+- `slickdeals-partnership-feasibility.md` - agent A5
 
 Every claim in the final report traces to one of these six files plus Rebecca's original citations [1]-[60].
 
-## 8. Reproducibility
+## 8. Mechanic cards synthesis process
+
+The six mechanic cards (`mechanic-cards/01-quarterly-payout-ritual.md` ... `06-trust-and-transparency.md`) are the most-reused synthesis output from this project. This section documents how they were produced, because the pattern is re-applicable to future competitor teardowns.
+
+### 8.1 Skill used
+`startup:startup-competitors` (in `~/.claude/plugins/.../startup/skills/startup-competitors/`). The skill's default output is an investor-style battle card (price, positioning, sales angles). This project deviated from that default because Groupon is not selling against these competitors - it is learning from them. The "battle card" was swapped for a "mechanic card" at synthesis time (Phase 3 pivot, see Iteration log).
+
+### 8.2 Card template (9 sections, derived from the synthesis brief)
+Every card has the same shape so they can be scanned and compared side by side:
+1. **What it is** - one-paragraph plain description of the mechanic
+2. **Why it works** (as a habit driver / loyalty mechanism) - psychological or structural reason
+3. **Evidence this works** - data points, survival signal, traffic metrics, anything supporting the claim
+4. **Groupon adoption** - the recipe for implementing it, with explicit variant choices
+5. **Specifically do NOT copy** - anti-patterns from the source competitor that would hurt Groupon
+6. **Effort** - eng sprints, design, legal, marketing estimate
+7. **Success metrics** - how to tell if it worked once shipped
+8. **Risks** - what could go wrong, with mitigations
+9. **Related** - pointers to other cards in the set that interact with this one
+
+Discipline: if any of the 9 sections cannot be filled without guessing, it is better to mark the section `[DATA GAP]` than to invent content.
+
+### 8.3 Source-to-card traceability
+Each card is traceable to a specific raw agent output. The synthesis was deterministic - the raw file is the evidence, the card is the distillation.
+
+| Card | Primary raw source | Secondary sources |
+| --- | --- | --- |
+| 01-quarterly-payout-ritual | `raw/rakuten-mechanics.md` | - |
+| 02-soft-currency-1-to-1 | `raw/capital-one-shopping-mechanics.md` | `raw/rakuten-mechanics.md` (for points/devaluation contrast) |
+| 03-weekly-anchor-day | `raw/rakuten-mechanics.md` | `raw/honey-mechanics-and-cautionary-tale.md` (push strategy) |
+| 04-safari-extension-bundling | `raw/honey-mechanics-and-cautionary-tale.md` | `raw/capital-one-shopping-mechanics.md` (iOS ranking) |
+| 05-trust-floor | `raw/tier2-scan-and-starbucks-benchmark.md` (RetailMeNot Feb 2026 launch) | `raw/tier2-scan-and-starbucks-benchmark.md` (Coupert $1 threshold) |
+| 06-trust-and-transparency | `raw/honey-mechanics-and-cautionary-tale.md` (MegaLag chronology) | Cross-cuts all five other cards |
+
+Cards 05 and 06 are cross-cutting. 06 is the discipline that governs the other five - its anti-patterns appear in every card's "Specifically do NOT copy" section.
+
+### 8.4 What was cut during synthesis
+Three mechanics that appeared in the raw research did not make it into cards, because the card template would have been half-empty:
+- **Rakuten+ paid tier** - too new, no adoption data disclosed, can't fill "Evidence" section without guessing. Kept as a note in card 01 "do not copy yet".
+- **Starbucks stars + mobile pre-load** - does not port to episodic unpredictable-basket commerce (agent A4's honest finding). Raw research preserved in `raw/tier2-scan-and-starbucks-benchmark.md`; no card written.
+- **Ibotta IPN B2B2C** - relevant as a future Groupon direction but no near-term adoption path. Captured in the 10-row summary table but no standalone card.
+
+### 8.5 Honesty checks baked into the process
+- Every numeric claim is tagged `[Data]` / `[Estimate]` / `[Opinion]` at the point of use in the card, not deferred to a citation index.
+- Every "do not copy" item has a specific reason tied to a documented incident (Honey class action, Capital One churn complaints, Rakuten bounced-cheque reports), not vague hand-waving.
+- Every "effort" estimate is ranged, not a point estimate, and caveated "first time through" where appropriate.
+- Every "success metrics" section includes an early kill criterion, not just upside targets.
+
+### 8.6 Time invested
+- 5 parallel agents, ~25-35 minutes wall-clock on WebSearch-heavy depth (average).
+- Rebecca's Google Doc fetch and parse: ~2 minutes via gws.
+- Synthesis of 6 cards from raw outputs: ~45-60 minutes main-session time.
+- Total project time end-to-end: ~4 hours, delivered 3 days ahead of the original Fri 2026-04-24 deadline.
+
+## 9. Reproducibility
 
 This research can be re-run by any team member:
-1. `gws docs documents get --params '{"documentId":"1tck7N5UlkSWeSSNKpg-tWb2-VrUVeipEJR9XBLRxfUY"}'` — fetch Rebecca's doc
+1. `gws docs documents get --params '{"documentId":"1tck7N5UlkSWeSSNKpg-tWb2-VrUVeipEJR9XBLRxfUY"}'` - fetch Rebecca's doc
 2. Replay the five agent prompts (above) in any Claude Code session with WebSearch enabled
 3. Diff new raw files vs existing ones to see what changed in the market
 
