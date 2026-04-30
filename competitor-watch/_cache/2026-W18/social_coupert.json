@@ -1,0 +1,85 @@
+{
+  "youtube": {
+    "videos": [],
+    "note": "no channel_id configured"
+  },
+  "reddit": {
+    "posts": [
+      {
+        "title": "Coupert browser extension review and whether it actually finds coupons or just gets in the way?",
+        "subreddit": "SavingMoney",
+        "score": 7,
+        "num_comments": 7,
+        "url": "https://reddit.com/r/SavingMoney/comments/1sy8zyt/coupert_browser_extension_review_and_whether_it/",
+        "created_utc": 1777399096.0
+      },
+      {
+        "title": "My Honest Coupert Experience : Cashback on Puma India",
+        "subreddit": "coupert123",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/coupert123/comments/1sxyo2r/my_honest_coupert_experience_cashback_on_puma/",
+        "created_utc": 1777375804.0
+      },
+      {
+        "title": "My honest Coupert experience: confirmed cashback on AliExpress",
+        "subreddit": "coupert123",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/coupert123/comments/1sw6o15/my_honest_coupert_experience_confirmed_cashback/",
+        "created_utc": 1777207728.0
+      },
+      {
+        "title": "Trip.com ESIM AU/KDDI Review",
+        "subreddit": "JapanTravelTips",
+        "score": 1,
+        "num_comments": 8,
+        "url": "https://reddit.com/r/JapanTravelTips/comments/1svtjyk/tripcom_esim_aukddi_review/",
+        "created_utc": 1777165897.0
+      },
+      {
+        "title": "Weight loss found amazing company",
+        "subreddit": "u_After_Independence79",
+        "score": 1,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/u_After_Independence79/comments/1sunrs2/weight_loss_found_amazing_company/",
+        "created_utc": 1777054824.0
+      },
+      {
+        "title": "Get the most updated &amp; active StockX discount &amp; promo codes from Coupert",
+        "subreddit": "DiveDeals",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/DiveDeals/comments/1su13lj/get_the_most_updated_active_stockx_discount_promo/",
+        "created_utc": 1776992682.0
+      },
+      {
+        "title": "Get the most updated &amp; active Edikted discount &amp; promo codes from Coupert",
+        "subreddit": "DiveDeals",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/DiveDeals/comments/1su139x/get_the_most_updated_active_edikted_discount/",
+        "created_utc": 1776992658.0
+      },
+      {
+        "title": "This AI Saves You Money (Coupert Auto Coupons + Price Finder)",
+        "subreddit": "FranklinAI",
+        "score": 3,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/FranklinAI/comments/1stwc9f/this_ai_saves_you_money_coupert_auto_coupons/",
+        "created_utc": 1776980428.0
+      }
+    ],
+    "count_7d": 8
+  },
+  "app_store": {
+    "track_name": "Coupert: Coupons & Cash Back",
+    "track_id": 1460077113,
+    "current_version": "6.6.10",
+    "current_release_date": "2026-04-23",
+    "rating_avg": 4.77845,
+    "rating_count": 21747,
+    "rating_avg_current_version": 4.77845,
+    "rating_count_current_version": 21747
+  }
+}

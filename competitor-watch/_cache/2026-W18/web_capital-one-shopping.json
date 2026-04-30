@@ -1,0 +1,31 @@
+{
+  "captures": [
+    {
+      "label": "home",
+      "url": "https://capitaloneshopping.com/",
+      "final_url": "https://capitaloneshopping.com/",
+      "status": 200,
+      "title": "Capital One Shopping: Coupons, Loyalty, and Deals",
+      "text_len": 32120,
+      "hash": "e5088b6ad1d85464",
+      "delta_vs_baseline": {
+        "bytes_then": 810147,
+        "bytes_now": 652564,
+        "bytes_delta_pct": -19.5
+      },
+      "error": null
+    },
+    {
+      "label": "rates",
+      "url": "https://capitaloneshopping.com/r/savings",
+      "final_url": "https://capitaloneshopping.com/referred?code=savings",
+      "status": 200,
+      "title": "Capital One Shopping",
+      "text_len": 3217,
+      "hash": "1bc998ac63a4f52e",
+      "delta_vs_baseline": null,
+      "error": null
+    }
+  ],
+  "baseline_pages": 7
+}

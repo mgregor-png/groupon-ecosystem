@@ -1,0 +1,61 @@
+{
+  "youtube": {
+    "videos": [],
+    "error": "fetch failed"
+  },
+  "reddit": {
+    "posts": [
+      {
+        "title": "Looked around a bit before ordering from YoungLA",
+        "subreddit": "PromoCodeShare",
+        "score": 1,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/PromoCodeShare/comments/1sxg2ia/looked_around_a_bit_before_ordering_from_youngla/",
+        "created_utc": 1777322509.0
+      },
+      {
+        "title": "Looked around first before ordering from The Good and the Beautiful",
+        "subreddit": "TransactionDiscount",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/TransactionDiscount/comments/1swconh/looked_around_first_before_ordering_from_the_good/",
+        "created_utc": 1777222037.0
+      },
+      {
+        "title": "Working Temu Codes 90% Off for Existing Users Today",
+        "subreddit": "TemuCouponUsa",
+        "score": 2,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/TemuCouponUsa/comments/1sud2g9/working_temu_codes_90_off_for_existing_users_today/",
+        "created_utc": 1777030257.0
+      },
+      {
+        "title": "Browsed a few spots before ordering from The Honey Baked Ham Company",
+        "subreddit": "DiveDeals",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/DiveDeals/comments/1st70q4/browsed_a_few_spots_before_ordering_from_the/",
+        "created_utc": 1776914260.0
+      },
+      {
+        "title": "Checked a handful of places for a STEPPRS promo before placing my order.",
+        "subreddit": "PromoCodeShare",
+        "score": 1,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/PromoCodeShare/comments/1st6fyh/checked_a_handful_of_places_for_a_stepprs_promo/",
+        "created_utc": 1776912707.0
+      }
+    ],
+    "count_7d": 5
+  },
+  "app_store": {
+    "track_name": "RetailMeNot: Cash Back & Codes",
+    "track_id": 521207075,
+    "current_version": "9.25.0",
+    "current_release_date": "2026-03-26",
+    "rating_avg": 4.83293,
+    "rating_count": 542953,
+    "rating_avg_current_version": 4.83293,
+    "rating_count_current_version": 542953
+  }
+}

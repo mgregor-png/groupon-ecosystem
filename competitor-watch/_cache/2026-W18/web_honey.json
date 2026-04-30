@@ -1,0 +1,31 @@
+{
+  "captures": [
+    {
+      "label": "home",
+      "url": "https://www.joinhoney.com/",
+      "final_url": "https://www.joinhoney.com/",
+      "status": 200,
+      "title": "Automatic Coupons, Promo Codes, and Deals | Honey",
+      "text_len": 1771,
+      "hash": "f801538c1e99b49b",
+      "delta_vs_baseline": {
+        "bytes_then": 319271,
+        "bytes_now": 80491,
+        "bytes_delta_pct": -74.8
+      },
+      "error": null
+    },
+    {
+      "label": "rates",
+      "url": "https://www.joinhoney.com/gold",
+      "final_url": "https://www.joinhoney.com/gold",
+      "status": 404,
+      "title": "",
+      "text_len": 0,
+      "hash": "e3b0c44298fc1c14",
+      "delta_vs_baseline": null,
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "baseline_pages": 9
+}

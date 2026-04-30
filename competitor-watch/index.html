@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Competitor Watch - Groupon Ecosystem</title>
+<style>
+  :root {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --border: #e2e6ea;
+    --text: #1c2530;
+    --text-soft: #5a6573;
+    --text-muted: #8a93a0;
+    --accent: #1f4e8c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1240px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* Header */
+  .hdr { margin-bottom: 28px; }
+  .hdr h1 { font-size: 26px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .hdr .meta { font-size: 13px; color: var(--text-soft); }
+  .hdr .meta strong { color: var(--text); font-weight: 600; }
+
+  /* Section title */
+  .section-title {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-muted); font-weight: 600; margin: 32px 0 12px;
+  }
+
+  /* Highlights feed */
+  .feed { display: flex; flex-direction: column; gap: 10px; }
+  .hl-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 18px; transition: border-color .15s;
+  }
+  .hl-card:hover { border-color: #c4ccd5; }
+  .hl-row1 { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; font-size: 12px; }
+  .hl-badge {
+    padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 10px;
+    letter-spacing: 0.05em; flex-shrink: 0;
+  }
+  .hl-type { font-size: 11px; font-weight: 600; color: var(--text-soft); letter-spacing: 0.04em; }
+  .hl-competitor { font-weight: 600; color: var(--text); }
+  .hl-source { color: var(--text-muted); font-size: 11px; margin-left: auto; }
+  .hl-headline {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin: 4px 0 6px; line-height: 1.35;
+  }
+  .hl-body { font-size: 13px; color: var(--text-soft); margin-bottom: 8px; }
+  .hl-foot { display: flex; gap: 12px; align-items: center; justify-content: space-between; font-size: 11px; }
+  .hl-rationale { color: var(--text-muted); font-style: italic; }
+  .hl-link { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .hl-link:hover { text-decoration: underline; }
+  .hl-critical { border-left: 3px solid #b73838; }
+  .hl-strategic { border-left: 3px solid #1f4e8c; }
+  .hl-notable { border-left: 3px solid #c97a1a; }
+  .hl-signal { border-left: 3px solid #4a4a4a; }
+  .hl-minor { border-left: 3px solid #b8bec6; }
+
+  .empty {
+    background: var(--card); border: 1px dashed var(--border); border-radius: 8px;
+    padding: 24px; text-align: center; color: var(--text-muted); font-size: 13px;
+  }
+
+  /* Snapshot grid */
+  .snap-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;
+  }
+  .snap-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px;
+  }
+  .snap-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .web-pill {
+    display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    margin-bottom: 10px; font-weight: 500;
+  }
+  .web-ok { background: #e3f5e8; color: #2a7d3a; }
+  .web-blocked { background: #fde7e7; color: #b73838; }
+  .web-warn { background: #fdf3e0; color: #7a4513; }
+  .snap-metrics { display: flex; flex-direction: column; gap: 4px; }
+  .metric-row {
+    display: grid; grid-template-columns: 1fr 90px 80px auto; gap: 8px; align-items: center;
+    padding: 4px 0; font-size: 12px;
+  }
+  .metric-label { color: var(--text-soft); }
+  .metric-spark { display: flex; justify-content: flex-end; }
+  .metric-value { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
+  .delta { font-size: 11px; font-variant-numeric: tabular-nums; }
+  .delta-up { color: #2a7d3a; }
+  .delta-down { color: #b73838; }
+
+  .footer { margin-top: 48px; text-align: center; font-size: 11px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hdr">
+    <h1>Competitor Watch</h1>
+    <div class="meta">
+      Groupon Ecosystem &middot; 7 competitors &middot;
+      week <strong>2026-W18</strong> &middot;
+      8 highlights &middot;
+      1 week of history &middot;
+      generated 2026-04-29 14:20 UTC
+    </div>
+  </div>
+
+  <div class="section-title">This week's highlights</div>
+  <div class="feed">
+    
+    <div class="hl-card hl-strategic">
+      <div class="hl-row1">
+        <span class="hl-badge" style="background:#e3edfa;color:#1f4e8c;">STRATEGIC</span>
+        <span class="hl-type">STRATEGIC EMAIL</span>
+        <span class="hl-competitor">Rakuten</span>
+        <span class="hl-source">via email</span>
+      </div>
+      <div class="hl-headline">Score 17% Cash Back at Groupon—today only!</div>
+      <div class="hl-body">From Rakuten Big Deal Reveal &lt;emails@emails.rakuten.com&gt; on Wed, 29 Apr 2026</div>
+      <div class="hl-foot">
+        <span class="hl-rationale">Email subject mentions Groupon/PayPal/Bucks/Safari - direct strategic relevance</span>
+        
+      </div>
+    </div>
+    
+    <div class="hl-card hl-notable">
+      <div class="hl-row1">
+        <span class="hl-badge" style="background:#fdf3e0;color:#7a4513;">NOTABLE</span>
+        <span class="hl-type">VIRAL POST</span>
+        <span class="hl-competitor">Honey</span>
+        <span class="hl-source">via reddit</span>
+      </div>
+      <div class="hl-headline">I scammed the honey extension and made $3000 in gift cards</div>
+      <div class="hl-body">r/confession | 217 pts | 45 comments</div>
+      <div class="hl-foot">
+        <span class="hl-rationale">High Reddit engagement (217 pts) and brand-relevant</span>
+        <a class="hl-link" href="https://reddit.com/r/confession/comments/1syf4jg/i_scammed_the_honey_extension_and_made_3000_in/" target="_blank" rel="noopener">open source</a>
+      </div>
+    </div>
+    
+    <div class="hl-card hl-signal">
+      <div class="hl-row1">
+        <span class="hl-badge" style="background:#eef0f2;color:#4a4a4a;">SIGNAL</span>
+        <span class="hl-type">TRUST RISK</span>
+        <span class="hl-competitor">Honey</span>
+        <span class="hl-source">via app</span>
+      </div>
+      <div class="hl-headline">App Store rating 3.58 on 10,210 reviews</div>
+      <div class="hl-body">Sustained sub-4.0 rating - opportunity for Groupon to position on trust</div>
+      <div class="hl-foot">
+        <span class="hl-rationale">Below-threshold rating with significant volume</span>
+        
+      </div>
+    </div>
+    
+    <div class="hl-card hl-signal">
+      <div class="hl-row1">
+        <span class="hl-badge" style="background:#eef0f2;color:#4a4a4a;">SIGNAL</span>
+        <span class="hl-type">PAGE REBUILD</span>
+        <span class="hl-competitor">Honey</span>
+        <span class="hl-source">via web</span>
+      </div>
+      <div class="hl-headline">Home page stripped (-75% bytes vs Apr baseline)</div>
+      <div class="hl-body">Automatic Coupons, Promo Codes, and Deals | Honey</div>
+      <div class="hl-foot">
+        <span class="hl-rationale">Substantial size change vs Apr baseline suggests structural change</span>
+        <a class="hl-link" href="https://www.joinhoney.com/" target="_blank" rel="noopener">open source</a>
+      </div>
+    </div>
+    
+    <div class="hl-card hl-signal">
+      <div class="hl-row1">
+        <span class="hl-badge" style="background:#eef0f2;color:#4a4a4a;">SIGNAL</span>
+        <span class="hl-type">PAGE REBUILD</span>
+        <span class="hl-competitor">Rakuten</span>
+        <span class="hl-source">via web</span>
+      </div>
+      <div class="hl-headline">Home page rebuilt (+482% bytes vs Apr baseline)</div>
+      <div class="hl-body">Rakuten: Shop. Get Cash Back. Repeat.</div>
+      <div class="hl-foot">
+        <span class="hl-rationale">Substantial size change vs Apr baseline suggests structural change</span>
+        <a class="hl-link" href="https://www.rakuten.com/" target="_blank" rel="noopener">open source</a>
+      </div>
+    </div>
+    
+    <div class="hl-card hl-minor">
+      <div class="hl-row1">
+        <span class="hl-badge" style="background:#f4f5f7;color:#7a7a7a;">MINOR</span>
+        <span class="hl-type">EXTENSION RELEASE</span>
+        <span class="hl-competitor">Coupert</span>
+        <span class="hl-source">via chrome</span>
+      </div>
+      <div class="hl-headline">Chrome extension updated 2 days ago (April 27, 2026)</div>
+      <div class="hl-body">Now 3,000,000 users, rating 4.7</div>
+      <div class="hl-foot">
+        <span class="hl-rationale">Recent shipping cadence signal</span>
+        <a class="hl-link" href="https://chromewebstore.google.com/detail/mfidniedemcgceagapgdekdbmanojomk" target="_blank" rel="noopener">open source</a>
+      </div>
+    </div>
+    
+    <div class="hl-card hl-minor">
+      <div class="hl-row1">
+        <span class="hl-badge" style="background:#f4f5f7;color:#7a7a7a;">MINOR</span>
+        <span class="hl-type">EXTENSION RELEASE</span>
+        <span class="hl-competitor">Honey</span>
+        <span class="hl-source">via chrome</span>
+      </div>
+      <div class="hl-headline">Chrome extension updated 4 days ago (April 25, 2026)</div>
+      <div class="hl-body">Now 13,000,000 users, rating 4.6</div>
+      <div class="hl-foot">
+        <span class="hl-rationale">Recent shipping cadence signal</span>
+        <a class="hl-link" href="https://chromewebstore.google.com/detail/bmnlcjabgnpnenekpadlanbbkooimhnj" target="_blank" rel="noopener">open source</a>
+      </div>
+    </div>
+    
+    <div class="hl-card hl-minor">
+      <div class="hl-row1">
+        <span class="hl-badge" style="background:#f4f5f7;color:#7a7a7a;">MINOR</span>
+        <span class="hl-type">EMAIL CADENCE</span>
+        <span class="hl-competitor">RetailMeNot</span>
+        <span class="hl-source">via email</span>
+      </div>
+      <div class="hl-headline">9 email campaigns this week</div>
+      <div class="hl-body">High send frequency - track for promotion intensity</div>
+      <div class="hl-foot">
+        <span class="hl-rationale">Above-average weekly send count</span>
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="section-title">Per-competitor snapshot</div>
+  <div class="snap-grid">
+    
+    <div class="snap-card">
+      <div class="snap-name">Capital One Shopping</div>
+      <div class="web-pill web-ok" title="HTTP status from fetching the homepage this run, compared in size to the April capture in loyalty-research/_inventory.json">home page: reachable, 20% smaller than Apr baseline</div>
+      <div class="snap-metrics">
+        
+          <div class="metric-row">
+            <span class="metric-label">App rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">4.87</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">App reviews</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">1,556,058</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome users</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Emails (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">0</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Press (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">15</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Reddit (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">15</span>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    <div class="snap-card">
+      <div class="snap-name">Coupert</div>
+      <div class="web-pill web-blocked" title="HTTP status from fetching the homepage this run, compared in size to the April capture in loyalty-research/_inventory.json">home page: bot-blocked</div>
+      <div class="snap-metrics">
+        
+          <div class="metric-row">
+            <span class="metric-label">App rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">4.78</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">App reviews</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">21,747</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">4.70</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome users</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">3,000,000</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Emails (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">0</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Press (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">2</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Reddit (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">8</span>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    <div class="snap-card">
+      <div class="snap-name">Honey</div>
+      <div class="web-pill web-ok" title="HTTP status from fetching the homepage this run, compared in size to the April capture in loyalty-research/_inventory.json">home page: reachable, 75% smaller than Apr baseline</div>
+      <div class="snap-metrics">
+        
+          <div class="metric-row">
+            <span class="metric-label">App rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">3.58</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">App reviews</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">10,210</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">4.60</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome users</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">13,000,000</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Emails (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">0</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Press (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">3</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Reddit (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">1</span>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    <div class="snap-card">
+      <div class="snap-name">Ibotta</div>
+      <div class="web-pill web-ok" title="HTTP status from fetching the homepage this run, compared in size to the April capture in loyalty-research/_inventory.json">home page: reachable, 41% smaller than Apr baseline</div>
+      <div class="snap-metrics">
+        
+          <div class="metric-row">
+            <span class="metric-label">App rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">4.80</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">App reviews</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">1,931,648</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome users</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Emails (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">0</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Press (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">7</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Reddit (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">15</span>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    <div class="snap-card">
+      <div class="snap-name">Rakuten</div>
+      <div class="web-pill web-ok" title="HTTP status from fetching the homepage this run, compared in size to the April capture in loyalty-research/_inventory.json">home page: reachable, +482% larger than Apr baseline</div>
+      <div class="snap-metrics">
+        
+          <div class="metric-row">
+            <span class="metric-label">App rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">4.82</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">App reviews</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">361,360</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome users</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Emails (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">6</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Press (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">0</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Reddit (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">15</span>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    <div class="snap-card">
+      <div class="snap-name">RetailMeNot</div>
+      <div class="web-pill web-blocked" title="HTTP status from fetching the homepage this run, compared in size to the April capture in loyalty-research/_inventory.json">home page: bot-blocked</div>
+      <div class="snap-metrics">
+        
+          <div class="metric-row">
+            <span class="metric-label">App rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">4.83</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">App reviews</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">542,953</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome users</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Emails (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">9</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Press (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">1</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Reddit (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">5</span>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+    <div class="snap-card">
+      <div class="snap-name">Slickdeals</div>
+      <div class="web-pill web-blocked" title="HTTP status from fetching the homepage this run, compared in size to the April capture in loyalty-research/_inventory.json">home page: bot-blocked</div>
+      <div class="snap-metrics">
+        
+          <div class="metric-row">
+            <span class="metric-label">App rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">4.78</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">App reviews</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">100,852</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome rating</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Chrome users</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">-</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Emails (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">6</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Press (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">7</span>
+            
+          </div>
+        
+          <div class="metric-row">
+            <span class="metric-label">Reddit (wk)</span>
+            <span class="metric-spark"></span>
+            <span class="metric-value">15</span>
+            
+          </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer">
+    History: projects/groupon-ecosystem/competitor-watch/_history.json &middot;
+    Sparklines populate after 2+ weeks.
+  </div>
+
+</div>
+</body>
+</html>

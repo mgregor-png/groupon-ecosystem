@@ -1,0 +1,29 @@
+{
+  "youtube": {
+    "videos": [],
+    "error": "fetch failed"
+  },
+  "reddit": {
+    "posts": [
+      {
+        "title": "I scammed the honey extension and made $3000 in gift cards",
+        "subreddit": "confession",
+        "score": 217,
+        "num_comments": 45,
+        "url": "https://reddit.com/r/confession/comments/1syf4jg/i_scammed_the_honey_extension_and_made_3000_in/",
+        "created_utc": 1777412272.0
+      }
+    ],
+    "count_7d": 1
+  },
+  "app_store": {
+    "track_name": "PayPal Honey: Coupons, Rewards",
+    "track_id": 1358499588,
+    "current_version": "4.8.0",
+    "current_release_date": "2026-04-24",
+    "rating_avg": 3.58227,
+    "rating_count": 10210,
+    "rating_avg_current_version": 3.58227,
+    "rating_count_current_version": 10210
+  }
+}

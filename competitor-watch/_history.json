@@ -1,0 +1,149 @@
+{
+  "capital-one-shopping": {
+    "2026-W18": {
+      "captured_at": "2026-04-29T14:01:52.044384Z",
+      "name": "Capital One Shopping",
+      "email_count": 0,
+      "press_count": 15,
+      "reddit_count": 15,
+      "youtube_count_14d": 0,
+      "app_rating": 4.86639,
+      "app_review_count": 1556058,
+      "app_version": "2.128.0",
+      "app_release_date": "2026-04-27",
+      "chrome_rating": null,
+      "chrome_review_count": null,
+      "chrome_user_count": null,
+      "chrome_last_updated": null,
+      "web_home_status": 200,
+      "web_home_title": "Capital One Shopping: Coupons, Loyalty, and Deals",
+      "web_home_bytes_delta_pct": -19.5
+    }
+  },
+  "coupert": {
+    "2026-W18": {
+      "captured_at": "2026-04-29T14:01:52.044384Z",
+      "name": "Coupert",
+      "email_count": 0,
+      "press_count": 2,
+      "reddit_count": 8,
+      "youtube_count_14d": 0,
+      "app_rating": 4.77845,
+      "app_review_count": 21747,
+      "app_version": "6.6.10",
+      "app_release_date": "2026-04-23",
+      "chrome_rating": 4.7,
+      "chrome_review_count": 10900,
+      "chrome_user_count": 3000000,
+      "chrome_last_updated": "April 27, 2026",
+      "web_home_status": 403,
+      "web_home_title": "",
+      "web_home_bytes_delta_pct": -100.0
+    }
+  },
+  "honey": {
+    "2026-W18": {
+      "captured_at": "2026-04-29T14:01:52.044384Z",
+      "name": "Honey",
+      "email_count": 0,
+      "press_count": 3,
+      "reddit_count": 1,
+      "youtube_count_14d": 0,
+      "app_rating": 3.58227,
+      "app_review_count": 10210,
+      "app_version": "4.8.0",
+      "app_release_date": "2026-04-24",
+      "chrome_rating": 4.6,
+      "chrome_review_count": 179800,
+      "chrome_user_count": 13000000,
+      "chrome_last_updated": "April 25, 2026",
+      "web_home_status": 200,
+      "web_home_title": "Automatic Coupons, Promo Codes, and Deals | Honey",
+      "web_home_bytes_delta_pct": -74.8
+    }
+  },
+  "ibotta": {
+    "2026-W18": {
+      "captured_at": "2026-04-29T14:01:52.044384Z",
+      "name": "Ibotta",
+      "email_count": 0,
+      "press_count": 7,
+      "reddit_count": 15,
+      "youtube_count_14d": 0,
+      "app_rating": 4.79825,
+      "app_review_count": 1931648,
+      "app_version": "6.333.1",
+      "app_release_date": "2026-04-23",
+      "chrome_rating": null,
+      "chrome_review_count": null,
+      "chrome_user_count": null,
+      "chrome_last_updated": null,
+      "web_home_status": 200,
+      "web_home_title": "Ibotta: Earn Cash Back on Groceries &amp; More",
+      "web_home_bytes_delta_pct": -40.8
+    }
+  },
+  "rakuten": {
+    "2026-W18": {
+      "captured_at": "2026-04-29T14:01:52.044384Z",
+      "name": "Rakuten",
+      "email_count": 6,
+      "press_count": 0,
+      "reddit_count": 15,
+      "youtube_count_14d": 0,
+      "app_rating": 4.81975,
+      "app_review_count": 361360,
+      "app_version": "13.7.2",
+      "app_release_date": "2026-04-26",
+      "chrome_rating": null,
+      "chrome_review_count": null,
+      "chrome_user_count": null,
+      "chrome_last_updated": null,
+      "web_home_status": 200,
+      "web_home_title": "Rakuten: Shop. Get Cash Back. Repeat.",
+      "web_home_bytes_delta_pct": 481.9
+    }
+  },
+  "retailmenot": {
+    "2026-W18": {
+      "captured_at": "2026-04-29T14:01:52.044384Z",
+      "name": "RetailMeNot",
+      "email_count": 9,
+      "press_count": 1,
+      "reddit_count": 5,
+      "youtube_count_14d": 0,
+      "app_rating": 4.83293,
+      "app_review_count": 542953,
+      "app_version": "9.25.0",
+      "app_release_date": "2026-03-26",
+      "chrome_rating": null,
+      "chrome_review_count": null,
+      "chrome_user_count": null,
+      "chrome_last_updated": null,
+      "web_home_status": 403,
+      "web_home_title": "",
+      "web_home_bytes_delta_pct": null
+    }
+  },
+  "slickdeals": {
+    "2026-W18": {
+      "captured_at": "2026-04-29T14:01:52.044384Z",
+      "name": "Slickdeals",
+      "email_count": 6,
+      "press_count": 7,
+      "reddit_count": 15,
+      "youtube_count_14d": 0,
+      "app_rating": 4.77609,
+      "app_review_count": 100852,
+      "app_version": "6.22.1",
+      "app_release_date": "2026-04-17",
+      "chrome_rating": null,
+      "chrome_review_count": null,
+      "chrome_user_count": null,
+      "chrome_last_updated": null,
+      "web_home_status": 403,
+      "web_home_title": "",
+      "web_home_bytes_delta_pct": -100.0
+    }
+  }
+}

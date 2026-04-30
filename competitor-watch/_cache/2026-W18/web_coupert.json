@@ -1,0 +1,31 @@
+{
+  "captures": [
+    {
+      "label": "home",
+      "url": "https://www.coupert.com/",
+      "final_url": "https://www.coupert.com/",
+      "status": 403,
+      "title": "",
+      "text_len": 0,
+      "hash": "e3b0c44298fc1c14",
+      "delta_vs_baseline": {
+        "bytes_then": 456570,
+        "bytes_now": 0,
+        "bytes_delta_pct": -100.0
+      },
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "label": "rates",
+      "url": "https://www.coupert.com/cashback",
+      "final_url": "https://www.coupert.com/cashback",
+      "status": 403,
+      "title": "",
+      "text_len": 0,
+      "hash": "e3b0c44298fc1c14",
+      "delta_vs_baseline": null,
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "baseline_pages": 5
+}
