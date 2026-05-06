@@ -1,3 +1,6 @@
 .DS_Store
 *.tmp
 temp/
+
+# Competitor-watch scraped cache - never publish to Pages
+competitor-watch/_cache/
