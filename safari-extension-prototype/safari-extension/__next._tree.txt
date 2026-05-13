@@ -1,6 +1,6 @@
 :HL["/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/67cd65c47cb3a2bd.css","style"]
-:HL["/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/04d73b3b9c86c0e4.css","style"]
+:HL["/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/f3aca848549e4657.css","style"]
 :HL["/groupon-ecosystem/safari-extension-prototype/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/groupon-ecosystem/safari-extension-prototype/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/groupon-ecosystem/safari-extension-prototype/_next/static/media/f141b5b7abe57afc.p.0de3c900.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"buildId":"bHZYG8u12ucMBD0ykQDK7","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"safari-extension","paramType":null,"paramKey":"safari-extension","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"azCZbvPDsg9645DdhtO8w","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"safari-extension","paramType":null,"paramKey":"safari-extension","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
