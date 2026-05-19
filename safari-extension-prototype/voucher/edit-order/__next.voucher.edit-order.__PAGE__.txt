@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[47257,["/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/ff1a16fafef87110.js","/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/d2be314c3ece3fbe.js"],"ClientPageRoot"]
+3:I[26652,["/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/5106b59a3ca78147.js","/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/94942f0385d9ebe0.js","/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/772a0e8f1dfccd86.js","/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/930b9a3196f4ea6a.js"],"default"]
+6:I[97367,["/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/ff1a16fafef87110.js","/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"u_HWmlMc5DvU0cYpg985w","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/5106b59a3ca78147.js","async":true}],["$","script","script-1",{"src":"/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/94942f0385d9ebe0.js","async":true}],["$","script","script-2",{"src":"/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/772a0e8f1dfccd86.js","async":true}],["$","script","script-3",{"src":"/groupon-ecosystem/safari-extension-prototype/_next/static/chunks/930b9a3196f4ea6a.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
